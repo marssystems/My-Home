@@ -1,0 +1,127 @@
+/*-----------------------------------------------------------------------------------*/
+/*	Simple Reset
+/*-----------------------------------------------------------------------------------*/
+* {
+	border: 0;
+	box-sizing: content-box;
+	color: inherit;
+	font-family: "Open Sans", Helvetica, sans-serif;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	vertical-align: top;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Heading
+/*-----------------------------------------------------------------------------------*/
+h1 { font: bold 100% sans-serif; letter-spacing: 0.2em; text-align: center; text-transform: uppercase; font-family: "Open Sans", Helvetica, sans-serif; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Table
+/*-----------------------------------------------------------------------------------*/
+table { font-size: 75%; table-layout: fixed; width: 100%; }
+table { border-collapse: separate; border-spacing: 2px; }
+th, td { border-width: 1px; padding: 0.5em; position: relative; text-align: left; }
+th, td { border-style: solid; }
+th { background: #eee; border-color: #bbb; }
+td { border-color: #ddd; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Page
+/*-----------------------------------------------------------------------------------*/
+html { font: 16px/1 'Open Sans', sans-serif; overflow: auto; padding: 0.5in; }
+html { background: #999; cursor: default; color: #444; }
+
+body { box-sizing: border-box; height: 11in; margin: 0 auto; overflow: hidden; padding: 0.5in; width: 8.5in; }
+body { background: #fff; box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5); }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Header
+/*-----------------------------------------------------------------------------------*/
+header { margin: 0 0 3em; }
+header:after { clear: both; content: ""; display: table; }
+
+header h1 { background: #444; color: #fff; margin: 0 0 1em; padding: 0.5em 0; font-family: "Open Sans", Helvetica, sans-serif; }
+header address { float: left; font-size: 75%; font-style: normal; line-height: 1.25; margin: 0 1em 1em 0; }
+header address p { margin: 0 0.5em; }
+header address p strong { font-size: 120%; font-weight: bold; }
+header span { display: block; float: right; font-size: 150%; margin-right: 0.5em !important; }
+header span { margin: 0 0 1em 1em; max-height: 25%; max-width: 60%; position: relative; }
+header img { max-height: 100%; max-width: 100%; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Article
+/*-----------------------------------------------------------------------------------*/
+article, article address, table.meta, table.inventory { margin: 0 0 1em; }
+article:after { clear: both; content: ""; display: table; }
+article h1 { text-align: left; margin-left: 0.5em; }
+
+article address { float: left; font-size: 105%; padding: 0 0.5em; line-height: 20px; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Table Meta & Balance
+/*-----------------------------------------------------------------------------------*/
+table.meta, table.balance { float: right; width: 36%; }
+table.meta:after, table.balance:after { clear: both; content: ""; display: table; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Table Meta
+/*-----------------------------------------------------------------------------------*/
+table.meta th { width: 45%; }
+table.meta td { width: 55%; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Table Items
+/*-----------------------------------------------------------------------------------*/
+table.inventory { clear: both; width: 100%; }
+table.inventory th { font-weight: bold; text-align: center; }
+
+table.inventory .type { width: 45% !important; }
+table.inventory .amount { width: 10% !important; }
+table.inventory .notes { width: 30% !important; }
+table.inventory .paidBy { width: 15%; }
+table.inventory .lateFee { text-align: right; width: 17%; }
+table.inventory .payAmount { text-align: right; width: 13%; }
+
+.alignRight { text-align: right; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Table Balance
+/*-----------------------------------------------------------------------------------*/
+table.balance th, table.balance td { width: 50%; }
+table.balance td { text-align: right; }
+table.balance th.strong, table.balance td.strong { font-weight: bold; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Aside
+/*-----------------------------------------------------------------------------------*/
+aside { margin-top: 30px; }
+aside h2 { margin: 0 0 1em; font-family: "Open Sans", Helvetica, sans-serif; text-align: center;  }
+aside p { font-size: 12px; text-align: center; margin-bottom: 10px; }
+
+.paymentNotes { margin-top: 0 !important; font-size: 12px; padding: 0.5em; text-align: left; border: 1px solid #ddd; }
+.paymentNotes h2 {
+	margin: .25em 0;
+	letter-spacing: 0.1em;
+	text-align: left;
+	font: bold 100% "Open Sans", sans-serif;
+	text-transform: none;
+}
+.paymentNotes p { font-size: 12px; text-align: left; margin-bottom: 10px; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Print
+/*-----------------------------------------------------------------------------------*/
+@media print {
+	* { -webkit-print-color-adjust: exact; }
+	html { background: none; padding: 0; }
+	body { box-shadow: none; margin: 0; }
+}
+
+@page { margin: 0; }
