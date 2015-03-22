@@ -28,7 +28,6 @@
 				LEFT JOIN leases ON servicerequests.leaseId = leases.leaseId
 				LEFT JOIN properties ON leases.propertyId = properties.propertyId
 			WHERE
-				servicerequests.adminId = ".$_SESSION['adminId']." AND
 				servicerequests.requestStatus IN ('3','4','5') AND
 				properties.isArchived = 1";
 	$res = mysqli_query($mysqli, $query) or die('Error, retrieving Closed Service Requests Data failed. ' . mysqli_error());

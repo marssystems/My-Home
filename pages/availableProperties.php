@@ -1,5 +1,4 @@
 <?php
-
 	// Get Current Property Info
 	$query = "
 		SELECT
@@ -24,8 +23,7 @@
 		FROM
 			properties
 		WHERE
-            createdBy = ".$_SESSION['adminId']." AND
-			isLeased = 0 AND
+            isLeased = 0 AND
 			isArchived = 0";
 	$res = mysqli_query($mysqli, $query) or die('Error, retrieving Property Data failed. ' . mysqli_error());
 ?>
@@ -35,7 +33,7 @@
 		<p class="lead"><?php echo $availablePropertiesQuip; ?></p>
 	</div>
 	<div class="col-md-2">
-		<a href="<?php echo $set['installUrl']; ?>admin/templates/rentalApplication.pdf" target="_blank" class="btn btn-success btn-icon floatRight"><i class="fa fa-download"></i> <?php echo $downloadApplicationBtn; ?></a>
+		<a href="admin/templates/rentalApplication.pdf" target="_blank" class="btn btn-success btn-icon floatRight"><i class="fa fa-download"></i> <?php echo $downloadApplicationBtn; ?></a>
 	</div>
 </div>
 

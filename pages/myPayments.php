@@ -20,7 +20,7 @@
 			LEFT JOIN leases ON payments.leaseId = leases.leaseId
 			LEFT JOIN properties ON leases.propertyId = properties.propertyId
         WHERE
-			tenantId = ".$_SESSION['tenantId'];
+			tenantId = ".$tenantId;
 	$res = mysqli_query($mysqli, $query) or die('Error, retrieving Payment Data failed. ' . mysqli_error());
 ?>
 <h3 class="success"><?php echo $paymentHistoryH3; ?></h3>

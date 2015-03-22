@@ -1,976 +1,1177 @@
 <?php
+// All Pages - Globals
+// --------------------------------------------------------------------------------------------------
 $currencySym 				= "$";
-$amountReflectRefund = "Cantidad refleja un reembolso";
-$accessErrorH3	 = "Error de Acceso";
-$permissionDenied	 = "Permiso denegado. No se puede acceder a esta página.";
-$htmlNotAllowed	 = "HTML no está permitido";
-$htmlNotAllowedAlt	 = "No se permite código HTML.";
-$numbersOnly	 = "Sólo Números ( ie. 99,00 ).";
-$OptionNo	 = "No";
-$OptionYes	 = "Sí";
-$monthNoneSelect	 = "Ninguno";
-$monthJanuarySelect	 = "Enero";
-$monthFebruarySelect	 = "Febrero";
-$monthMarchSelect	 = "Marzo";
-$monthAprilSelect	 = "Abril";
-$monthMaySelect	 = "Mayo";
-$monthJuneSelect	 = "Junio";
-$monthJulySelect	 = "Julio";
-$monthAugustSelect	 = "Agosto";
-$monthSeptemberSelect	 = "Septiembre";
-$monthOctoberSelect	 = "Octubre";
-$monthNovemberSelect	 = "Noviembre";
-$monthDecemberSelect	 = "Deciembre";
-// Admin login // -------------------------------------------------------------------------------------------------- 
-$adminLogin = "Admin / Propietario Login";
-$loginWelcomeMsg = "Bienvenido";
-$resetPassword	 = "Contraseña Resetear";
-$loginInstructions = "Ingrese informacion de Cuenta Administrador / Propietario y del haga clic en ingresar.";
-$emailAddressMsg = "Por favor, introduzca su cuenta de administrador e-mail.";
-$emptyPasswordMsg = "El campo de contraseña no puede estar vacío.";
-$loginFailedMsg = "Entrar fallado, Por favor, compruebe sus entradas y vuelva a intentarlo.";
-$inactiveAccountMsg = "Su cuenta ha sido desactivada, y no se puede entrar";
-$passwordResetMsg = "Su contraseña se ha restablecido.";
-$accountNotFoundMsg = "Cuenta no encontrada para esa dirección de correo electrónico.";
-// Admin Header // -------------------------------------------------------------------------------------------------- 
-$pageHeadTitle	 = "Administración";
-$welcomeMsg = "Hola";
-$todayMsg = "Hoy es";
-$signoutConf = "¿Estás seguro de que quieres salir?";
-$activeAccountHelper	 = "Si selecciona No, será necesario que el inquilino active su cuenta a través de un enlace que le enviaremos a la dirección de correo electrónico";
-$tenantsEmailHelper	 = "El correo electrónico del Inquilino. Se utiliza para iniciar la sesión y notificaciones.";
-$adminsEmailHelper	 = "El correo electrónico del administrador. Se utiliza para iniciar la sesión y notificaciones.";
-$passwordHelper	 = "Establecer la nueva contraseña de la cuenta.";
-$repeatPasswordHelper	 = "Escriba de nuevo la contraseña. Las contraseñas deben coincidir.";
-$propertyNameHelper	 = "Esto es por lo general el nombre del desarrollo o la subdivisión ( ej: Balcones II - 2B)";
-$propertyDescHelper	 = "Una breve descripcion de la Propiedad. Visible para el inquilino.";
-$numberOnlyHelper	 = "Solamente  números (ej: 1500 )";
-$latePeneltyHelper	 = "El monto de la multa por pago tardío. Sólo Números ( ej: 35 )";
-$propertyNotesHelper	 = "Notas internas acerca de la propiedad.";
-$normalSelect	 = "Normal";
-$importantSelect	 = "Importante";
-$urgenSelect	 = "Urgente";
-$serviceTitleHelper	 = "Por favor de su petición de servicio de un título.";
-$servicePriorityHelper	 = "Por favor, elija un nivel de prioridad para esta demanda.";
-$beDescriptiveHelper	 = "Por favor sea lo más descriptivo posible.";
-$adminsSetActive	 = "Las nuevas cuentas se ajustan automáticamente en activo.";
-$superuserNo	 = "Normal";
-$superuserYes	 = "Superusuario";
-$superuserHelper	 = "Normal: No se puede agregar / modificar otros administradores , Acceso al Sistema de Pago Limited u003cbr /u003e superusuario:. Completa Añadir / Modificar";
-$adminRoleAdmin	 = "Supervisor";
-$adminRoleLandlord	 = "Propietario";
-$adminRoleTech	 = "Servicio Técnico";
-$selectRoleHelper	 = "Seleccione el rollo de esta administración va a llenar.";
-$tenantEmailReq	 = "Por favor introduce un correo electrónico válido para el inquilino.";
-$tenantPasswordReq	 = "El inquilino necesitará una contraseña.";
-$passwordMismatch	 = "Las contraseñas no coinciden. Por favor, compruebe sus entradas.";
-$tenantFirstNameReq	 = "Por favor ingrese el Inquilino Nombre.";
-$tenantLastNameReq	 = "Por favor ingrese el Inquilino Apellido";
-$duplicateEmail	 = "La dirección de correo electrónico ya existe";
-$tenantAccountCreated	 = "La Cuenta del nuevo inquilino se ha creado y un correo electrónico ha sido enviado.";
-$tenantAccountActivated = "La Cuenta del nuevo inquilino se ha creado y se ha configurado en Activo.";
-$accountEmailError	 = "Se ha producido un error y el correo no pudo ser enviado en este momento.";
-$propertyNameReq	 = "Por favor, introduzca el nombre de la propiedad.";
-$propertyDescReq	 = "Por favor, introduzca una breve descripción de la propiedad.";
-$monthlyRateReq	 = "Por favor ingrese Mensual Precio de alquiler de la propiedad.";
-$latePeneltyReq	 = "Por favor, introduzca la cantidad de penalización pago Renta Late";
-$depositAmountReq	 = "Por favor ingrese la cantidad requerida de depósitos.";
-$newPropertyCreated	 = "La nueva propiedad ha sido creado.";
-$leaseIdReq	 = "Por favor, seleccione el Inquilino esta solicitud de servicio es para.";
-$requestTitleReqMsg	 = "Por favor introduzca un título para la solicitud de servicio.";
-$requestDescReqMsg	 = "Por favor, escriba los detalles de la solicitud de servicio.";
-$requestCreated	 = "La solicitud de nuevo servicio ha sido creado para el inquilino.";
-$adminEmailReq	 = "Por favor, introduzca un email válido para la parte administrativa.";
-$adminPasswordReq	 = "La nueva administración tendrá una contraseña.";
-$adminFirstNameReq	 = "Por favor ingrese el Nombre de administrador.";
-$adminLastNameReq	 = "Por favor ingrese la administración Apellido";
-$adminAccountCreated	 = "La nueva cuenta de administrador se ha creado y se ha configurado en Activo.";
-// Admin Navigation // -------------------------------------------------------------------------------------------------- 
-$dashboardNav = "Dashboard";
-$tenantsNav	 = "Inquilinos";
-$activeTenantsNav	 = "Inquilinos activos";
-$inactiveTenantsNav	 = "Inquilinos inactivos";
-$newTenantNav	 = "Añadir un nuevo inquilino";
-$archivedTenantsNav	 = "Inquilinos archivados";
-$propertiesNav	 = "Propiedades";
-$activePropertiesNav	 = "Propiedades activas";
-$newPropertyNav	 = "Agregar una nueva propiedad";
-$archivedPropertiesNav	 = "Propiedades archivadas";
-$propertyLeasesNav	 = "Alquiler de propiedades";
-$activeLeasesNav	 = "Contratos activos";
-$archivedLeasesNav	 = "Alquileres Archivados/Cerrados";
-$serviceRequestsNav	 = "Solicitudes de Servicio";
-$openServiceRequestsNav	 = "Solicitudes activas";
-$newServiceRequestNav	 = "Crear una solicitud de nuevo servicio";
-$closedServiceRequestsNav = "Solicitudes Completadas/Cerradas";
-$archivedServiceRequestsNav	 = "Solicitudes archivadas";
-$aminsNav	 = "Cuentas de administrador";
-$viewAllAdminsNav	 = "Todos los administradores";
-$newAdminNav	 = "Agregar una nueva administración";
-$myProfileNav	 = "Mi Perfil";
-$manageNav	 = "Administrar";
-$siteAlertsNav	 = "Alertas Sitio";
-$reportsNav	 = "Informes";
-$formsNav	 = "Formas";
-$emailAllTenantsNav	 = "Enviar a todos los inquilinos";
-$siteSettingsNav	 = "Configuración del sitio";
-// Form Labels // -------------------------------------------------------------------------------------------------- 
-$emailAddressField = "Correo electronico";
-$passwordField = "Clave";
-$rpasswordField = "Vuelva a escribir la contraseña";
-$firstNameField = "Nombre";
-$tenantsFirstNameField	 = "Nombre del Inquilino";
-$lastNameField = "Apellido";
-$tenantsLastNameField	 = "Apellido del inquilino";
-$resetPassEmailField = "La dirección de correo electrónico registrada en su cuenta.";
-$phoneField = "Teléfono";
-$altPhoneField = "Teléfono Alternativo";
-$addressField = "Dirección de correo";
-$currentPassField = "Contraseña actual";
-$newPassField = "New Password";
-$confirmNewPassField = "Confirm New Password";
-$setAsActiveField	 = "Configurar la cuenta como activo?";
-$tenantsEmailField	 = "El correo electrónico del inquilino";
-$propertyField	 = "Propiedad";
-$propertyNameField	 = "Nombre de la propiedad";
-$propertyDescField	 = "Descripción de la propiedad";
-$propertyAddressField	 = "Dirección de la Propiedad";
-$propertyRateField	 = "Importe del Alquiler";
-$latePeneltyField	 = "Recargo por Demora";
-$propertyDepositField	 = "Monto mes de depósito";
-$petsAllowedField	 = "Se admiten animales ?";
-$propertyNotesField	 = "Notas del inmueble";
-$servicePriorityField	 = "Prioridad";
-$serviceRequestField	 = "Solicitud de Título";
-$serviceRequestDesc	 = "Descripción de la petición";
-$serviceStatusField	 = "Estado";
-$adminAccountType	 = "Tipo de cuenta";
-$adminsEmailField	 = "El correo electrónico del administrador";
-$adminsFirstNameField	 = "Nombre de Admin";
-$adminsLastNameField	 = "Apellido de Admin";
-$adminRoleField	 = "El papel cuenta";
-// Button labels // -------------------------------------------------------------------------------------------------- 
-$signInBtn = "Ingresar";
-$signoutBtn = "Salir";
-$okBtn	 = "OK";
-$cancelBtn	 = "Cancelar";
-$closeBtn	 = "Cerrar";
-$resetPasswordBtn	 = "Reinicia mi clave";
-$uploadBtn	 = "Upload";
-$yesBtn = "Si";
-$noBtn	 = "No";
-$updateBtn	 = "Actualizar";
-$saveBtn	 = "Guardar";
-$sendBtn	 = "Enviar";
-$editBtn	 = "Editar";
-$saveChangesBtn	 = "Guardar cambios";
-$addTenantBtn	 = "Agregar el Inquilino";
-$addPropertyBtn	 = "Agregar propiedad";
-$addAdminBtn	 = "Agregar Admin / Landlord";
-$receiptBtn	 = "Recibo";
-// Table Headers // -------------------------------------------------------------------------------------------------- 
-$tab_property	 = "Propiedad";
-$tab_tenant	 = "El inquilino";
-$tab_landlord	 = "Propietario";
-$tab_adminLandlord	 = "Admin / Landlord";
-$tab_name	 = "Nombre";
-$tab_rentAmount	 = "Precio de Alquiler";
-$tab_lateFee	 = "Recargo";
-$tab_totalDue	 = "Deuda Total";
-$tab_paymentDate	 = "Fecha de Pago";
-$tab_paymentFor	 = "Pagado por";
-$tab_paidBy = "Pagado por";
-$tab_rentalMonth	 = "Mes";
-$tab_amount	 = "Cantidad";
-$tab_lateFeePaid	 = "Pago de Recargo";
-$tab_totalPaid	 = "Pago Total";
-$tab_address	 = "Dirección";
-$tab_email	 = "Email";
-$tab_phone	 = "Teléfono";
-$tab_altPhone	 = "Teléfono Alternativo";
-$tab_monthlyRate	 = "Importe Alquiler ";
-$tab_leaseStartsOn	 = "Comienzo del Alquiler";
-$tab_leaseEndsOn	 = "Fin del Alquiler";
-$tab_propertyType	 = "Tipo de Inmueble";
-$tab_petsAllowed	 = "Admite mascotas";
-$tab_propertySize	 = "Superficie";
-$tab_bedroomsBathrooms	 = "Dormitorios / Baños";
-$tab_bathrooms	 = "Baños";
-$tab_bedrooms	 = "Habitaciones";
-$tab_requestTitle	 = "Solicitud de Título";
-$tab_dateRequested	 = "Fecha de la solicitud";
-$tab_priority	 = "Prioridad";
-$tab_status	 = "Estado";
-$tab_lastUpdated	 = "Última actualización";
-$tab_Alert	 = "Alerta";
-$tab_alertText	 = "Texto de Alerta";
-$tab_createdBy	 = "Creado por";
-$tab_printOnReceipt	 = "Al recibir";
-$tab_isActive	 = "Activo";
-$tab_dateStarts	 = "Fecha de Comienzo";
-$tab_dateEnds	 = "Fecha Final";
-$tab_dateCreated	 = "Fecha de creación";
-$tab_dateArchived	 = "Fecha Archivado";
-$tab_leaseTerm	 = "Contrato de Alquiler";
-$tab_superUser	 = "Super Usuario";
-$tab_adminRole	 = "Papel";
-$tab_uploadedBy	 = "Subida por";
-$tab_dateUploaded	 = "Fecha de publicación";
-$tab_description	 = "Descripción";
-$tab_receivedBy	 = "Recibido por";
-$tab_isLeased	 = "alquilada";
-// ************************************************************************************************** 
+$amountReflectRefund 		= "Amount reflects a Refund";
+$accessErrorH3				= "Access Error";
+$permissionDenied			= "Permission Denied. You can not access this page.";
+$htmlNotAllowed				= "HTML is not allowed &amp; will be saved as plain text.";
+$htmlNotAllowedAlt			= "HTML is not allowed.";
+$numbersOnly				= "Numbers Only (ie. 99.00).";
+$OptionNo					= "No";
+$OptionYes					= "Yes";
+$monthNoneSelect			= "None";
+$monthJanuarySelect			= "January";
+$monthFebruarySelect		= "February";
+$monthMarchSelect			= "March";
+$monthAprilSelect			= "April";
+$monthMaySelect				= "May";
+$monthJuneSelect			= "June";
+$monthJulySelect			= "July";
+$monthAugustSelect			= "August";
+$monthSeptemberSelect		= "September";
+$monthOctoberSelect			= "October";
+$monthNovemberSelect		= "November";
+$monthDecemberSelect		= "December";
+
+// Admin login
+// --------------------------------------------------------------------------------------------------
+$adminLogin 				= "Admin/Landlord Login";
+$loginWelcomeMsg 			= "Welcome to ".$set['siteName']." Administration";
+$resetPassword	 			= "Reset Account Password";
+$loginInstructions 			= "Enter your Admin/Landlord account information and click \"Sign In\".";
+
+$emailAddressMsg 			= "Please enter your Admin account email address.";
+$emptyPasswordMsg 			= "The Password field can not be empty.";
+$loginFailedMsg 			= "Log in failed, Please check your entries and try again.";
+$inactiveAccountMsg 		= "Your account has been deactivated, and you can not log in.";
+$passwordResetMsg 			= "Your password has been reset.";
+$accountNotFoundMsg 		= "Account not found for that email address.";
+
+// Admin Header
+// --------------------------------------------------------------------------------------------------
+$pageHeadTitle				= "Administration";
+$welcomeMsg 				= "Howdy";
+$todayMsg 					= "Today is";
+$signoutConf 				= "are you sure you want to signout?";
+
+$activeAccountHelper		= "Selecting No will require the Tenant to activate the Account via a link sent to the account email address.";
+$tenantsEmailHelper			= "The Tenant's email. Used for logging in and notifications.";
+$adminsEmailHelper			= "The Admin's email. Used for logging in and notifications.";
+$passwordHelper				= "Set the new account password. <strong>Passwords are case-sensitive</strong>.";
+$repeatPasswordHelper		= "Type the account password again. Passwords MUST Match.";
+$propertyNameHelper			= "This is usually the Development or Sub-division Name";
+$propertyDescHelper			= "A short description about the Property. Visible to the Tenant.";
+
+$numberOnlyHelper			= "Numbers Only (ie. 1500.00)";
+$latePeneltyHelper			= "The late payment penalty amount. Numbers Only (ie. 35.00)";
+$propertyNotesHelper		= "Internal Notes about the Property.";
+
+$normalSelect				= "Normal";
+$importantSelect			= "Important";
+$urgenSelect				= "Urgent";
+$serviceTitleHelper			= "Please give your Service Request a Title.";
+$servicePriorityHelper		= "Please choose a Priority Level for this Request.";
+$beDescriptiveHelper		= "Please be as descriptive as possible.";
+
+$adminsSetActive			= "New Accounts are automatically set to Active.";
+$superuserNo				= "Normal";
+$superuserYes				= "Superuser";
+$superuserHelper			= "Normal: Cannot Add/Modify other Admins, Limited Payment System Access.<br />Superuser: Full Add/Modify &amp; Delete permissions.";
+$adminRoleAdmin				= "Supervisor";
+$adminRoleLandlord			= "Landlord";
+$adminRoleTech				= "Service Technician";
+$selectRoleHelper			= "Select the roll this Admin will fill.";
+
+$tenantEmailReq				= "Please enter a valid email for the Tenant.";
+$tenantPasswordReq			= "The Tenant will need a password.";
+$passwordMismatch			= "Passwords do not match. Please check your entries.";
+$tenantFirstNameReq			= "Please enter the Tenant's First Name.";
+$tenantLastNameReq			= "Please enter the Tenant's Last Name.";
+$duplicateEmail				= "There is all ready an account registered with that email address.";
+$tenantAccountCreated		= "The New Tenant Account has been created and an email has been sent.";
+$tenantAccountActivated 	= "The New Tenant Account has been created and has been set to Active.";
+$accountEmailError			= "There was an error and the email could not be sent at this time.";
+
+$propertyNameReq			= "Please enter the Property's name.";
+$propertyDescReq			= "Please enter a short description of the Property.";
+$monthlyRateReq				= "Please enter the Property's Monthly Rental Rate.";
+$latePeneltyReq				= "Please enter the Late Rent payment Penalty amount.";
+$depositAmountReq			= "Please enter the Deposit Amount Required.";
+$newPropertyCreated			= "The New Property has been created.";
+
+$leaseIdReq					= "Please select the Tenant this Service Request is for.";
+$requestTitleReqMsg			= "Please enter a Title for the Service Request.";
+$requestDescReqMsg			= "Please type the details of the Service Request.";
+$requestCreated				= "The New Service Request has been created for the Tenant.";
+
+$adminEmailReq				= "Please enter a valid email for the Admin.";
+$adminPasswordReq			= "The new Admin will need a password.";
+$adminFirstNameReq			= "Please enter the Admin's First Name.";
+$adminLastNameReq			= "Please enter the Admin's Last Name.";
+$adminAccountCreated		= "The New Admin Account has been created and has been set to Active.";
+
+// Admin Navigation
+// --------------------------------------------------------------------------------------------------
+$dashboardNav 				= "Dashboard";
+
+$tenantsNav					= "Tenants";
+$activeTenantsNav			= "Active Tenants";
+$inactiveTenantsNav			= "Inactive Tenants";
+$newTenantNav				= "Add a New Tenant";
+$archivedTenantsNav			= "Archived Tenants";
+
+$propertiesNav				= "Properties";
+$activePropertiesNav		= "Active Properties";
+$newPropertyNav				= "Add a New Property";
+$archivedPropertiesNav		= "Archived Properties";
+
+$propertyLeasesNav			= "Property Leases";
+$activeLeasesNav			= "Active Leases";
+$archivedLeasesNav			= "Archived/Closed Leases";
+
+$serviceRequestsNav			= "Service Requests";
+$openServiceRequestsNav		= "Open/Active Requests";
+$newServiceRequestNav		= "Create a New Service Request";
+$closedServiceRequestsNav 	= "Completed/Closed Requests";
+$archivedServiceRequestsNav	= "Archived Requests";
+
+$aminsNav					= "Admin Accounts";
+$viewAllAdminsNav			= "All Admins";
+$newAdminNav				= "Add a New Admin";
+$myProfileNav				= "My Profile";
+
+$manageNav					= "Manage";
+$siteAlertsNav				= "Site Alerts";
+$reportsNav					= "Reports";
+$formsNav					= "Forms &amp; Templates";
+$emailAllTenantsNav			= "Email All Tenants";
+$siteSettingsNav			= "Site Settings";
+
+// Form Labels
+// --------------------------------------------------------------------------------------------------
+$emailAddressField 			= "Email Address";
+$passwordField 				= "Password";
+$rpasswordField 			= "Retype Password";
+$firstNameField 			= "First Name";
+$tenantsFirstNameField		= "Tenant's First Name";
+$lastNameField 				= "Last Name";
+$tenantsLastNameField		= "Tenant's Last Name";
+$resetPassEmailField 		= "The email address that is registered to your account.";
+$phoneField 				= "Phone";
+$altPhoneField 				= "Alternate Phone";
+$addressField 				= "Mailing Address";
+$currentPassField 			= "Current Password";
+$newPassField 				= "New Password";
+$confirmNewPassField 		= "Confirm New Password";
+$setAsActiveField			= "Set the Account as Active?";
+$tenantsEmailField			= "Tenant's Email";
+
+$propertyField				= "Property";
+$propertyNameField			= "Property Name";
+$propertyDescField			= "Property Description";
+$propertyAddressField		= "Property Address";
+$propertyRateField			= "Monthly Rent Amount";
+$latePeneltyField			= "Late Penalty Fee";
+$propertyDepositField		= "Property Deposit Amount";
+$petsAllowedField			= "Pets Allowed?";
+$propertyNotesField			= "Property Notes";
+
+$servicePriorityField		= "Priority";
+$serviceRequestField		= "Request Title";
+$serviceRequestDesc			= "Request Description";
+$serviceStatusField			= "Status";
+
+$adminAccountType			= "Account Type";
+$adminsEmailField			= "Admin's Email";
+$adminsFirstNameField		= "Admin's First Name";
+$adminsLastNameField		= "Admin's Last Name";
+$adminRoleField				= "Account Role";
+
+// Button labels
+// --------------------------------------------------------------------------------------------------
+$signInBtn 					= "Sign In";
+$signoutBtn 				= "Sign Out";
+$okBtn						= "OK";
+$cancelBtn					= "Cancel";
+$closeBtn					= "Close";
+$resetPasswordBtn			= "Reset My Password";
+$uploadBtn					= "Upload";
+$yesBtn 					= "Yes";
+$noBtn	 					= "No";
+$updateBtn					= "Update";
+$saveBtn					= "Save";
+$sendBtn					= "Send";
+$editBtn					= "Edit";
+$saveChangesBtn				= "Save Changes";
+$addTenantBtn				= "Add Tenant";
+$addPropertyBtn				= "Add Property";
+$addAdminBtn				= "Add Admin/Landlord";
+$receiptBtn					= "Receipt";
+
+// Table Headers
+// --------------------------------------------------------------------------------------------------
+$tab_property				= "Property";
+$tab_tenant					= "Tenant";
+$tab_landlord				= "Landlord";
+$tab_adminLandlord			= "Admin/Landlord";
+$tab_name					= "Name";
+$tab_rentAmount				= "Rent Amount";
+$tab_lateFee				= "Late Fee";
+$tab_totalDue				= "Total Due";
+$tab_paymentDate			= "Payment Date";
+$tab_paymentFor				= "Payment For";
+$tab_paidBy 				= "Paid By";
+$tab_rentalMonth			= "Rental Month";
+$tab_amount					= "Amount";
+$tab_lateFeePaid			= "Late Fee Paid";
+$tab_totalPaid				= "Total Paid";
+$tab_address				= "Address";
+$tab_email					= "Email";
+$tab_phone					= "Phone";
+$tab_altPhone				= "Alternate Phone";
+$tab_monthlyRate			= "Monthly Rate";
+$tab_leaseStartsOn			= "Lease Starts On";
+$tab_leaseEndsOn			= "Lease Ends On";
+$tab_propertyType			= "Property Type";
+$tab_petsAllowed			= "Pets Allowed";
+$tab_propertySize			= "Property Size";
+$tab_bedroomsBathrooms		= "Bedrooms / Bathrooms";
+$tab_bathrooms				= "Bathrooms";
+$tab_bedrooms				= "Bedrooms";
+$tab_requestTitle			= "Request Title";
+$tab_dateRequested			= "Date Requested";
+$tab_priority				= "Priority";
+$tab_status					= "Status";
+$tab_lastUpdated			= "Last Updated";
+$tab_Alert					= "Alert";
+$tab_alertText				= "Alert Text";
+$tab_createdBy				= "Created By";
+$tab_printOnReceipt			= "On Receipt";
+$tab_isActive				= "Active";
+$tab_dateStarts				= "Date Starts";
+$tab_dateEnds				= "Date Ends";
+$tab_dateCreated			= "Date Created";
+$tab_dateArchived			= "Date Archived";
+$tab_leaseTerm				= "Lease Term";
+$tab_superUser				= "Super User";
+$tab_adminRole				= "Role";
+$tab_uploadedBy				= "Uploaded By";
+$tab_dateUploaded			= "Date Uploaded";
+$tab_description			= "Description";
+$tab_receivedBy				= "Received By";
+$tab_isLeased				= "Leased";
+
 // **************************************************************************************************
- // Page Specific: Dashboard // -------------------------------------------------------------------------------------------------- 
- $welcomeMessage	 = "Bienvenido";
-$welcomeMessageQuip	 = "Gestión de consorcios";
-$lateRentH3	 = "Alquileres atrasados";
-$rentReceivedMonthH3	 = "Alquileres Cobrados";
-$noRentReceived	 = "No se ha recibido alquiler para este mes.";
-$totalRentReceived	 = "Total recibidas para";
-$currentTenantsH3	 = "Contratos Actuales";
-$availablePropertiesH3	 = "Propiedades Disponibles";
-$openServRequestsH3	 = "Solicitudes de servicio abiertas";
-$paymentDateField	 = "Fecha de Pago";
-$paymentDateHelper	 = "La fecha que el pago se recibió del inquilino";
-$paymentAmountField	 = "Monto del pago";
-$paymentAmountHelper	 = "La cantidad base del pago. No incluir cargos por pagos atrasados ??pagados aquí.";
-$lateFeeField	 = "Recargo por demora";
-$lateFeeHelper	 = "Si el pago se realizó tarde e incurrió en la pena de cargo por mora.";
-$paymentForField	 = "Concepto del pago";
-$paymentForHelper	 = "Lo que representa este pago (ej: expensas , alquiler , etc )";
-$paymentTypeField	 = "Forma de Pago";
-$paymentTypeHelper	 = " (ej, Efectivo, Cheque , etc )";
-$rentMonthField	 = "Mes";
-$rentMonthHelper	 = "Si esto es un pago del alquiler mensual , de lo contrario dejar a ninguno";
-$paymentNotesField	 = "Notas de Pago";
-$paymentNotesHelper	 = "Notas de pago se imprimirá en el recibo del Inquilino.";
-$savePaymentBtn	 = "Guardar Pago";
-// Page Specific: Site Settings // -------------------------------------------------------------------------------------------------- 
-// Validation Error Msg Box 
-$payPalCurrencyCodwMsg	 = "Por favor introduce el código de PayPal de divisas.";
-$payPalAccountEmailMsg	 = "Introduzca su cuenta de correo electrónico de PayPal.";
-$payPalItemNameMsg	 = "Por favor, introduzca el nombre del artículo para los pagos de PayPal.";
-$paymentCompleteMsg	 = "Por favor introduce el mensaje de pago una vez al pago de la renta se ha completado.";
-$payPalFeeMsg	 = "Por favor, introduzca la Cuota PayPal adicional ( en su defecto, utilizar 0,0 ).";
-$installUrlMsg	 = "Por favor, introduzca su dirección URL de instalación ( incluir la barra diagonal ).";
-$siteNameMsg	 = "Por favor ingrese un nombre de sitio.";
-$businessNameMsg	 = "Por favor introduzca el nombre de su negocio.";
-$businessAddressMsg	 = "Por favor, introduzca la dirección o la dirección de su negocio.";
-$businessEmalMsg	 = "Por favor, ingrese su correo electrónico de negocios.";
-$businessPhoneMsg	 = "Introduzca su Teléfono de la empresa.";
-$propertyUploadsMsg	 = "Por favor, introduzca la ubicación de la carpeta donde Subidas de propiedad serán salvados.";
-$templateUploadsMsg	 = "Por favor, introduzca la ubicación de la carpeta donde se guardará el Formulario plantillas.";
-$tenantDocUploadsMsg	 = "Por favor, introduzca la ubicación de la carpeta donde se guardarán los documentos de inquilinos.";
-$fileTypesMsg	 = "Por favor, ingrese las extensiones de tipos de archivos permitidos para ser subido.";
-$avatarUploadsMsg	 = "Por favor, introduzca la ubicación de la carpeta donde se guardarán las imágenes de Avatar.";
-$avatarFileTypesMsg	 = "Por favor, introduzca el tipo de archivo Extensiones de Avatar permite subir.";
-$propertyPicsUploadsMsg	 = "Por favor, introduzca la ubicación de la carpeta donde se guardará Fotos del inmueble.";
-$pictureFileTypesMsg	 = "Por favor, ingrese las extensiones de tipos de archivos propiedad de imagen permite subir.";
-$settingsSavedMsg	 = "Los Configuración del sitio globales ha sido guardado.";
-// Page elements $updateSettingsH3	 = "Update";
-$siteSetAccTitle	 = "Configuración del sitio Global";
-$updateSettingsBtn	 = "Ajustes de actualización del sitio";
-$uploadsAccTitle	 = "Archivo / imagen Subir Configuración";
-$uploadsNote	 = "Por favor, tenga en cuenta: Si cambia alguno de los nombres de directorio de carga , también debe cambiar el nombre de la carpeta actual.";
-$updUploadSettingsBtn	 = "Configuración de la actualización Subir";
-$paymentsAccTitle	 = "Ajustes de Alquiler de Pago";
-$updPaymentSettingsBtn	 = "Configuración de actualización de Pago";
-$installUrlField	 = "URL de instalación";
-$installUrlHelper	 = "Se utiliza en todas la subida de archivos";
-$localizationField	 = "Localización";
-$optionArabic	 = "Árabe";
-$optionBulgarian	 = "Búlgaro";
-$optionChechen	 = "Chechenia";
-$optionCzech	 = "Checo";
-$optionDanish	 = "Danés";
-$optionEnglish	 = "Inglés";
-$optionCanadianEnglish	 = "Inglés Canadiense";
-$optionBritishEnglish	 = "British Inglés";
-$optionEspanol	 = "Español";
-$optionFrench	 = "Francés";
-$optionCroatian	 = "Croata";
-$optionHungarian	 = "Húngaro";
-$optionArmenian	 = "Armenia";
-$optionIndonesian	 = "Indonesia";
-$optionItalian	 = "Italiano";
-$optionJapanese	 = "Japonesa";
-$optionKorean	 = "Corea";
-$optionDutch	 = "Holandesa";
-$optionPortuguese	 = "Portugués";
-$optionRomanian	 = "Rumano";
-$optionThai	 = "Tailandia";
-$optionVietnamese	 = "Vietnamita";
-$optionCantonese	 = "Cantonesa";
-$localizationHelper	 = "Elija el archivo de idioma a utilizar a lo largo de residencia.";
-$siteNameField	 = "Nombre del sitio";
-$siteNameHelper	 = "es decir. Reside (aparece en la parte superior del navegador , el logotipo de encabezado , en el pie de página y en otras partidas de todo el sitio ).";
-$businessNameField	 = "Nombre de la empresa";
-$businessAddressField	 = "Dirección de Empresas";
-$businessAddressHelper	 = "Dirección";
-$businessEmailField	 = "Business Email";
-$businessEmailHelper	 = "Se utiliza en las notificaciones de correo electrónico como el de / respuesta a la dirección de correo electrónico.";
-$businessPhoneField	 = "Teléfono de la empresa";
-$contactPhoneField	 = "Teléfono de contacto";
-$contactPhoneHelper	 = "Los inquilinos número de teléfono puede llamar a Información General , Preguntas etc";
-$propFileUploadField	 = "La propiedad de archivos directorio de carga";
-$propFileUploadHelper	 = "¿Dónde Archivos Propiedad subir a ( Side Sólo administrador ). Debe incluir una barra final ( ie. uploads / ).";
-$templatesDirField	 = "Plantillas directorio de carga";
-$templatesDirHelper	 = "Donde Reside Formas";
-$tenantDocUploadField	 = "Documentos Inquilino directorio de carga";
-$tenantDocsUploadHelper	 = "Cuando los documentos inquilino subir a (SOLO Side Admin). Debe incluir una barra final ( ie. docs / ).";
-$uploadTypesField	 = "Tipos de archivo permitidos Upload";
-$uploadTypesHelper	 = "Los tipos de archivos que permiten ser cargados , SIN espacios";
-$avatarUploadField	 = "Avatar directorio de carga";
-$avatarUploadHelper	 = "Cuando tanto de administración";
-$avatarTypesField	 = "Tipos de archivo permitidos Avatar";
-$avatarTypesHelper	 = "Los tipos de archivos que permiten ser cargados , SIN espacios";
-$propPicUploadField	 = "Fotos del inmueble directorio de carga";
-$propPicUploadHelper	 = "¿Dónde Fotos del inmueble subir a (SOLO Side Admin). Debe incluir una barra final ( ie. imágenes / ).";
-$propPicTypesField	 = "Propiedad Fotos Tipos de archivo permitidos";
-$propPicTypesHelper	 = "Los tipos de archivos que permiten ser cargados , SIN espacios";
-$enablePayPalField	 = "Activar los pagos de alquiler a través de PayPal?";
-$enablePayPalHelper	 = "Se establece en Sí para permitir que los locatarios realicen los pagos de alquiler a través de PayPal.";
-$payPalCurrencyField	 = "Código de moneda PayPal Pago";
-$paymentCompletedField	 = "Pago Completado mensaje";
-$paymentCompleteHelper	 = "Lo que el inquilino va a ver una vez que hayan completado el pago de alquiler de PayPal.";
-$payPalEmailField	 = "Cuenta de PayPal Correo electrónico";
-$payPalEmailHelper	 = "Su cuenta de correo electrónico de PayPal";
-$payPalItemField	 = "PayPal Nombre del artículo";
-$payPalItemHelper	 = "El nombre del artículo que aparece en la pantalla de pago PayPal.";
-$payPalFeeField	 = "PayPal Tarifa de Uso";
-$payPalFeeHelper	 = "Cuota cobrada por PayPal. No incluir el símbolo '%' (es decir, 0,5 ).";
-// Page Specific: Site Alerts // -------------------------------------------------------------------------------------------------- 
-$noSiteAlertsMsg	 = "No hay alertas Sitio.";
-$siteAlertsH3	 = "Alertas de Sitio";
-$siteAlertsQuip	 = "Administrar sus alertas del sitio.";
-$siteAlertsInst	 = "Puede eliminar o editar una Alerta de sitio existente, o crear una nueva.";
-$newSiteAlertBtn	 = "Crear una alerta de Sitio";
-$alertDeletedMsg	 = "La alerta del sitio ha sido eliminada.";
-$alertTitleMsg	 = "Por favor, introduzca el título de la alerta.";
-$alertTextMsg	 = "Por favor , introduzca el texto de alerta.";
-$newAlertSavedMsg	 = "El nuevo Alerta del sitio ha sido guardada.";
-$alertUpdatedMsg	 = "La alerta del sitio ha sido actualizado.";
-$editAlertModalTitle	 = "Editar Alerta de Sitio";
-$alertDatesInstructions	 = "Para utilizar una fecha de inicio y / o una fecha de caducidad , establezca la nueva alerta como inactivo. u003cbr /u003e Alertas Sitio set to_Active mostrará independientemente de lo que las fechas se establecen.";
-$alertTitleField	 = "Titulo de la Alerta";
-$alertStatusFeild	 = "Estado de Alerta";
-$statusOptionInactive	 = "Inactivo";
-$statusOptionActive	 = "Activo";
-$alertStatusHelper	 = "Selección activo hace esta alerta visible para todos los inquilinos.";
-$invoicePrintField	 = "Imprimir en recibo";
-$invoicePrintHelper	 = "Fijar esto a Sí imprime la alerta en la sección Notas de Recibo del inquilino.";
-$alertStartField	 = "Inicio Alerta";
-$alertStarHelper	 = "Dejar en blanco si esta alerta no tiene una fecha de inicio Formato:. Aaaa- mm- dd";
-$alertEndField	 = "Fin Alerta";
-$alertEndHelper	 = "Dejar en blanco si esta Alerta nunca expira Formato:. Aaaa- mm- dd";
-$alertTextField	 = "Texto de la alerta";
-$deleteAlertConf	 = "¿Está seguro de que desea eliminar esta Alerta del sitio ?";
-$newAlertModalTitle	 = "Crear una alerta de Sitio Nuevo";
-$createAlertBtn	 = "Cree una alerta";
-// Page Specific: Active Tenants // -------------------------------------------------------------------------------------------------- 
-$deleteTenantConf	 = "¿Está seguro que desea eliminar la cuenta de este inquilino?";
-$tenantDeletedMsg	 = "Cuenta del Inquilino ha sido eliminado.";
-$activeLeaseTenantsH3	 = "Inquilinos activos con contrato de alquiler";
-$activeTenantsQuip	 = "Sólo los inquilinos que no tienen una propiedad alquilada se pueden eliminar.";
-$activeNoLeaseTenantsH3	 = "inquilinos activos sin contrato de Alquiler";
-$noActiveTenantsMsg	 = "No se han encontrado inquilinos activos.";
-// Page Specific: Inactive Tenants // -------------------------------------------------------------------------------------------------- 
-$inactiveTenantsH3	 = "Inactivos inquilinos";
-$inactiveTenantsQuip	 = "Los inquilinos que han creado una cuenta, pero no han activado o se han establecido en el estado inactivo por un administrador.";
-$noInactiveTenantsMsg	 = "No hay inquilinos inactivos.";
-$dateAccountCreated	 = "Date cuenta creada";
-$resendActivationLink	 = "Reenviar email de activación";
-$activationEmailSentMsg	 = "El e-mail de activación ha sido enviado al inquilino.";
-$activationEmailError	 = "Hubo un error , y el correo electrónico de activación no se ha podido enviar.";
-// Page Specific: Archived Tenants // -------------------------------------------------------------------------------------------------- 
-$archivedTenantsH3	 = "inquilinos archivados";
-$noArchedTenantsMsg	 = "No hay inquilinos archivados.";
-// Page Specific: Active Properties // -------------------------------------------------------------------------------------------------- 
-$deletePropertyConf	 = "¿Está seguro que desea eliminar este establecimiento?";
-$propertyDeletedMsg	 = "La propiedad ha sido eliminado.";
-$archivePropertyConf	 = "¿Está seguro que desea archivar este establecimiento?";
-$propertyArchivedMsg	 = "La propiedad ha sido archivado.";
-$activeLeasePropertyH3	 = "Propiedades Alquiladas";
-$activePropertyQuip	 = "Sólo las propiedades que no tienen un contrato de Alquiler puede ser archivado o borrado.";
-$activeNoLeasePropertysH3 = "Propiedades Disponibles";
-$noActivePropertiesMsg	 = "No se han encontrado propiedades activas.";
-$noAvailablePropertiesMsg	 = "No hay propiedades disponibles.";
-// Page Specific: Archived Properties // -------------------------------------------------------------------------------------------------- 
-$archivedPropertiesH3	 = "Propiedades archivadas";
-$noArchivedPropertiesMsg = "No se encontraron propiedades archivadas";
-// Page Specific: Active Leases // -------------------------------------------------------------------------------------------------- 
-$activeLeasesH3	 = "Contratos activos";
-$noActiveLeasesMsg	 = "No hay contratos activos";
-$updateLeaseLink	 = "Actualizar";
-// Page Specific: Active Leases // -------------------------------------------------------------------------------------------------- 
-$deleteLeaseConf	 = "¿Está seguro que desea eliminar este Archivado / Cerrado Alquiler?";
-$leaseDeletedMsg	 = "El contrato de Alquiler ha sido eliminado.";
-$archivedLeasesH3	 = "Alquileres Archivados / Cerrados ";
-$noArchivedLeasesMsg	 = "No hay alquileres Archivados / cerrados";
-$editLeaseModalTitle	 = "Editar arriendo de la característica de";
-$leaseUpdatedMsg	 = "El contrato de Alquiler ha sido actualizado.";
-$closeLeaseField	 = "Cerrar este contrato ?";
-$closeLeaseHelper	 = "Ha terminado el contrato de Alquiler? Seleccione Sí para cerrar este contrato y actualizar el Inquilino";
-// Page Specific: Open Service Requests // -------------------------------------------------------------------------------------------------- 
-$noOpenRequestsMsg	 = "No hay solicitudes de servicio abiertas";
-$deleteRequestConf	 = "¿Está seguro de que desea eliminar esta petición de servicio ?";
-$requestDeletedMsg	 = "La solicitud de servicio se ha eliminado.";
-// Page Specific: Closed Service Requests // -------------------------------------------------------------------------------------------------- 
-$closedServRequestsH3	 = "/ Solicitudes de servicio completadas cerradas";
-$noClosedRequestsMsg	 = "No hay solicitudes de servicio cerradas / completadas encontraron";
-// Page Specific: Archived Service Requests // -------------------------------------------------------------------------------------------------- 
-$archivedServRequestsH3	 = "Solicitudes Propiedades Archivado servicio";
-$noArchivedRequestsMsg	 = "No hay solicitudes de servicio que se encuentran archivados";
-// Page Specific - My Profile // -------------------------------------------------------------------------------------------------- 
-$avatarRemovedMsg = "Tu Imagen de Avatar se ha eliminado.";
-$avatarRemoveErrorMsg = "Se ha producido un error";
-$avatarNotAcceptedMsg = "El archivo no es un tipo de Avatar aceptado.";
-$avatarUploadedMsg = "Su nuevo Avatar se ha subido.";
-$avatarUploadErrorMsg = "Se ha producido un error al subir tu avatar , por favor marque el tipo de archivo";
-$personalInfoUpdatedMsg = "Tu información personal ha sido actualizado.";
-$emailAddyUpdatedMsg = "Su cuenta de correo electrónico se ha actualizado.";
-$newPassSavedMsg = "Su nueva contraseña ha sido guardada.";
-$myProfileH3 = "Mi cuenta";
-$myProfileQuip = "Por favor tenga su información de perfil actualizada.";
-$listGroupAdminTitle = "Información de la Cuenta Personal";
-$listGroupAdminAvatarLink = "Perfil Avatar";
-$listGroupAdminUpdateInfo = "Actualizar información personal";
-$listGroupAdminUpdateEmail = "Actualizar cuentas de correo electrónico";
-$listGroupAdminUpdatePassword = "Cambiar contraseña";
-$safePersonalInfoH3 = "Su información personal está segura.";
-$safePersonalInfo = "Nosotros guardamos su información en nuestra base de datos en un formato codificado";
-$profileAvatarTitle = "Tu Perfil Avatar";
-$profileAvatarQuip = "Usted puede eliminar su actual Avatar , y utilizar el Avatar por defecto. Para cargar una nueva imagen de Avatar tendrá que first_remove su actual Avatar.";
-$removeAvatarBtn = "Quitar actual Imagen de Avatar";
-$newAvatarUpload = "Cargar una Nueva Imagen de Avatar";
-$allowedAvatarTypesQuip = "Tipos de archivo de Avatar permitidas";
-$selectNewAvatar = "Seleccione Nuevo Avatar";
-$avatarMaxHight = "Todo Avatares se mostrará en un máximo de altura de 85 píxeles";
-$removeAvatarConf = "¿Está seguro que desea eliminar el actual Avatar ?";
-$personalInfoModalTitle = "Actualización de la información personal de su cuenta";
-$updateEmailModalTitle = "Actualización de su cuenta Dirección de correo electrónico";
-$updatePasswordModalTitle = "Cambiar contraseña de su cuenta";
-$newPassword2Helper = "Escriba una nueva contraseña para su cuenta.";
-$rnewPasswordHelper = "Por favor, escriba su contraseña deseada de nuevo. Las contraseñas deben coincidir.";
-$accountEmailHelper = "Su dirección de correo electrónico también se utiliza para el registro de cuenta.";
-$currentPasswordHelper = "Su actual contraseña de la cuenta.";
-$firstNameReqVal = "Nombre es un campo obligatorio.";
-$lastNameReqVal = "Apellido es un campo requerido.";
-$emailReqVal = "Su dirección de correo electrónico es obligatoria.";
-$currentPassReqVal = "Por favor, introduzca su cuenta de contraseñas actual.";
-$newPassReqVal = "Introduzca su nueva contraseña.";
-$typePassAgainReqVal	 = "Por favor, escriba su nueva contraseña otra vez.";
-$currentPassInvalidReqVal = "Su contraseña actual es incorrecta. Por favor, compruebe su entrada.";
-$newPassNotMatchReqVal = "Las nuevas contraseñas no coinciden.";
-// Page Specific: All Admins // -------------------------------------------------------------------------------------------------- 
-$allAdminsH3	 = "Todas las cuentas de administrador";
-$deleteAdminConf	 = "¿Está seguro que desea eliminar la cuenta de esta administración ?";
-$adminDeletedMsg	 = "Cuenta del administrador ha sido eliminado.";
-$adminDeleteFailMsg	 = "No se puede eliminar la cuenta del administrador principal.";
-// Page Specific: Property Info // -------------------------------------------------------------------------------------------------- 
-$propertyDetailsH3 = "Información del alquiler de la propiedad";
-$propertyPicturesH3 = "Fotos de la propiedad";
-$propertyPicturesQuip	 = "Las fotos subidas de esta propiedad se pueden ver por el inquilino.";
-$propertyAmenitiesH3 = "Detalles de la propiedad en alquiler";
-$noPicsUploaded	 = "No hay fotos para esta propiedad.";
-$propertyListingH3	 = "Texto del Alquiler del Inmueble";
-$rentIsPastDueMsg	 = "El alquiler del inquilino pago es Vencido.";
-$updatePropertyBtn	 = "Actualización de Información de la propiedad";
-$uploadPicturesBtn	 = "Cargar una Nueva Imagen";
-$updateAmenitiesBtn	 = "Servicios de actualización de Propiedad";
-$updatePropHoaInfoBtn	 = "Actualizar información de la Asociación de Propietarios";
-$leasePropertyBtn	 = "Alquiler de la propiedad";
-$AssignPropertyBtn	 = "Asignar Propietario";
-$recordPaymentBtn	 = "Grabar un Pago recibido";
-$viewPaymentsBtn	 = "Ver todos los pagos de Alquiler";
-$uploadPropFileBtn	 = "Cargar un archivo de propiedades";
-$deletePictureBtn	 = "Eliminar imagen";
-$updateListingTextBtn	 = "Texto actualización Lista de Inmuebles";
-$rentalMonthyRateLi	 = "Monto del Alquiler";
-$rentalLateFeeLi	 = "Recargo";
-$rentalDepositAmtLi	 = "Importe del mes de depósito";
-$propertyNoteLi	 = "Notas:";
-$propertyTypeLi = "Tipo de propiedad:";
-$propertyStyleLi	 = "Estilo de la propiedad:";
-$yearBuiltLi	 = "Año de la aprobación:";
-$propertySizeLi	 = "Tamaño de la propiedad:";
-$numberBedroomsLi = "Número de Dormitorios:";
-$numberBathroomsLi = "Número de Baños:";
-$parkingLi = "Cochera:";
-$heatingLi = "Calefacción:";
-$allowPetsLi	 = "Se permiten mascotas:";
-$propAmenitiesLi	 = "Servicios";
-$hoaLi	 = "Asociación de Propietarios:";
-$hoaPhoneLi = "Asociación de Propietarios de teléfono:";
-$hoaAddressLi	 = "Asociación de Propietarios Dirección:";
-$hoaFeeLi	 = "Comisión de la Asociación de Propietarios:";
-$hoaFeeScheduleLi	 = "Asociación de Propietarios de Tarifas:";
-$propertyLeaseH4	 = "Alquiler de la propiedad";
-$noLeaseMsg	 = "Esta propiedad no está alquilada actualmente.";
-$propertyArchivedH4	 = "Estado de propiedad en alquiler";
-$propertyArchivedMsg	 = "Esta propiedad está actualmente archivados.";
-$AssignedLandlord	 = "Propietario";
-$currentTenant	 = "El inquilino";
-$leaseTerm	 = "Plazo:";
-$leaseNotes	 = "Notas de Alquiler:";
-$otherResidentsH4	 = "Residentes";
-$noResidentsFound	 = "No hay otros residentes";
-$relationToTenant	 = "Relación";
-$newResidentBtn	 = "Añadir un nuevo residente";
-$updateResidentBtn	 = "Actualización Residente";
-$residentNameField	 = "Nombre del residente";
-$residentNotesField	 = "Notas";
-$residentNotesHelper	 = "Sólo las notas internas";
-$archiveResidentField	 = "Archivar este residente?";
-$archiveResidentHelper	 = "Si selecciona Sí, elimina el Residente de la propiedad.";
-$residentNameReqMsg	 = "Nombre del Residente se requiere";
-$residentRelationReqMsg	 = "Por favor ingrese la relación del residente con el inquilino";
-$residentUpdatedMsg	 = "El Residente se ha actualizado.";
-$newResidentAddedMsg	 = "El nuevo residente se ha añadido.";
-$propertyFilesH4 = "Archivos de propiedades";
-$propertyFilesQuip	 = "Archivos de la Propiedad son documentos";
-$noFilesUploaded = "No se subieron archivos";
-$viewDeatilsLink = "Ver detalles";
-$viewFileLink = "Ver archivo";
-$dateUploaded	 = "Fecha de publicación";
-$propertyAddressReq	 = "Por favor, introduce una dirección de la propiedad.";
-$propertyInfoUpdatedMsg = "Las propiedades de la información ha sido actualizado.";
-$allowedPictureTypesQuip = "Tipos de archivos de imagen permitidas";
-$maxUploadSize	 = "Tamaño máximo del archivo:";
-$propPictureTitle	 = "Título";
-$propPictureTitleHelper	 = "El título que se requiere y se utiliza como la dirección URL de la imagen.";
-$selectPictureField	 = "Seleccione una imagen";
-$pictureNotAcceptedMsg = "El archivo no es un tipo de imagen aceptada.";
-$pictureUploadedMsg = "La nueva imagen de la propiedad se ha subido.";
-$pictureUploadErrorMsg = "Se ha producido un error al subir la imagen , compruebe el tipo de archivo";
-$deletePictureConf = "¿Está seguro que desea eliminar este propiedad Picture ?";
-$pictureRemovedMsg = "El retrato de la propiedad ha sido eliminado.";
-$pictureRemoveErrorMsg = "Se ha producido un error";
-$propertyTypeField	 = "Tipo de Inmueble";
-$propertyTypeHelper	 = "Unifamiliar, multifamiliar , etc";
-$propertyStyleField	 = "Estilo de la propiedad";
-$propertyStylehelper	 = "Estructura separada, ciudad natal, Edificio de viviendas , etc";
-$yearBuiltField	 = "Año de construcción";
-$propertySizeField	 = "Superficie";
-$propertySizeHelper	 = "El tamaño total de la sala de estar en pies cuadrados";
-$parkingField	 = "Parking";
-$parkingHelper	 = "Tipo de aparcamiento ( ie. Privado Drive, Shared Lote etc )";
-$heatingTypeField	 = "Calefacción";
-$numBedroomsField	 = "Cuantas habitaciones";
-$numBathroomsField	 = "Número de Baños";
-$propertyAmenitiesText	 = "Servicios del texto";
-$propAmenitiesUpdatedMsg = "Los Servicios del hotel han sido actualizados.";
-$hoaNameField	 = "Nombre de la Asociación de Propietarios";
-$hoaNameHelper	 = "Asociación de Propietarios";
-$hoaPhoneField	 = "Número de teléfono HOA Contacto";
-$hoaAddressField	 = "Asociación de Propietarios Dirección de correo";
-$hoaFeeField	 = "Comisión de la Asociación de Propietarios";
-$hoaFeeScheduleField	 = "Lista de Cargos HOA";
-$hoaFeeScheduleHelper	 = "Mensual , etc anual";
-$propHoaUpdatedMsg = "La Asociación de Propietarios Propiedades Info ha sido actualizado.";
-$propListingField	 = "Texto de Inmuebles";
-$propListingHelper	 = "La propiedad de texto del anuncio cuando la publicidad de la propiedad en alquiler.";
-$propListingUpdatedMsg = "El texto Propiedades listado ha sido actualizado.";
-$selectLandlordField	 = "Seleccione Admin / Landlord";
-$selectLandlordHelper	 = "Asignar esta propiedad a un administrador / propietario.";
-$selectAdminReq	 = "Por favor, seleccione Administración y / Arrendador para asignar esta propiedad a.";
-$propAssignedMsg	 = "La propiedad ha sido asignado a la Admin / propietario.";
-$paymentDateReqMsg	 = "Por favor, seleccione la fecha de recepción del pago.";
-$paymentAmountReqMsg	 = "Por favor ingrese la cantidad del pago.";
-$paymentForReqMsg	 = "Por favor, ingrese lo que este pago era para (es decir, Renta Mensual , etc.)";
-$paymentTypeReqMsg	 = "Por favor, introduzca el tipo de pago recibido (es decir, Efectivo, Cheque , etc.)";
-$paymentSavedMsg	 = "El inquilinos pago ha sido registrado y se guarda.";
-$allowedFileTypesQuip = "Tipos de archivo permitidos:";
-$propFileTitleField	 = "Título de archivo";
-$propFileTitleHelper	 = "El título que se requiere y se utiliza como la dirección URL de los archivos.";
-$propFileDescField	 = "Descripción del archivo";
-$propFileDescHelper	 = "Descripción corta sobre el archivo.";
-$selectPropFileField	 = "Seleccione el archivo para subir";
-$fileNotAcceptedMsg = "El documento de la propiedad no era un tipo de archivo aceptado.";
-$fileUploadedMsg = "El nuevo documento de propiedad se ha subido.";
-$fileUploadErrorMsg = "Se ha producido un error al subir el documento de propiedad , por favor marque el tipo de archivo";
-// Page Specific: Lease Property // -------------------------------------------------------------------------------------------------- 
-$propHasBeenLeasedH3	 = "La propiedad ha sido alquilada";
-$propHasBeenLeasedMsg	 = "La propiedad ha sido alquilado con éxito.";
-$propAllReadyLeasedH3	 = "La propiedad está todo listo alquilada a un inquilino";
-$propAllReadyLeasedMsg	 = "No se puede arrendar una propiedad que tiene todo listo un Alquiler asignado a la misma.";
-$leasePropertyH3	 = "Alquiler del inmueble";
-$leasePropertyQuip	 = "Crear un nuevo Alquiler para esta propiedad";
-$leasePropertyInstructions	 = "Siga las instrucciones del proceso";
-$step1Title	 = "Paso 1: Cree una nueva oportunidad";
-$noTenantsAvailableMsg	 = "No hay inquilinos disponibles para arrendar esta propiedad a.";
-$leaseTermField	 = "Plazo de Alquiler";
-$leaseTermHelper	 = "La duración del Alquiler (es decir, 6 meses, 12 meses , etc.)";
-$leaseStartField	 = "Alquiler Fecha de Inicio";
-$leaseStartHelper	 = "La fecha del contrato de Alquiler comenzará el.";
-$leaseEndField	 = "Alquiler Fecha de finalización";
-$leaseEndHelper	 = "La fecha del contrato de Alquiler termina en";
-$leaseNotesField	 = "Notas de Alquiler";
-$leaseNotesHelper	 = "Notas (si los hay ) para este contrato.";
-$createLeaseBtn	 = "Crear Alquiler";
-$step2Title	 = "Paso 2: Asignar el Alquiler de nueva creación a un inquilino";
-$step2Quip	 = "Ahora que la nueva oportunidad para esta propiedad ha sido creado, ahora se puede ceder el Alquiler y la propiedad a un inquilino.";
-$selectTenantHelper	 = "Seleccione el Inquilino este Alquiler del inmueble es para. Se muestran , inquilinos desatado Sólo activos.";
-$assignLeaseBtn	 = "Asignación de Alquiler";
-$leaseTermReqMsg	 = "Por favor introduce el término de este contrato.";
-$startDateReqMsg	 = "Por favor introduzca la fecha de inicio de este contrato.";
-$endDateReqMsg	 = "Por favor introduzca la fecha de finalización de este contrato.";
-$newLeaseCreatedMsg	 = "El nuevo contrato de Alquiler ha sido creado, y está listo para ser asignado a un inquilino.";
-$tenantIdNameReqMsg	 = "Por favor, seleccione el inquilino este Alquiler es para.";
-$tenantUpdatedMsg	 = "El Inquilino se ha actualizado con la propiedad";
-// Page Specific - View Property File // -------------------------------------------------------------------------------------------------- 
-$viewFileH3	 = "Visualización del archivo de propiedades";
-$viewDocumentQuip	 = "Se muestran las imágenes / Imágenes. Necesitará Cualquier otro tipo de archivo para ser descargado para ver.";
-// Page Specific - View Service Request // -------------------------------------------------------------------------------------------------- 
-$viewRequestH3	 = "Solicitud de Servicio de visión";
-$viewRequestOpenQuip	 = "Se puede agregar notas a esta solicitud abierta.";
-$viewRequestInstructions	 = "Una vez que la solicitud se ha completado, usted será capaz de añadir los detalles de la resolución del Servicio , _y guardar los costes asociados a la solicitud.";
-$viewRequestClosedQuip	 = "Esta solicitud se ha cerrado / Finalizado";
-$viewClosedRequestInstructions	 = "Esta solicitud de servicio se ha completado. Puede agregar / actualizar los detalles de resolución del Servicio , _y guardar los costes asociados a la solicitud.";
-$serviceReqLiTitle = "El servicio Solicitar información";
-$servReqLiDateRequested = "Fecha de la solicitud";
-$servReqLiReqBy	 = "Solicitado por";
-$servReqLiProperty	 = "Propiedad";
-$servReqLiPriority	 = "Prioridad";
-$servReqLiStatus	 = "Estado actual";
-$servReqLiLastUpdate	 = "Última actualización";
-$servReqLiRequest	 = "Solicitud";
-$updateRequestBtn	 = "Solicitud de Actualización";
-$statusSelectOpen	 = "Open";
-$statusSelectWIP	 = "Trabajos en curso";
-$statusSelectParts	 = "Waiting for Parts";
-$statusSelectNoRepair	 = "Completado / No Requiere reparaciones";
-$statusSelectRepaired	 = "Reparación Completado";
-$statusSelectClosed	 = "Cerrado";
-$servResolutionLiTitle = "Solicitud de Servicio de Resolución";
-$servResLiCompletedBy	 = "Completado por";
-$servResLiDateResolved	 = "Fecha de resolución";
-$servResLiComments	 = "Comentarios";
-$servResLiNeedsFollowup = "Necesita un seguimiento";
-$servResLiFollowUpComments = "Seguimiento de comentarios";
-$servResLiDateCompleted	 = "Fecha de terminación";
-$servResolutionBtn	 = "Añadir / Actualizar Resolución servicio";
-$servCostsBtn	 = "Agregar una Nueva Costos de los servicios";
-$serviceReqNotesH3	 = "Servicio Solicite Notas";
-$editNoteModalTitle = "Edición de solicitud de servicio de nota";
-$addNoteBtn	 = "Agregar una nota a esta Solicitud de Servicio";
-$notesClosedMsg	 = "Las notas están cerrados para este Service Request.";
-$editNoteField	 = "Editar nota";
-$notesField	 = "Notas";
-$noteTextReqVal	 = "Por favor, introduzca el texto de la nota.";
-$editServNoteUpdatedMsg = "La solicitud de servicio Nota se ha actualizado.";
-$newServNoteAddedMsg	 = "La solicitud de servicio Nota se ha guardado , y el inquilino ha sido notificado.";
-$serviceRequestUpdatedMsg	 = "La solicitud de servicio se ha actualizado.";
-$resolutionDateField	 = "Fecha de resolución";
-$resolutionDateHelper	 = "La fecha de la solicitud de servicio se resolvió / fijo.";
-$resolutionTextField	 = "Resolución";
-$resolutionTextHelper	 = "Por favor describa los detalles de la solución a este solicitud de servicio.";
-$needsFollowupField	 = "Seguimiento de la presente solicitud ?";
-$needsFollowupHelper	 = "Si la solicitud de servicio necesita cualquier tipo de seguimiento.";
-$followupDescField	 = "Follow Up Descripción";
-$followupDescHelper	 = "Por favor describa el Seguimiento necesitaba.";
-$closeRequestField	 = "Cerrar Solicitud ?";
-$closeRequestHelper	 = "Se ha completado la solicitud de servicio ?";
-$serviceRequestCostsH3	 = "Solicitud de Mantenimiento Costes";
-$serviceRequestCostsQuip	 = "Se puede añadir en cualquier costos de servicio relacionado.";
-$serviceRequestCostsNote	 = "Se puede añadir en igual número de egresos por servicios , según sea necesario por esta solicitud.";
-$tab_expenseName	 = "Título de gastos";
-$tab_vendorName	 = "Vendedor / Compañía";
-$tab_expenseDesc	 = "Gasto Descripción";
-$tab_expenseCost	 = "Costo";
-$tab_dateOfExpense	 = "Fecha de Gastos";
-$expenseDateHelper	 = "La fecha del gasto o del servicio.";
-$vendorNameHelper	 = "Empresa que presta el servicio / comprados a.";
-$expenseNameHelper	 = "Dar a la costa de un título ( ie. Piezas WC , Servicio de cerrajería , etc.)";
-$expenseDescHelper	 = "Breve descripción de los gastos.";
-$expenseCostHelper	 = "El costo total de gastos.";
-$expenseDateReqMsg	 = "Por favor ingrese la fecha del gasto.";
-$expenseNameReqMsg	 = "Por favor, este servicio de gastos de un título.";
-$expenseDescReqMsg	 = "Por favor, introduzca una breve descripción del gasto.";
-$expenseCostReqMsg	 = "Por favor ingrese el coste total de este gasto.";
-$serviceExpenseSavedMsg	 = "El Servicio de Solicitud de gastos se ha guardado.";
-// Page Specific - View Tenant Info/Account // -------------------------------------------------------------------------------------------------- 
-$avatarRemovedMsg	 = "El del Inquilino Imagen de Avatar se ha eliminado.";
-$avatarRemoveErrorMsg	 = "Se ha producido un error";
-$tenantPersonalInfoUpdMsg	 = "El del Inquilino Información Personal se ha actualizado.";
-$tenantNotesUpdatedMsg	 = "Notas internas del inquilino han sido actualizados.";
-$tenantEmailReqMsg	 = "El del Inquilino Dirección de correo electrónico se requiere.";
-$tenantEmailUpdatedMsg	 = "El del Inquilino cuenta de correo electrónico se ha actualizado.";
-$tenantsNewPassReqMsg	 = "Por favor ingrese la nueva contraseña del Inquilino.";
-$tenantRepeatPassReqMsg	 = "Escriba la nueva contraseña del Inquilino de nuevo.";
-$passwordUpdatedMsg	 = "Nueva contraseña del Inquilino se ha guardado.";
-$activeLeaseFoundMsg	 = "Estado de la cuenta de actualización fallida. El Inquilino tiene actualmente una concesión activa.";
-$tenantAccountStatusUpdMsg	 = "Estado de Cuenta del Inquilino se ha actualizado.";
-$emailSubjectReqMsg	 = "Por favor introduce el asunto del correo electrónico.";
-$emailTextReqMsg	 = "Por favor , introduzca el texto del correo electrónico.";
-$tenantAccountH3	 = "Perfil de cuenta";
-$tenantAccountQuip	 = "Puede actualizar y / o archivar la cuenta de este inquilino.";
-$tenantAccountStatusNote	 = "Estado de Cuenta del inquilino sólo puede ser cambiado cuando no tienen una propiedad de Active Lease.";
-$tenantSidebarTitle	 = "Actualización de Información de la cuenta";
-$updTenantAvatarLi	 = "Eliminar Foto del Inquilino";
-$updTenantInfoLi	 = "Actualizar Información Personal del Inquilino";
-$updTenantNotesLi	 = "Actualizar Notas internas del inquilinos";
-$updTenantEmailLi	 = "Actualizar Cuenta de correo electrónico del Inquilino";
-$updTenantPasswordLi	 = "Cambio de Contraseña del Inquilino";
-$updTenantStatusLi	 = "Cambio de Estado de Cuenta del Inquilino";
-$tenantIsArchivedMsg	 = "Esta empresa queda actualmente archivados.";
-$tenantIsInactiveMsg	 = "Cuenta inquilino no se ha activado.";
-$tenantsLeasedPropH3	 = "alquilados";
-$tenantNoLeasedPropMsg	 = "no tiene una propiedad alquilada";
-$removeAvatarModalTitle	 = "Eliminar Avatar de Inquilino";
-$removeAvatarQuip	 = "Se puede quitar del inquilino actual Avatar , y utiliza el avatar por defecto. Esto es útil en el caso de un inquilino subir una imagen cuestionable.";
-$removeAvatarBtn	 = "Quitar actual Imagen de Avatar";
-$noAvatarUploadedQuip	 = "El inquilino no tiene foto.";
-$removeAvatarConfModal	 = "¿Está seguro que desea eliminar el Avatar para";
-$updTenantInfoModalTitle	 = "Información Personal de actualización Inquilino";
-$updTenantNotesModalTitle	 = "Notas internas de actualización de los inquilinos";
-$tenantInternalNotesField	 = "Notas internas";
-$updTenantEmailModalTitle	 = "Cuenta de Correo Electrónico de actualización Inquilino";
-$tenantEmailHelper	 = "Cuenta de correo electrónico del inquilino también se utiliza como su registro de cuenta.";
-$updPasswordModalTitle	 = "Cambio del Inquilino Cuenta Password";
-$newTenantPasswordHelper	 = "Escriba una nueva contraseña para la cuenta del inquilino.";
-$newTenantPassRepeatHelper	 = "Por favor, escriba la nueva contraseña de nuevo. Las contraseñas deben coincidir.";
-$updTenantStatusModalTitle	 = "Cambio de Estado de Cuenta del Inquilino";
-$updTenantStatusQuip	 = "Estado de Cuenta del inquilino sólo puede ser cambiado cuando no tienen una propiedad de alquilada.";
-$activeAccountField	 = "Cuenta activa ?";
-$accountStatusHelper	 = "Es posible ajustar manualmente la cuenta del inquilino como activo. Inquilinos inactivos no pueden acceder a sus cuentas.";
-$archiveAccountField	 = "Archivar la Cuenta inquilino?";
-$archiveAccountHelper	 = "activo";
-$sendEmailModalTitle	 = "Enviar un correo electrónico a";
-$subjectField	 = "Asunto del correo";
-$emailTextField	 = "El correo electrónico de texto";
-$tenantEmailSentMsg	 = "El correo electrónico ha sido enviado al inquilino.";
-$tenantDocumentsH3	 = "Los documentos cargados para";
-$tenantDocQuip	 = "Documentos de inquilinos son archivos que se relacionan con sólo el inquilino.";
-$uploadTenantDocBtn	 = "Cargar un documento Inquilino";
-$noDocsFoundMsg	 = "No se encontraron archivos";
-$documentUploadedMsg = "El nuevo documento ha sido cargado.";
-$documentUploadErrorMsg = "Se ha producido un error al subir el documento , compruebe el tipo de archivo";
-$tenantDocTitleReqMsg	 = "El Documento Inquilino debe tener un título.";
-$tenantDocDescReqMsg	 = "Por favor, incluya una breve descripción del contenido del Documento de Inquilinos.";
-$tab_documentName	 = "Nombre del documento";
-$documentDeletedMsg	 = "El Documento Inquilino ha sido eliminado.";
-$documentRemoveErrorMsg = "Se ha producido un error";
-$deleteDocumentConf	 = "¿Está seguro que desea eliminar este documento ?";
-// Page Specific - View Tenant Document // -------------------------------------------------------------------------------------------------- 
-$viewDocumentH3	 = "Viendo el Inquilino documento";
-// Page Specific - View Admin/Landlord Account // -------------------------------------------------------------------------------------------------- 
-$adminAccountH3	 = "Profile Admin / Cuenta Landlord";
-$adminAccountQuip	 = "Puede actualizar y / o modificar el estado activo de la Cuenta de la Administración.";
-$adminAccountStatusNote	 = "Estado de Cuenta del administrador sólo puede ser cambiado cuando no tienen una propiedad alquilada asignado.";
-$adminSidebarTitle	 = "Actualización de Información de la cuenta";
-$updAdminAvatarLi	 = "Administración de Perfil Avatar";
-$updAdminInfoLi	 = "Información Personal de actualización Admin";
-$updAdminEmailLi	 = "Cuenta de correo electrónico de actualización Admin";
-$updAdminPasswordLi	 = "Contraseña de Cambio Admin";
-$updAdminStatusLi	 = "Estado de Cuenta de Cambio Admin";
-$adminIsArchivedMsg	 = "Esta administración está actualmente archivados.";
-$adminIsInactiveMsg	 = "Administración de cuentas es Inactivo.";
-$adminAssignedPropertiesH3	 = "' s de las propiedades actuales asignados";
-$removeAvatarModalTitle	 = "Eliminar Avatar de Admin";
-$removeAvatarModalQuip	 = "Se puede quitar del administrador actual Avatar , y utiliza el avatar por defecto. Esto es útil en el caso de un administrador de subir una imagen cuestionable.";
-$noAdminAvatar	 = "La administración no tiene una costumbre Avatar cargado en este momento.";
-$changeAdminTypeModalTitle	 = "Cambio de la Administración Tipo de cuenta";
-$adminLevelField	 = "Nivel Admin";
-$adminLevelHelper	 = "Superuser: Acceso total";
-$adminRoleField	 = "Papel Admin";
-$updateAdminPersInfoTitle	 = "Información Personal de actualización Admin";
-$updateAdminEmailTitle	 = "Cuenta de Correo Electrónico de actualización Admin";
-$adminEmailHelper	 = "Cuenta de correo electrónico del administrador también se utiliza como su registro de cuenta.";
-$changeAdminPasswordTitle	 = "Cambio de la contraseña de administrador de cuentas";
-$adminNewPasswordHelper	 = "Escriba una nueva contraseña para la cuenta del administrador.";
-$changeAdminStatusTitle	 = "Cambio de Estado de Cuenta de la Administración";
-$changeAdminStatusField	 = "Estado de Cuenta";
-$changeAdminStatusQuip	 = "Cuentas de administrador sólo puede ser desactivado cuando no tenemos proyectos activos asignados.";
-$changeAdminStatusHelper	 = "Es posible ajustar manualmente la cuenta del administrador como activo. Admins inactivos no pueden acceder a sus cuentas.";
-$adminAvatarRemovedMsg	 = "La Administración de Imagen de Avatar se ha eliminado.";
-$adminAvatarRemoveErrorMsg	 = "Se ha producido un error";
-$adminAccountUpdatedMsg	 = "La administración del tipo de cuenta se ha actualizado.";
-$adminPersonalInfoUpdatedMsg = "La Administración de Información Personal se ha actualizado.";
-$adminEmailReqMsg	 = "La administración de E-mail es necesario.";
-$adminEmailUpdatedMsg	 = "El administrador de la cuenta de correo electrónico ha sido actualizado.";
-$adminNewPasswordReqMsg	 = "Por favor ingrese la nueva contraseña del administrador.";
-$adminRetypePassReqMsg	 = "Escriba la nueva contraseña del administrador de nuevo.";
-$newPasswordsNoMatchMsg	 = "Las nuevas contraseñas no coinciden.";
-$adminsPasswordSavedMsg	 = "Nueva contraseña del administrador se ha guardado.";
-$adminAccountStatusUpdMsg	 = "Estado de Cuenta del administrador ha sido actualizado.";
-$accountStatusUpdFailedMsg	 = "La administración tiene actualmente una propiedad asignada y no puede ser establecido como inactivo en este momento.";
-$adminEmailSentMsg	 = "El correo electrónico ha sido enviado al administrador.";
-// Page Specific - All Payments by Lease/Property // -------------------------------------------------------------------------------------------------- 
-$allPaymentsH3 = "Todos los pagos del alquiler";
-$allPaymentsQuip = "Todos los pagos de alquiler realizados por este Alquiler actual.";
-$newPaymentBtnLink	 = "Grabar un pago del alquiler";
-$noPaymentsRecorded	 = "No se han registrado pagos.";
-$viewPrintReceipt	 = "Recibo Ver / Imprimir";
-$deletePaymentConf	 = "¿Está seguro que desea eliminar este pago?";
-// Page Specific - View Payment // -------------------------------------------------------------------------------------------------- 
-$paymentDetailsH3	 = "Detalles de pago";
-$refundQuip	 = "Se puede emitir un reembolso para este pago. Reembolsos afectan el total del importe del pago inicial y se indican con un asterisk._Refunds sólo puede ser emitido una vez por el pago.";
-$issueRefundBtn	 = "Emitir un reembolso";
-$paymentInfoListHeader	 = "Condiciones de venta";
-$updatePaymentBtn	 = "Actualización de Pago";
-$emailReceiptBtn	 = "Email recibo";
-$deletePaymentBtn	 = "Eliminar de Pago";
-$issueTheRefundBtn	 = "El reembolso de Emisión";
-$sendEmailBtn	 = "Enviar el correo electrónico";
-$refundIssuedH3	 = "Un reembolso ha sido emitido para este pago";
-$refundIssuedBy	 = "Emitido por";
-$refundDateField	 = "Fecha de Reembolso";
-$refundDateHelper	 = "La fecha del reembolso se entregará al Inquilino.";
-$refundAmountField	 = "Importe de Reembolso";
-$refundForField	 = "Reembolso Para";
-$refundForHelper	 = "Lo que este reembolso está para. (Es decir, reembolso de depósito de seguridad, sobre el pago , etc )";
-$refundNotesField	 = "Notas de reembolso";
-$refundDateReqMsg	 = "Por favor, introduzca la fecha de emisión del reembolso";
-$refundAmountReqMsg	 = "Por favor ingrese el importe de la restitución.";
-$refundForReqMsg	 = "Por favor, ingrese lo que este reembolso era para (es decir, depósito de garantía de reembolso et. ).";
-$refundIssuedMsg	 = "El reembolso se ha guardado , y el pago original ha sido actualizado.";
-$paymentUpdatedMsg	 = "El pago ha sido actualizado.";
-$emailNotesField	 = "Incluya una nota con el recibo";
-$emailNotesHelper	 = "No es necesario.";
-$emailReceiptDefaultSubject	 = "Recibo de pago de";
-$emailReceiptSentMsg	 = "Recibo del inquilino ha sido enviado.";
-// Page Specific - Payment Receipt // -------------------------------------------------------------------------------------------------- 
-$headTitle	 = "Recibo de Pago";
-$receivedFrom	 = "Recibido De:";
-$receiptDate	 = "Fecha de recibo";
-$paymentNum	 = "ID de pago";
-$dateReceived	 = "Fecha de recepción";
-$monthlyRent	 = "Rent Mes";
-$descFor	 = "Descripción / Para";
-$payNotes	 = "Notas de Pago";
-$lateFeeDue	 = "Late Fee Due";
-$amountDue	 = "Cantidad a pagar";
-$totalAmountDue	 = "La cantidad total debida";
-$totalAmountPaid	 = "Monto pagado";
-$receiptThankYou	 = "Gracias por su confianza.";
-// Page Specific - Email All Tenants // -------------------------------------------------------------------------------------------------- 
-$sendMassEmailH3	 = "Enviar un correo electrónico a todos los inquilinos activas";
-$sendMassEmailQuip	 = "Usted puede enviar un correo electrónico masivo a todos sus actuales inquilinos activos.";
-$emailAllTenantsSentMsg	 = "El correo electrónico ha sido enviado a todos los inquilinos actuales activos.";
-$emailSentError	 = "Hubo un error , y el correo no pudo ser enviado.";
-// Page Specific - Templates & Forms // -------------------------------------------------------------------------------------------------- 
-$templatesFormsH3	 = "Plantillas cargados";
-$templatesFormsQuip	 = "A continuación se muestra una lista de las plantillas de subidas";
-$uploadNewTemplateBtn	 = "Subir nueva plantilla / formulario";
-$noTemplatesFoundMsg	 = "No hay plantillas o formularios se han subido.";
-$premadeFormsH3	 = "Formularios de Pre - Made";
+// **************************************************************************************************
 
+// Page Specific: Dashboard
+// --------------------------------------------------------------------------------------------------
+$welcomeMessage				= "Welcome";
+$welcomeMessageQuip			= "The ".$set['siteName']." web portal allows you to view/update information & details relating to your Rental Properties and Tenants.";
 
-$premadeFormsQuip	 = "";
-$premadeFormsInst	 = "Éstos son grandes para usar con sus inquilinos , rellene los campos PDF con information._These formas pre - hechas del inquilino están diseñados para ser llenado , impreso y luego se da al inquilino. Si usted tiene la versión completa of_ u003c";
-$tab_formName	 = "Nombre de la Forma";
-$tab_formDescription	 = "Descripción";
-$applicationFormTitle	 = "Alquiler de Formulario de Solicitud";
-$applicationFormDesc	 = "Básico Inquilino Solicitud de Alquiler";
-$rentIncreaseTitle	 = "Rent Increase Aviso";
-$rentIncreaseDesc	 = "Aviso de Alquiler Incremento de la tarifa";
-$moveOutReminderTitle	 = "Move Out Recordatorio";
-$moveOutReminderDesc	 = "Lo que se espera de un inquilino en Moving Out";
-$petAgreementTitle	 = "Acuerdo de mascotas";
-$petAgreementDesc	 = "Los detalles de se admiten animales";
-$importantInfoTitle	 = "Información importante para un nuevo inquilino";
-$importantInfoDesc	 = "La información útil relativa a una propiedad recién alquilada";
-$returnedCheckTitle	 = "Comprobar Aviso Devuelto";
-$returnedCheckDesc	 = "Notificación de un Banco se negó / Cheques Devueltos";
-$vacateOrRenewTitle	 = "Aviso de desalojo o Renovar Alquiler";
-$vacateOrRenewDesc	 = "Intenciones del inquilino más allá del Alquiler actual";
-$uniqueTemplateNames	 = "Plantilla / Forma nombres tienen que ser únicos. u003cbr /u003e No utilice ningún barras ( es decir, / ) en el nombre de la plantilla.";
-$allowedTemplateTypesQuip = "Tipos de archivo permitidos:";
-$templateNameField	 = "Nombre de la plantilla / formulario";
-$templateNameHelper	 = "Por favor, la plantilla de un nombre.";
-$templateDescriptionHelper	 = "Una breve descripcion de la plantilla.";
-$templateNameReqMsg	 = "Por favor, la plantilla / Formar un nombre";
-$templateDescReqMsg	 = "Por favor, incluya una breve descripción de la plantilla / formulario";
-$templateDeletedMsg	 = "La plantilla ha sido eliminado.";
-$templateDeleteErrorMsg	 = "Se ha producido un error";
-$deleteTemplateConf	 = "¿Está seguro que desea eliminar la plantilla ?";
-// Page Specific - View Uploaded Template/Form 
-$viewTemplateH3	 = "Visualización de la plantilla / formulario";
-$viewTemplateQuip	 = "Se muestran las imágenes / Imágenes. Necesitará Cualquier otro tipo de plantilla / formulario para ser descargado para ver / el empleo.";
+$lateRentH3					= "Tenants with late Rent for";
+$rentReceivedMonthH3		= "Rent Received for";
+$noRentReceived				= "No Rent has been received for this Month.";
+$totalRentReceived			= "Total Received for";
+$currentTenantsH3			= "Current Leased Tenants";
+$availablePropertiesH3		= "Available Properties";
+$openServRequestsH3			= "Open Service Requests";
 
+$paymentDateField			= "Payment Date";
+$paymentDateHelper			= "The Date the Payment was received from the Tenant";
+$paymentAmountField			= "Payment Amount";
+$paymentAmountHelper		= "The base amount of the Payment. Do not include any Late Fees paid here.";
+$lateFeeField				= "Late Penalty Fee";
+$lateFeeHelper				= "If the Payment was late and incurred the Late Fee Penalty.";
+$paymentForField			= "Payment For";
+$paymentForHelper			= "What this Payment is for. (ie. Deposit, Rent etc.)";
+$paymentTypeField			= "Payment Type";
+$paymentTypeHelper			= "What form the Payment was made in. (ie. Cash, Check etc.)";
+$rentMonthField				= "Rent Month";
+$rentMonthHelper			= "If this is a Monthly Rental Payment, otherwise leave at None";
+$paymentNotesField			= "Payment Notes";
+$paymentNotesHelper			= "Payment Notes WILL print on the Tenant's Receipt.";
+$savePaymentBtn				= "Save Payment";
 
-$reportsQuip	 = "";
-$reportInst	 = "Opciones adicionales de filtro se pueden establecer para cada informe. Requieren a la mayoría opciones de filtro para el informe a correr.";
-$runReportBtn	 = "Ejecutar informe";
-$tenantReportsTitle	 = "Informes de los inquilinos";
-$propertyReportsTitle	 = "Los informes de la propiedad";
-$serviceReportsTitle	 = "Los informes de servicio";
-$accountingReportsTitle	 = "Informes de Contabilidad";
-$leaseReportsTitle	 = "Los informes de Alquiler";
-$adminReportsTitle	 = "Informes Admin / propietario";
-$noTenantsFoundMsg	 = "No se han encontrado inquilinos.";
-$noPropertiesFoundMsg	 = "No se han encontrado propiedades.";
-$noRequestsFoundMsg	 = "No se han encontrado peticiones de servicio.";
-$noPaymentsFoundMsg	 = "No se han encontrado Pagos";
-$noLeasesFoundMsg	 = "No se han encontrado Alquileres";
-$report1Title	 = "Actual Activo";
-$report2Title	 = "Informe inquilinos archivados";
-$report3Title	 = "Propiedades del informe";
-$report4Title	 = "Solicitudes de Servicio Report";
-$report5Title	 = "Costos totales de Solicitud de Servicio";
-$report6Title	 = "Informe de Pagos Recibidos";
-$report7Title	 = "Los reembolsos informe emitido";
-$report8Title	 = "Alquileres Report";
-$report9Title	 = "Informe de Cuentas Admin / Landlord";
-$report0Title	 = "Admin / Arrendador Asignada Propiedades Report";
-$includeInactiveField	 = "Incluir inactivos inquilinos";
-$includeInactiveHelper	 = "Seleccione si desea incluir inquilinos inactivos en este informe.";
-$includeArchivedHelper	 = "No hay opciones disponibles , simplemente pulse Ejecutar informe.";
-$reportTitleH3	 = "Informe";
-$noReportRecordsFoundMsg	 = "No se encontraron registros.";
-$totalRecordsFound	 = "Total de Registros:";
-$reportTotals	 = "Informar Total:";
-$reportCreatedOnDate	 = "Informe creado en:";
-$selectPropertyTypeField	 = "Selección de un tipo de Equipaje";
-$selectPropertyTypeHelper	 = "Seleccione el estado del inmueble que desea incluir en el informe.";
-$propertyType1	 = "Solo propiedades alquiladas";
-$propertyType2	 = "Actualmente alquilada";
-$propertyType3	 = "Sólo las propiedades que están disponibles para alquilar";
-$propertyType4	 = "Solo propiedades archivadas";
-$serviceIncludeField	 = "Elegir Lo que debe incluir";
-$serviceIncludeHelper	 = "Seleccione el estado de las solicitudes de servicio que le gustaría incluir en el informe.";
-$requestType1	 = "Las solicitudes sólo se activa / Abrir";
-$requestType2	 = "Todo Abrir / Activo";
-$requestType3	 = "Sólo Cerrado / Requests completadas";
-$selectTenantField	 = "Seleccionar Inquilino";
-$allOption	 = "Todo *";
-$allOptionHelper	 = "* Activo";
-$fromDateField	 = "Mostrar los registros de";
-$fromDateHelper	 = "Por favor, seleccione o escriba una fecha de inicio.";
-$toDateField	 = "Mostrar registros To";
-$toDateHelper	 = "Por favor, seleccione o escriba una fecha de finalización.";
-$allPaymentsField	 = "Incluyen todos los pagos ?";
-$allPaymentsNoOption	 = "No, incluyen los pagos de alquiler sólo";
-$allPaymentsYesOption	 = "Sí , mostrar todos los pagos";
-$allPaymentsHelper	 = "Seleccione Sí para incluir ninguna tarifas";
-$closedLeasesField	 = "Incluir Alquileres cerrados ?";
-$closedLeasesNoOption	 = "No, no incluyen Alquileres cerrados";
-$closedLeasesYesOption	 = "Sí , incluir tanto abierto";
-$closedLeasesHelper	 = "Seleccione si desea incluir Alquileres cerradas en este informe.";
-$inactiveAdminsField	 = "Incluir Inactivo administradores / propietarios ?";
-$inactiveAdminsNoOption	 = "No, no incluyen Inactivo";
-$inactiveAdminsYesOption	 = "Sí , Show Me All";
-$inactiveAdminsHelper	 = "Seleccione si desea incluir Administradores inactivos / propietarios en este informe.";
-$selectAdminField	 = "Seleccione Admin / Landlord";
-$selectAdminHelper	 = "* Sólo Administradores de Activos";
-// Page Specific - reports - Tenant Reports // -------------------------------------------------------------------------------------------------- 
-$reportType1	 = "Todo activo";
-$reportType2	 = "Sólo los inquilinos activas";
-$archivedTenantReportName	 = "inquilinos archivados";
-// Page Specific - reports - Properties Report // -------------------------------------------------------------------------------------------------- 
-$depositAmountReq	 = "Monto de Depósito";
-// Page Specific - reports - Service Reports // -------------------------------------------------------------------------------------------------- 
-$tab_dateCompleted	 = "Fecha de terminación";
-$tab_totalRepairCost	 = "El costo total de reparación";
-// Page Specific - reports - Accounting Reports // -------------------------------------------------------------------------------------------------- 
-$tab_originalPaymentFor	 = "El pago original Para";
-$tab_originalPaymentDate	 = "Fecha de Pago Original";
-// Page Specific - reports - Lease Reports // -------------------------------------------------------------------------------------------------- 
-$leaseReport1	 = "Sólo los Alquileres abiertos";
-$leaseReport2	 = "Todo abierto";
-// Page Specific - reports - Admin Reports // -------------------------------------------------------------------------------------------------- 
-$adminReport1	 = "Todo activo";
-$adminReport2	 = "Sólo Administradores de Activos";
-?>
+// Page Specific: Site Settings
+// --------------------------------------------------------------------------------------------------
+// Validation Error Msg Box
+$payPalCurrencyCodwMsg		= "Please enter the PayPal Currency Code.";
+$payPalAccountEmailMsg		= "Please enter your PayPal account Email.";
+$payPalItemNameMsg			= "Please enter the Item Name for the PayPal payments.";
+$paymentCompleteMsg			= "Please enter the Payment Message once a rental payment has been completed.";
+$payPalFeeMsg				= "Please enter the additional PayPal Fee (if none, use 0.0).";
+$installUrlMsg				= "Please enter your Installation URL (include the trailing slash).";
+$siteNameMsg				= "Please enter a Site Name.";
+$businessNameMsg			= "Please enter the the name of your Business.";
+$businessAddressMsg			= "Please enter the your Address or the Address of your Business.";
+$businessEmalMsg			= "Please enter your Business Email.";
+$businessPhoneMsg			= "Please enter your Business Phone.";
+$propertyUploadsMsg			= "Please enter the folder location where Property Uploads will be saved.";
+$templateUploadsMsg			= "Please enter the folder location where Business Form Templates will be saved.";
+$tenantDocUploadsMsg		= "Please enter the folder location where Tenant Documents will be saved.";
+$fileTypesMsg				= "Please enter the File Type Extensions allowed to be uploaded.";
+$avatarUploadsMsg			= "Please enter the folder location where Avatar images will be saved.";
+$avatarFileTypesMsg			= "Please enter the Avatar File Type Extensions allowed to be uploaded.";
+$propertyPicsUploadsMsg		= "Please enter the folder location where Property Pictures will be saved.";
+$pictureFileTypesMsg		= "Please enter the Property Picture File Type Extensions allowed to be uploaded.";
+$settingsSavedMsg			= "The global Site Settings has been saved.";
+
+// Page elements
+$updateSettingsH3			= "Update ".$set['siteName']." Global Site Settings";
+$siteSetAccTitle			= "Global Site Settings";
+$updateSettingsBtn			= "Update Site Settings";
+$uploadsAccTitle			= "File/Image Upload Settings";
+$uploadsNote				= "Please note: If you change any of the Upload Directory names, you must also change the actual folder's name.";
+$updUploadSettingsBtn		= "Update Upload Settings";
+$paymentsAccTitle			= "Rental Payment Settings";
+$updPaymentSettingsBtn		= "Update Payment Settings";
+
+$installUrlField			= "Installation URL";
+$installUrlHelper			= "Used in all File Uploads &amp; email notifications. Must include the trailing slash (ie. http://mysite.com/reside/).";
+$localizationField			= "Localization";
+$optionArabic				= "Arabic";
+$optionBulgarian			= "Bulgarian";
+$optionChechen				= "Chechen";
+$optionCzech				= "Czech";
+$optionDanish				= "Danish";
+$optionEnglish				= "English";
+$optionCanadianEnglish		= "Canadian English";
+$optionBritishEnglish		= "British English";
+$optionEspanol				= "Espanol";
+$optionFrench				= "French";
+$optionCroatian				= "Croatian";
+$optionHungarian			= "Hungarian";
+$optionArmenian				= "Armenian";
+$optionIndonesian			= "Indonesian";
+$optionItalian				= "Italian";
+$optionJapanese				= "Japanese";
+$optionKorean				= "Korean";
+$optionDutch				= "Dutch";
+$optionPortuguese			= "Portuguese";
+$optionRomanian				= "Romanian";
+$optionThai					= "Thai";
+$optionVietnamese			= "Vietnamese";
+$optionCantonese			= "Cantonese";
+$localizationHelper			= "Choose the Language file to use throughout Reside.";
+$siteNameField				= "Site Name";
+$siteNameHelper				= "ie. Reside (Appears at the top of the browser, the header logo, in the footer and in other headings throughout the site).";
+$businessNameField			= "Business Name";
+$businessAddressField		= "Business Address";
+$businessAddressHelper		= "Address & Phone. (Appears in Tenant's Receipt).";
+$businessEmailField			= "Business Email";
+$businessEmailHelper		= "Used in email notifications as the \"from/reply to\" email address.";
+$businessPhoneField			= "Business Phone";
+$contactPhoneField			= "Contact Phone";
+$contactPhoneHelper			= "Phone Number Tenants can call for General Information, Questions etc.";
+
+$propFileUploadField		= "Property Files Upload Directory";
+$propFileUploadHelper		= "Where Property Files upload to (Admin Side ONLY). Must include the trailing slash (ie. uploads/).";
+$templatesDirField			= "Templates Upload Directory";
+$templatesDirHelper			= "Where Reside Forms &amp; Templates upload to (Admin Side ONLY). Must include the trailing slash (ie. templates/).";
+$tenantDocUploadField		= "Tenant Documents Upload Directory";
+$tenantDocsUploadHelper		= "Where Tenant documents upload to (Admin Side ONLY). Must include the trailing slash (ie. docs/).";
+$uploadTypesField			= "Upload File Types Allowed";
+$uploadTypesHelper			= "The file types you allow to be uploaded, NO spaces & each separated by a comma (Format: xls,pdf,doc,docx).";
+$avatarUploadField			= "Avatar Upload Directory";
+$avatarUploadHelper			= "Where both Admin &amp; Tenant Avatars upload to. Must include the trailing slash (ie. avatars/).";
+$avatarTypesField			= "Avatar File Types Allowed";
+$avatarTypesHelper			= "The file types you allow to be uploaded, NO spaces & each separated by a comma (Format: jpg,jpeg,png).";
+$propPicUploadField			= "Property Pictures Upload Directory";
+$propPicUploadHelper		= "Where Property Pictures upload to (Admin Side ONLY). Must include the trailing slash (ie. pictures/).";
+$propPicTypesField			= "Property Pictures File Types Allowed";
+$propPicTypesHelper			= "The file types you allow to be uploaded, NO spaces & each separated by a comma (Format: jpg,jpeg,png).";
+
+$enablePayPalField			= "Enable rental payments through PayPal?";
+$enablePayPalHelper			= "Set to Yes to allow Tenants to make rental payments via PayPal.";
+$payPalCurrencyField		= "PayPal Payment Currency Code";
+$paymentCompletedField		= "Payment Completed Message";
+$paymentCompleteHelper		= "What the Tenant will see once they have completed a PayPal rental payment.";
+$payPalEmailField			= "PayPal Account Email";
+$payPalEmailHelper			= "Your PayPal Account's email &mdash; where PayPal payments will be sent to.";
+$payPalItemField			= "PayPal Item Name";
+$payPalItemHelper			= "The item name that appears on the PayPal payment screen.";
+$payPalFeeField				= "PayPal Use Fee";
+$payPalFeeHelper			= "Fee charged by PayPal. Do not include '%' symbol (ie. 0.5).";
+
+// Page Specific: Site Alerts
+// --------------------------------------------------------------------------------------------------
+$noSiteAlertsMsg			= "No Site Alerts Found.";
+$siteAlertsH3				= "Site Alerts";
+$siteAlertsQuip				= "Manage your Site Alerts.";
+$siteAlertsInst				= "You can delete or edit an existing Site Alert, or create a new one.";
+$newSiteAlertBtn			= "Create a New Site Alert";
+
+$alertDeletedMsg			= "The Site Alert has been Deleted.";
+$alertTitleMsg				= "Please enter the Title for the Alert.";
+$alertTextMsg				= "Please enter the Alert text.";
+$newAlertSavedMsg			= "The new Site Alert has been saved.";
+$alertUpdatedMsg			= "The Site Alert has been Updated.";
+
+$editAlertModalTitle		= "Edit Site Alert";
+$alertDatesInstructions		= "To use a Start Date and/or an Expire Date, set the new Alert as \"inactive\".<br />Site Alerts set to
+Active will display regardless of what dates are set.";
+
+$alertTitleField			= "Site Alert Title";
+$alertStatusFeild			= "Alert Status";
+$statusOptionInactive		= "Inactive";
+$statusOptionActive			= "Active";
+$alertStatusHelper			= "Selecting \"Active\" makes this Alert visible for ALL Tenants.";
+$invoicePrintField			= "Print on Receipt";
+$invoicePrintHelper			= "Setting this to \"Yes\" prints the alert in the Notes Section of the Tenant's Receipt.";
+$alertStartField			= "Date Alert Starts";
+$alertStarHelper			= "Leave blank if this Alert does not have a start date. Format: yyyy-mm-dd";
+$alertEndField				= "Date Alert Expires";
+$alertEndHelper				= "Leave blank if this Alert never expires. Format: yyyy-mm-dd";
+$alertTextField				= "Site Alert Text";
+$deleteAlertConf			= "Are you sure you wish to DELETE this Site Alert?";
+$newAlertModalTitle			= "Create a New Site Alert";
+$createAlertBtn				= "Create Alert";
+
+// Page Specific: Active Tenants
+// --------------------------------------------------------------------------------------------------
+$deleteTenantConf			= "Are you sure you wish to DELETE this Tenant's Account?";
+$tenantDeletedMsg			= "The Tenant's Account has been Deleted.";
+$activeLeaseTenantsH3		= "Active Tenants with a Current Leased Property";
+$activeTenantsQuip			= "Only Tenants that do not have a Leased Property can be deleted.";
+$activeNoLeaseTenantsH3		= "Active Tenants without a Lease";
+$noActiveTenantsMsg			= "No Active Tenants found.";
+
+// Page Specific: Inactive Tenants
+// --------------------------------------------------------------------------------------------------
+$inactiveTenantsH3			= "Inactive Tenants";
+$inactiveTenantsQuip		= "Tenants that have created an account, but have not activated or have been set to Inactive status by an admin.";
+$noInactiveTenantsMsg		= "No Inactive Tenants Found.";
+$dateAccountCreated			= "Date Account Created";
+$resendActivationLink		= "Resend Activation Email";
+$activationEmailSentMsg		= "The Activation email has been sent to the Tenant.";
+$activationEmailError		= "There was an error, and the activation email could not be sent.";
+
+// Page Specific: Archived Tenants
+// --------------------------------------------------------------------------------------------------
+$archivedTenantsH3			= "Archived Tenants";
+$noArchedTenantsMsg			= "No Archived Tenants found.";
+
+// Page Specific: Active Properties
+// --------------------------------------------------------------------------------------------------
+$deletePropertyConf			= "Are you sure you wish to DELETE this Property?";
+$propertyDeletedMsg			= "The Property has been Deleted.";
+$archivePropertyConf		= "Are you sure you wish to Archive this Property?";
+$propertyArchivedMsg		= "The Property has been Archived.";
+$activeLeasePropertyH3		= "Properties with a Current Lease";
+$activePropertyQuip			= "Only Properties that do not have a Lease can be Archived or Deleted.";
+$activeNoLeasePropertysH3 	= "Available Properties";
+$noActivePropertiesMsg		= "No Active Properties found.";
+$noAvailablePropertiesMsg	= "No Properties are available.";
+
+// Page Specific: Archived Properties
+// --------------------------------------------------------------------------------------------------
+$archivedPropertiesH3		= "Archived Properties";
+$noArchivedPropertiesMsg 	= "No Archived Properties found";
+
+// Page Specific: Active Leases
+// --------------------------------------------------------------------------------------------------
+$activeLeasesH3				= "Active Leases";
+$noActiveLeasesMsg			= "No Active Leases found";
+$updateLeaseLink			= "Update";
+
+// Page Specific: Active Leases
+// --------------------------------------------------------------------------------------------------
+$deleteLeaseConf			= "Are you sure you wish to DELETE this Archived/Closed Lease?";
+$leaseDeletedMsg			= "The Lease has been Deleted.";
+$archivedLeasesH3			= "Archived/Closed Leases";
+$noArchivedLeasesMsg		= "No Archived/Closed Leases found";
+$editLeaseModalTitle		= "Edit Property Lease for";
+$leaseUpdatedMsg			= "The Lease has been updated.";
+$closeLeaseField			= "Close this Lease?";
+$closeLeaseHelper			= "Has the Lease ended? Select Yes to Close this Lease and Update the Tenant &amp; the Property.";
+
+// Page Specific: Open Service Requests
+// --------------------------------------------------------------------------------------------------
+$noOpenRequestsMsg			= "No Open Service Requests found";
+
+$deleteRequestConf			= "Are you sure you wish to DELETE this Service Request?";
+$requestDeletedMsg			= "The Service Request has been Deleted.";
+
+// Page Specific: Closed Service Requests
+// --------------------------------------------------------------------------------------------------
+$closedServRequestsH3		= "Closed/Completed Service Requests";
+$noClosedRequestsMsg		= "No Closed/Completed Service Requests found";
+
+// Page Specific: Archived Service Requests
+// --------------------------------------------------------------------------------------------------
+$archivedServRequestsH3		= "Archived Properties Service Requests";
+$noArchivedRequestsMsg		= "No Archived Service Requests found";
+
+// Page Specific - My Profile
+// --------------------------------------------------------------------------------------------------
+$avatarRemovedMsg 			= "Your Avatar Image has been removed.";
+$avatarRemoveErrorMsg 		= "An Error was encountered &amp; your Avatar image could not be deleted at this time.";
+$avatarNotAcceptedMsg 		= "The File was not an accepted Avatar type.";
+$avatarUploadedMsg 			= "Your new Avatar has been uploaded.";
+$avatarUploadErrorMsg 		= "There was an error uploading your Avatar, please check the file type &amp; try again.";
+
+$personalInfoUpdatedMsg 	= "Your Personal Info has been updated.";
+$emailAddyUpdatedMsg 		= "Your Account Email has been updated.";
+$newPassSavedMsg 			= "Your new Password has been saved.";
+
+$myProfileH3 				= "My Account &amp; Profile";
+$myProfileQuip 				= "Please keep your Profile information up to date.";
+
+$listGroupAdminTitle 		= "Personal Account Information";
+$listGroupAdminAvatarLink 	= "Profile Avatar";
+$listGroupAdminUpdateInfo 	= "Update Personal Information";
+$listGroupAdminUpdateEmail 	= "Update Account Email";
+$listGroupAdminUpdatePassword = "Change Password";
+
+$safePersonalInfoH3 		= "Your Personal Information is secure.";
+$safePersonalInfo 			= "We store your information in our database in an encrypted format. We do not sell or make your information available to any one
+for any reason. We value your privacy and appreciate your trust in us. You can update your personal information easily by using any of the links in the sidebar.";
+
+$profileAvatarTitle 		= "Your Profile Avatar";
+$profileAvatarQuip 			= "You can remove your current Avatar, and use the default Avatar.<br /><small>To upload a new Avatar image you will need to first
+remove your current Avatar.</small>";
+$removeAvatarBtn 			= "Remove Current Avatar Image";
+
+$newAvatarUpload 			= "Upload a New Avatar Image";
+$allowedAvatarTypesQuip 	= "Allowed Avatar File Types:";
+$selectNewAvatar 			= "Select New Avatar";
+$avatarMaxHight 			= "All Avatars will be displayed at a max-height of 85 pixels";
+$removeAvatarConf 			= "Are you sure you want to remove your current Avatar?";
+
+$personalInfoModalTitle 	= "Update your Account's Personal Information";
+$updateEmailModalTitle 		= "Update your Account's Email Address";
+$updatePasswordModalTitle 	= "Change your Account's Password";
+
+$newPassword2Helper 		= "Type a new Password for your Account.";
+$rnewPasswordHelper 		= "Please type your desired Password again. Passwords MUST Match.";
+$accountEmailHelper 		= "Your email address is also used for your Account log In.";
+$currentPasswordHelper 		= "Your Current Account Password.";
+
+$firstNameReqVal 			= "First Name is a Required Field.";
+$lastNameReqVal 			= "Last Name is a Required Field.";
+$emailReqVal 				= "Your Email Address is Required.";
+
+$currentPassReqVal 			= "Please enter your current Account Password.";
+$newPassReqVal 				= "Please enter your new Password.";
+$typePassAgainReqVal		= "Please type your new Password again.";
+$currentPassInvalidReqVal 	= "Your current password is incorrect. Please check your entry.";
+$newPassNotMatchReqVal 		= "New Passwords do not match.";
+
+// Page Specific: All Admins
+// --------------------------------------------------------------------------------------------------
+$allAdminsH3				= "All Admin Accounts";
+$deleteAdminConf			= "Are you sure you wish to DELETE this Admin's Account?";
+$adminDeletedMsg			= "The Admin's Account has been Deleted.";
+$adminDeleteFailMsg			= "You cannot delete the Primary Admin's Account.";
+
+// Page Specific: Property Info
+// --------------------------------------------------------------------------------------------------
+$propertyDetailsH3 			= "Rental Property Information";
+$propertyPicturesH3 		= "Rental Property Pictures";
+$propertyPicturesQuip		= "Any pictures uploaded for this property are viewable by the Tenant.";
+$propertyAmenitiesH3 		= "Rental Property Details &amp; Amenities";
+$noPicsUploaded				= "No Pictures have been uploaded for this Property.";
+$propertyListingH3			= "Rental Property Listing Text";
+
+$rentIsPastDueMsg			= "The Tenant's Rent Payment is Past Due.";
+
+$updatePropertyBtn			= "Update Property Information";
+$uploadPicturesBtn			= "Upload a New Picture";
+$updateAmenitiesBtn			= "Update Property Amenities";
+$updatePropHoaInfoBtn		= "Update HOA Information";
+$leasePropertyBtn			= "Lease Property";
+$AssignPropertyBtn			= "Assign Landlord";
+$recordPaymentBtn			= "Record a Payment Received";
+$viewPaymentsBtn			= "View All Lease Payments";
+$uploadPropFileBtn			= "Upload a Property File";
+$deletePictureBtn			= "Delete Picture";
+$updateListingTextBtn		= "Update Property Listing Text";
+
+$rentalMonthyRateLi			= "Monthly Rate";
+$rentalLateFeeLi			= "Late Fee";
+$rentalDepositAmtLi			= "Rental Deposit Amount";
+$propertyNoteLi				= "Notes:";
+$propertyTypeLi 			= "Property Type:";
+$propertyStyleLi			= "Property Style:";
+$yearBuiltLi				= "Year Built:";
+$propertySizeLi				= "Property Size:";
+$numberBedroomsLi 			= "Number of Bedrooms:";
+$numberBathroomsLi 			= "Number of Bathrooms:";
+$parkingLi 					= "Parking:";
+$heatingLi 					= "Heating:";
+$allowPetsLi				= "Pets Allowed:";
+$propAmenitiesLi			= "Amenities:";
+$hoaLi	 					= "HOA:";
+$hoaPhoneLi 				= "HOA Phone:";
+$hoaAddressLi	 			= "HOA Address:";
+$hoaFeeLi					= "HOA Fee:";
+$hoaFeeScheduleLi			= "HOA Fee Schedule:";
+
+$propertyLeaseH4			= "Rental Property Lease";
+$noLeaseMsg					= "This Property is not currently Leased.";
+
+$propertyArchivedH4			= "Rental Property Status";
+$propertyArchivedMsg		= "This Property is currently Archived.";
+
+$AssignedLandlord			= "Landlord:";
+$currentTenant				= "Tenant:";
+$leaseTerm					= "Lease Term:";
+$leaseNotes					= "Lease Notes:";
+
+$otherResidentsH4			= "Residents";
+$noResidentsFound			= "No other Residents listed.";
+$relationToTenant			= "Relation";
+$newResidentBtn				= "Add a New Resident";
+$updateResidentBtn			= "Update Resident";
+$residentNameField			= "Resident's Name";
+$residentNotesField			= "Notes";
+$residentNotesHelper		= "Internal Only Notes.";
+$archiveResidentField		= "Archive this Resident?";
+$archiveResidentHelper		= "Selecting Yes removes the Resident from the Property.";
+$residentNameReqMsg			= "The Resident's Name is Required";
+$residentRelationReqMsg		= "Please enter the Resident's relation to the Tenant";
+$residentUpdatedMsg			= "The Resident has been updated.";
+$newResidentAddedMsg		= "The New Resident has been added.";
+
+$propertyFilesH4 			= "Property Files";
+$propertyFilesQuip			= "Property Files are documents &amp; files that relate to only the property.";
+$noFilesUploaded 			= "No Files have been uploaded";
+$viewDeatilsLink 			= "View Details";
+$viewFileLink 				= "View File";
+$dateUploaded				= "Date Uploaded";
+
+$propertyAddressReq			= "Please enter the Property's Address.";
+$propertyInfoUpdatedMsg 	= "The Properties Information has been updated.";
+$allowedPictureTypesQuip 	= "Allowed Picture File Types:";
+$maxUploadSize				= "Max File Size:";
+$propPictureTitle			= "Title";
+$propPictureTitleHelper		= "The Title is required and is used as the Picture's URL.";
+$selectPictureField			= "Select Picture";
+$pictureNotAcceptedMsg 		= "The File was not an accepted Picture type.";
+$pictureUploadedMsg 		= "The new Property Picture has been uploaded.";
+$pictureUploadErrorMsg 		= "There was an error uploading the Picture, please check the file type &amp; try again.";
+$deletePictureConf 			= "Are you sure you want to permanently DELETE this Property Picture?";
+$pictureRemovedMsg 			= "The Property Picture has been deleted.";
+$pictureRemoveErrorMsg 		= "An Error was encountered &amp; the property picture could not be deleted at this time.";
+
+$propertyTypeField			= "Property Type";
+$propertyTypeHelper			= "Single Family, Multi-Family etc.";
+$propertyStyleField			= "Property Style";
+$propertyStylehelper		= "Detached Structure, Town Home, Apartment Building etc.";
+$yearBuiltField				= "Year Built";
+$propertySizeField			= "Property Size";
+$propertySizeHelper			= "Total Size of Living Space in Sq Ft";
+$parkingField				= "Parking";
+$parkingHelper				= "Parking Type (ie. Private Drive, Shared Lot etc.)";
+$heatingTypeField			= "Heating &amp; A/C Type";
+$numBedroomsField			= "Number of Bedrooms";
+$numBathroomsField			= "Number of Bathrooms";
+$propertyAmenitiesText		= "Property Amenities Text";
+$propAmenitiesUpdatedMsg 	= "The Property Amenities have been updated.";
+
+$hoaNameField				= "HOA Name";
+$hoaNameHelper				= "Home Owners Association";
+$hoaPhoneField				= "HOA Contact Phone Number";
+$hoaAddressField			= "HOA Mailing Address";
+$hoaFeeField				= "HOA Fee";
+$hoaFeeScheduleField		= "HOA Fee Schedule";
+$hoaFeeScheduleHelper		= "Monthly, Yearly etc.";
+$propHoaUpdatedMsg 			= "The Properties HOA Info has been updated.";
+
+$propListingField			= "Property Listing Text";
+$propListingHelper			= "Property Ad Text when advertising the property for rent.";
+$propListingUpdatedMsg 		= "The Properties Listing Text has been updated.";
+
+$selectLandlordField		= "Select Admin/Landlord";
+$selectLandlordHelper		= "Assign this Property to an Admin/Landlord.";
+$selectAdminReq				= "Please select and Admin/Landlord to Assign this Property to.";
+$propAssignedMsg			= "The Property has been Assigned to the Admin/Landlord.";
+
+$paymentDateReqMsg			= "Please select the Date the Payment was received.";
+$paymentAmountReqMsg		= "Please enter the Amount of the Payment.";
+$paymentForReqMsg			= "Please enter what this Payment was for (ie. Monthly Rent etc).";
+$paymentTypeReqMsg			= "Please enter the type of Payment received (ie. Cash, Check etc).";
+$paymentSavedMsg			= "The Tenants Payment has been recorded and saved.";
+
+$allowedFileTypesQuip 		= "Allowed File Types:";
+$propFileTitleField			= "File Title";
+$propFileTitleHelper		= "The Title is required and is used as the Files's URL.";
+$propFileDescField			= "File Description";
+$propFileDescHelper			= "Short Description about the File.";
+$selectPropFileField		= "Select the File to Upload";
+$fileNotAcceptedMsg 		= "The Property Document was not an accepted File type.";
+$fileUploadedMsg 			= "The new Property Document has been uploaded.";
+$fileUploadErrorMsg 		= "There was an error uploading the Property Document, please check the file type &amp; try again.";
+
+// Page Specific: Lease Property
+// --------------------------------------------------------------------------------------------------
+$propHasBeenLeasedH3		= "The Property has been Leased";
+$propHasBeenLeasedMsg		= "The Property has been successfully Leased.";
+$propAllReadyLeasedH3		= "The Property is all ready Leased to a Tenant";
+$propAllReadyLeasedMsg		= "You can not Lease a Property that all ready has a Lease Assigned to it.";
+$leasePropertyH3			= "Lease Property &mdash;";
+$leasePropertyQuip			= "Create a New Lease for this Property.<br />
+<small>Please Note: Tenant accounts must first be created before you can create a new Lease for any Property.</small>";
+$leasePropertyInstructions	= "This is a 2-step process. Step 1: Create a New Lease. Step 2: Assign the New Lease to an available Tenant.<br />
+Each step will be displayed in turn, after the previous step has been successfully completed.";
+
+$step1Title					= "Step 1: Create a New Lease";
+$noTenantsAvailableMsg		= "There are no available Tenants to Lease this Property to.";
+$leaseTermField				= "Term of Lease";
+$leaseTermHelper			= "The length of the Lease (ie. 6 Months, 12 Months etc).";
+$leaseStartField			= "Lease Start Date";
+$leaseStartHelper			= "The Date the Lease will begin on.";
+$leaseEndField				= "Lease End Date";
+$leaseEndHelper				= "The Date the Lease ends on.";
+$leaseNotesField			= "Lease Notes";
+$leaseNotesHelper			= "Notes (if any) for this Lease.";
+$createLeaseBtn				= "Create Lease";
+
+$step2Title					= "Step 2: Assign the Newly created Lease to a Tenant";
+$step2Quip					= "Now that the New Lease for this Property has been created, you can now Assign the Lease and the Property to a Tenant.";
+$selectTenantHelper			= "Select the Tenant this Property Lease is for. Only Active, Unleased Tenants are displayed.";
+$assignLeaseBtn				= "Assign Lease";
+
+$leaseTermReqMsg			= "Please enter the Term of this Lease.";
+$startDateReqMsg			= "Please enter the Start Date for this Lease.";
+$endDateReqMsg				= "Please enter the End Date for this Lease.";
+$newLeaseCreatedMsg			= "The New Lease has been created, and is ready to be assigned to a Tenant.";
+
+$tenantIdNameReqMsg			= "Please select the Tenant this Lease is for.";
+$tenantUpdatedMsg			= "The Tenant has been Updated with the Property &amp; new Lease.";
+
+// Page Specific - View Property File
+// --------------------------------------------------------------------------------------------------
+$viewFileH3					= "Viewing Property File";
+$viewDocumentQuip			= "Pictures/Images will be displayed. Any other file type will need to be downloaded to view.";
+
+// Page Specific - View Service Request
+// --------------------------------------------------------------------------------------------------
+$viewRequestH3				= "Viewing Service Request";
+$viewRequestOpenQuip		= "You can add notes to this open Request.";
+$viewRequestInstructions	= "Once the Request has been completed, you will be able to add the Service Resolution details,
+and save any costs associated with the Request.";
+$viewRequestClosedQuip		= "This Request has been Closed/Completed.";
+$viewClosedRequestInstructions	= "This Service Request has been completed. You can add/update the Service Resolution details,
+and save any costs associated with the Request.";
+
+$serviceReqLiTitle 			= "Service Request Information";
+$servReqLiDateRequested 	= "Date Requested";
+$servReqLiReqBy				= "Requested By";
+$servReqLiProperty			= "Property";
+$servReqLiPriority			= "Priority";
+$servReqLiStatus			= "Current Status";
+$servReqLiLastUpdate		= "Last Updated";
+$servReqLiRequest			= "Request";
+
+$updateRequestBtn			= "Update Request";
+$statusSelectOpen			= "Open";
+$statusSelectWIP			= "Work in Progress";
+$statusSelectParts			= "Waiting for Parts";
+$statusSelectNoRepair		= "Completed/No Repair Needed";
+$statusSelectRepaired		= "Completed Repair";
+$statusSelectClosed			= "Closed";
+
+$servResolutionLiTitle  	= "Service Request Resolution";
+$servResLiCompletedBy		= "Completed By";
+$servResLiDateResolved		= "Date Resolved";
+$servResLiComments			= "Comments";
+$servResLiNeedsFollowup 	= "Needs a Follow-up";
+$servResLiFollowUpComments 	= "Follow-up Comments";
+$servResLiDateCompleted		= "Date Completed";
+
+$servResolutionBtn			= "Add/Update Service Resolution";
+$servCostsBtn				= "Add a New Service Costs";
+
+$serviceReqNotesH3			= "Service Request Notes";
+$editNoteModalTitle 		= "Edit Service Request Note";
+
+$addNoteBtn					= "Add a Note to this Service Request";
+$notesClosedMsg				= "Notes are closed for this Service Request.";
+
+$editNoteField				= "Edit Note";
+$notesField					= "Notes";
+
+$noteTextReqVal				= "Please enter your Note text.";
+$editServNoteUpdatedMsg 	= "The Service Request Note has been updated.";
+$newServNoteAddedMsg		= "The Service Request Note has been saved, and the Tenant has been notified.";
+
+$serviceRequestUpdatedMsg	= "The Service Request has been updated.";
+
+$resolutionDateField		= "Date Resolved";
+$resolutionDateHelper		= "The Date the Service Request was Resolved/Fixed.";
+$resolutionTextField		= "Resolution";
+$resolutionTextHelper		= "Please describe the details of the fix for this Service Request.";
+$needsFollowupField			= "Follow Up on this Request?";
+$needsFollowupHelper		= "If the Service Request needs any type of Follow Up.";
+$followupDescField			= "Follow Up Description";
+$followupDescHelper			= "Please describe the Follow Up needed.";
+$closeRequestField			= "Close Request?";
+$closeRequestHelper			= "Is the Service Request completed?";
+
+$serviceRequestCostsH3		= "Service Request Costs";
+$serviceRequestCostsQuip	= "You can add in any Service Related Costs.";
+$serviceRequestCostsNote	= "You can add in as many Service Expenses as needed for this Request.";
+$tab_expenseName			= "Expense Title";
+$tab_vendorName				= "Vendor/Company";
+$tab_expenseDesc			= "Expense Description";
+$tab_expenseCost			= "Cost";
+$tab_dateOfExpense			= "Date of Expense";
+
+$expenseDateHelper			= "The Date of the Expense or Service.";
+$vendorNameHelper			= "Company that provided the service/purchased from.";
+$expenseNameHelper			= "Give the expense a Title (ie. Toilet Parts, Locksmith Service etc.).";
+$expenseDescHelper			= "Short Description of the expense.";
+$expenseCostHelper			= "The total Expense Cost.";
+
+$expenseDateReqMsg			= "Please enter the Date of the Expense.";
+$expenseNameReqMsg			= "Please give this Service Expense a Title.";
+$expenseDescReqMsg			= "Please enter a short Description of this Expense.";
+$expenseCostReqMsg			= "Please enter the Total Cost of this Expense.";
+$serviceExpenseSavedMsg		= "The Service Request Expense has been saved.";
+
+// Page Specific - View Tenant Info/Account
+// --------------------------------------------------------------------------------------------------
+$avatarRemovedMsg			= "The Tenant's Avatar Image has been removed.";
+$avatarRemoveErrorMsg		= "An Error was encountered &amp; the Tenant's Avatar image could not be deleted at this time.";
+$tenantPersonalInfoUpdMsg	= "The Tenant's Personal Info has been updated.";
+$tenantNotesUpdatedMsg		= "The Tenant's internal Notes have been updated.";
+$tenantEmailReqMsg			= "The Tenant's Email Address is Required.";
+$tenantEmailUpdatedMsg		= "The Tenant's Account Email has been updated.";
+$tenantsNewPassReqMsg		= "Please enter the Tenant's new Password.";
+$tenantRepeatPassReqMsg		= "Please type the Tenant's new Password again.";
+$passwordUpdatedMsg			= "The Tenant's new Password has been saved.";
+$activeLeaseFoundMsg		= "Account Status Update failed. The Tenant currently has an Active Lease.";
+$tenantAccountStatusUpdMsg	= "The Tenant's Account Status has been updated.";
+$emailSubjectReqMsg			= "Please enter the Subject of your Email.";
+$emailTextReqMsg			= "Please enter the text of the Email.";
+
+$tenantAccountH3			= "Account Profile";
+$tenantAccountQuip			= "You can update and/or archive this Tenant's Account.";
+$tenantAccountStatusNote	= "The Tenant's Account Status can only be changed when they do NOT have an Active Property Lease.";
+
+$tenantSidebarTitle			= "Update Account Information";
+$updTenantAvatarLi			= "Tenant's Profile Avatar";
+$updTenantInfoLi			= "Update Tenant's Personal Information";
+$updTenantNotesLi			= "Update Tenant's Internal Notes";
+$updTenantEmailLi			= "Update Tenant's Account Email";
+$updTenantPasswordLi		= "Change Tenant's Password";
+$updTenantStatusLi			= "Change Tenant's Account Status";
+
+$tenantIsArchivedMsg		= "This Tenant is currently Archived.";
+$tenantIsInactiveMsg		= "Tenant Account has not been Activated.";
+
+$tenantsLeasedPropH3		= "'s Leased Property";
+$tenantNoLeasedPropMsg		= "does not have a Leased Property";
+
+$removeAvatarModalTitle		= "Remove Tenant's Avatar";
+$removeAvatarQuip			= "You can remove the Tenant's current Avatar, and use the default Avatar. This is handy in the case of a Tenant uploading a questionable image.";
+$removeAvatarBtn			= "Remove Current Avatar Image";
+$noAvatarUploadedQuip		= "The Tenant does not have a custom Avatar uploaded at this time.";
+$removeAvatarConfModal		= "Are you sure you want to remove the Avatar for";
+
+$updTenantInfoModalTitle	= "Update Tenant's Personal Information";
+$updTenantNotesModalTitle	= "Update Tenant's Internal Notes";
+$tenantInternalNotesField	= "Internal Notes";
+$updTenantEmailModalTitle	= "Update Tenant's Account Email Address";
+$tenantEmailHelper			= "The Tenant's account email address is also used as their Account log In.";
+$updPasswordModalTitle		= "Change the Tenant's Account Password";
+$newTenantPasswordHelper	= "Type a new Password for the Tenant's Account.";
+$newTenantPassRepeatHelper	= "Please type the new Password again. Passwords MUST Match.";
+$updTenantStatusModalTitle	= "Change the Tenant's Account Status";
+$updTenantStatusQuip		= "The Tenant's Account Status can only be changed when they do NOT have an Active Property Lease.";
+$activeAccountField			= "Active Account?";
+$accountStatusHelper		= "You can manually set the Tenant's account as Active. Inactive Tenants CANNOT access their accounts.";
+$archiveAccountField		= "Archive the Tenant Account?";
+$archiveAccountHelper		= "Active &amp; Archived Tenant's can still access their accounts.";
+$sendEmailModalTitle		= "Send an Email to";
+$subjectField				= "Email Subject";
+$emailTextField				= "Email Text";
+$tenantEmailSentMsg			= "The Email has been sent to the Tenant.";
+
+$tenantDocumentsH3			= "Documents Uploaded for";
+$tenantDocQuip				= "Tenant Documents are files that relate to only the Tenant.";
+$uploadTenantDocBtn			= "Upload a Tenant Document";
+$noDocsFoundMsg				= "No Documents found.";
+
+$documentUploadedMsg 		= "The new Document has been uploaded.";
+$documentUploadErrorMsg 	= "There was an error uploading the Document, please check the file type &amp; try again.";
+$tenantDocTitleReqMsg		= "The Tenant Document must have a Title.";
+$tenantDocDescReqMsg		= "Please include a short Description for the Tenant Document.";
+
+$tab_documentName			= "Document Name";
+$documentDeletedMsg			= "The Tenant Document has been Deleted.";
+$documentRemoveErrorMsg 	= "An Error was encountered &amp; the Tenant Document could not be deleted at this time.";
+$deleteDocumentConf			= "Are you sure you wish to DELETE this Document?";
+
+// Page Specific - View Tenant Document
+// --------------------------------------------------------------------------------------------------
+$viewDocumentH3				= "Viewing Tenant Document";
+
+// Page Specific - View Admin/Landlord Account
+// --------------------------------------------------------------------------------------------------
+$adminAccountH3				= "Admin/Landlord Account Profile";
+$adminAccountQuip			= "You can update and/or change the Active state of this Admin's Account.";
+$adminAccountStatusNote		= "The Admin's Account Status can only be changed when they do NOT have a Leased Property assigned.";
+$adminSidebarTitle			= "Update Account Information";
+
+$updAdminAvatarLi			= "Admin's Profile Avatar";
+$updAdminInfoLi				= "Update Admin's Personal Information";
+$updAdminEmailLi			= "Update Admin's Account Email";
+$updAdminPasswordLi			= "Change Admin's Password";
+$updAdminStatusLi			= "Change Admin's Account Status";
+
+$adminIsArchivedMsg			= "This Admin is currently Archived.";
+$adminIsInactiveMsg			= "Admin Account is Inactive.";
+
+$adminAssignedPropertiesH3	= "'s Current Assigned Properties";
+$removeAvatarModalTitle		= "Remove Admin's Avatar";
+$removeAvatarModalQuip		= "You can remove the Admin's current Avatar, and use the default Avatar. This is handy in the case of a Admin uploading a questionable image.";
+$noAdminAvatar				= "The Admin does not have a custom Avatar uploaded at this time.";
+$changeAdminTypeModalTitle	= "Change the Admin's Account Type";
+$adminLevelField			= "Admin Level";
+$adminLevelHelper			= "Superuser: Full Access &amp; Add/Modify &amp; Delete permissions.<br />Normal: Cannot Add/Modify other Admins, Limited Payment System and Site Settings Access.";
+$adminRoleField				= "Admin Role";
+$updateAdminPersInfoTitle	= "Update Admin's Personal Information";
+$updateAdminEmailTitle		= "Update Admin's Account Email Address";
+$adminEmailHelper			= "The Admin's account email address is also used as their Account log In.";
+$changeAdminPasswordTitle	= "Change the Admin's Account Password";
+$adminNewPasswordHelper		= "Type a new Password for the Admin's Account.";
+$changeAdminStatusTitle		= "Change the Admin's Account Status";
+$changeAdminStatusField		= "Account Status";
+$changeAdminStatusQuip		= "Admin Accounts can only be deactivated when they do NOT have any active Projects assigned.";
+$changeAdminStatusHelper	= "You can manually set the Admin's account as Active. Inactive Admins CANNOT access their accounts.";
+
+$adminAvatarRemovedMsg		= "The Admin's Avatar Image has been removed.";
+$adminAvatarRemoveErrorMsg	= "An Error was encountered &amp; the Admin's Avatar image could not be deleted at this time.";
+$adminAccountUpdatedMsg		= "The Admin's Account Type has been updated.";
+$adminPersonalInfoUpdatedMsg = "The Admin's Personal Info has been updated.";
+$adminEmailReqMsg			= "The Admin's Email Address is Required.";
+$adminEmailUpdatedMsg		= "The Admin's Account Email has been updated.";
+$adminNewPasswordReqMsg		= "Please enter the Admin's new Password.";
+$adminRetypePassReqMsg		= "Please type the Admin's new Password again.";
+$newPasswordsNoMatchMsg		= "New Passwords do not match.";
+$adminsPasswordSavedMsg		= "The Admin's new Password has been saved.";
+$adminAccountStatusUpdMsg	= "The Admin's Account Status has been updated.";
+$accountStatusUpdFailedMsg	= "The Admin currently has an assigned Property and can not be set to Inactive at this time.";
+$adminEmailSentMsg			= "The Email has been sent to the Admin.";
+
+// Page Specific - All Payments by Lease/Property
+// --------------------------------------------------------------------------------------------------
+$allPaymentsH3 				= "All Rental Payments";
+$allPaymentsQuip 			= "All Rental Payments made for this Current Lease.";
+$newPaymentBtnLink			= "Record a Rental Payment";
+$noPaymentsRecorded			= "No Payments have been recorded.";
+$viewPrintReceipt			= "View/Print Receipt";
+
+$deletePaymentConf			= "Are you sure you wish to DELETE this Payment?";
+
+// Page Specific - View Payment
+// --------------------------------------------------------------------------------------------------
+$paymentDetailsH3			= "Payment Details";
+$refundQuip					= "You can Issue a Refund for this Payment. Refunds affect the total of the original payment amount and are indicated by an asterisk.
+Refunds can only be issued once per payment.";
+$issueRefundBtn				= "Issue a Refund";
+$paymentInfoListHeader		= "Payment Information";
+
+$updatePaymentBtn			= "Update Payment";
+$emailReceiptBtn			= "Email Receipt";
+$deletePaymentBtn			= "Delete Payment";
+$issueTheRefundBtn			= "Issue Refund";
+$sendEmailBtn				= "Send the Email";
+
+$refundIssuedH3				= "A Refund has been Issued for this Payment";
+$refundIssuedBy				= "Issued By";
+
+$refundDateField			= "Refund Date";
+$refundDateHelper			= "The Date the Refund was issued to the Tenant.";
+$refundAmountField			= "Refund Amount";
+$refundForField				= "Refund For";
+$refundForHelper			= "What this Refund is for. (ie. Refund Security Deposit, Over Payment etc.)";
+$refundNotesField			= "Refund Notes";
+$refundDateReqMsg			= "Please enter the Date the Refund was issued";
+$refundAmountReqMsg			= "Please enter the Amount of the Refund.";
+$refundForReqMsg			= "Please enter what this Refund was for (ie. Security Deposit Refund et.).";
+$refundIssuedMsg			= "The Refund has been saved, and the original Payment has been updated.";
+
+$paymentUpdatedMsg			= "The Payment has been updated.";
+$emailNotesField			= "Include a Note with the Receipt";
+$emailNotesHelper			= "Not Required.";
+$emailReceiptDefaultSubject	= "Payment Receipt from ".$set['siteName'];
+$emailReceiptSentMsg		= "The Tenant's Receipt has been sent.";
+
+// Page Specific - Payment Receipt
+// --------------------------------------------------------------------------------------------------
+$headTitle					= "Receipt of Payment";
+$receivedFrom				= "Received From:";
+$receiptDate				= "Receipt Date";
+$paymentNum					= "Payment ID #";
+$dateReceived				= "Date Received";
+$monthlyRent				= "Rent Month";
+$descFor					= "Description/For";
+$payNotes					= "Payment Notes";
+$lateFeeDue					= "Late Fee Due";
+$amountDue					= "Amount Due";
+$totalAmountDue				= "Total Amount Due";
+$totalAmountPaid			= "Amount Paid";
+$receiptThankYou			= "Thank You For Your Trust in ".$set['siteName'];
+
+// Page Specific - Email All Tenants
+// --------------------------------------------------------------------------------------------------
+$sendMassEmailH3			= "Send an Email to All Active Tenants";
+$sendMassEmailQuip			= "You can send a mass-email to all of your Current Active Tenants.";
+
+$emailAllTenantsSentMsg		= "The Email has been sent to all current Active Tenants.";
+$emailSentError				= "There was an error, and the email could not be sent.";
+
+// Page Specific - Templates & Forms
+// --------------------------------------------------------------------------------------------------
+$templatesFormsH3			= "Uploaded Templates &amp; Forms";
+$templatesFormsQuip			= "Below is a list of your uploaded Templates &amp; Forms.";
+
+$uploadNewTemplateBtn		= "Upload New Template/Form";
+$noTemplatesFoundMsg		= "No Templates or Forms have been uploaded.";
+
+$premadeFormsH3				= "Pre-Made Forms";
+$premadeFormsQuip			= $set['siteName']." comes with some pre-made Forms & Templates.";
+$premadeFormsInst			= "These are great to use with your Tenants, just fill in the PDF fields out with the Tenant's information.
+These pre-made forms are designed to be filled out, printed and then given to the Tenant. If you have the full version of
+<a href=\"http://www.adobe.com/products/acrobat.html\" target=\"_blank\">Adobe Acrobat</a>, you can also save the completed form, and then
+upload it to the Tenant's account.";
+
+$tab_formName				= "Form Name";
+$tab_formDescription		= "Description";
+$applicationFormTitle		= "Rental Application Form";
+$applicationFormDesc		= "Basic Tenant Rental Application";
+$rentIncreaseTitle			= "Rent Increase Notice";
+$rentIncreaseDesc			= "Notice of Rental Rate Increase";
+$moveOutReminderTitle		= "Move Out Reminder";
+$moveOutReminderDesc		= "What's expected from a Tenant on Moving Out";
+$petAgreementTitle			= "Pet Agreement";
+$petAgreementDesc			= "Details of allowed pets";
+$importantInfoTitle			= "Important Information for a New Tenant";
+$importantInfoDesc			= "Helpful information relating to a newly Leased Property";
+$returnedCheckTitle			= "Returned Check Notice";
+$returnedCheckDesc			= "Notice of a Bank refused/Returned Check";
+$vacateOrRenewTitle			= "Notice to Vacate or Renew Lease";
+$vacateOrRenewDesc			= "Tenant's intentions beyond the current Lease";
+
+$uniqueTemplateNames		= "Template/Form Names need to be Unique.<br />Do not use any slashes (ie. /) in the Template Name.";
+$allowedTemplateTypesQuip 	= "Allowed File Types:";
+$templateNameField			= "Template/Form Name";
+$templateNameHelper			= "Please give the Template a Name.";
+$templateDescriptionHelper	= "A short description about the Template.";
+
+$templateNameReqMsg			= "Please give the Template/Form a Name";
+$templateDescReqMsg			= "Please include a short Description of the Template/Form";
+$templateDeletedMsg			= "The Template has been Deleted.";
+$templateDeleteErrorMsg		= "An Error was encountered &amp; the Template could not be deleted at this time.";
+
+$deleteTemplateConf			= "Are you sure you want to DELETE the Template?";
+
+// Page Specific - View Uploaded Template/Form
+// --------------------------------------------------------------------------------------------------
+$viewTemplateH3				= "Viewing Template/Form &mdash;";
+$viewTemplateQuip			= "Pictures/Images will be displayed. Any other Template/Form type will need to be downloaded to view/use.";
+
+// Page Specific - Reports
+// --------------------------------------------------------------------------------------------------
+$reportsH3					= $set['siteName']." Reports";
+$reportsQuip				= $set['siteName']." offers various reporting options to help manage your Properties &amp; Tenants.";
+$reportInst					= "Additional Filter Options can be set for each Report. Most filter options are required for the report to run.";
+$runReportBtn				= "Run Report";
+
+$tenantReportsTitle			= "Tenant Reports";
+$propertyReportsTitle		= "Property Reports";
+$serviceReportsTitle		= "Service Reports";
+$accountingReportsTitle		= "Accounting Reports";
+$leaseReportsTitle			= "Lease Reports";
+$adminReportsTitle			= "Admin / Landlord Reports";
+
+$noTenantsFoundMsg			= "No Tenants found.";
+$noPropertiesFoundMsg		= "No Properties found.";
+$noRequestsFoundMsg			= "No Service Requests found.";
+$noPaymentsFoundMsg			= "No Payments found.";
+$noLeasesFoundMsg			= "No Leases found.";
+
+$report1Title				= "Current Active &amp; Inactive Tenants";
+$report2Title				= "Archived Tenants Report";
+$report3Title				= "Properties Report";
+$report4Title				= "Service Requests Report";
+$report5Title				= "Total Costs by Service Request";
+$report6Title				= "Payments Received Report";
+$report7Title				= "Refunds Issued Report";
+$report8Title				= "Leases Report";
+$report9Title				= "Admin/Landlord Accounts Report";
+$report0Title				= "Admin/Landlord Assigned Properties Report";
+
+$includeInactiveField		= "Include Inactive Tenants";
+$includeInactiveHelper		= "Choose whether to include Inactive Tenants in this report.";
+$includeArchivedHelper		= "No options available, just hit Run Report.";
+
+$reportTitleH3				= "Report:";
+$noReportRecordsFoundMsg	= "No records found.";
+$totalRecordsFound			= "Total Records:";
+$reportTotals				= "Report Total:";
+$reportCreatedOnDate		= "Report created on:";
+
+$selectPropertyTypeField	= "Select a Property Report Type";
+$selectPropertyTypeHelper	= "Select the Property status you would like included in the Report.";
+$propertyType1				= "Only Leased Properties";
+$propertyType2				= "Currently Leased &amp; Available to Rent Properties";
+$propertyType3				= "Only Properties that are Available to Rent";
+$propertyType4				= "Only Archived Properties";
+
+$serviceIncludeField		= "Choose What to Include";
+$serviceIncludeHelper		= "Select the status of the Service Requests you would like included in the Report.";
+$requestType1				= "Only Active/Open Requests";
+$requestType2				= "All Open/Active &amp; Completed Requests";
+$requestType3				= "Only Closed/Completed Requests";
+$selectTenantField			= "Select Tenant";
+$allOption					= "All *";
+$allOptionHelper			= "* Active &amp; Inactive only. Archived accounts are not included on the report.";
+
+$fromDateField				= "Show Records From";
+$fromDateHelper				= "Please select or type a Beginning Date.";
+$toDateField				= "Show Records To";
+$toDateHelper				= "Please select or type an End Date.";
+
+$allPaymentsField			= "Include All Payments?";
+$allPaymentsNoOption		= "No, Include only Rent Payments";
+$allPaymentsYesOption		= "Yes, Show ALL Payments";
+$allPaymentsHelper			= "Select Yes to include Any Fees &amp; Deposits Tenants have paid in this Report.";
+
+$closedLeasesField			= "Include Closed Leases?";
+$closedLeasesNoOption		= "No, Do NOT Include Closed Leases";
+$closedLeasesYesOption		= "Yes, Include Both Open &amp; Closed Leases";
+$closedLeasesHelper			= "Choose whether to include Closed Leases in this report.";
+
+$inactiveAdminsField		= "Include Inactive Admins/Landlords?";
+$inactiveAdminsNoOption		= "No, Do NOT Include Inactive";
+$inactiveAdminsYesOption	= "Yes, Show Me All";
+$inactiveAdminsHelper		= "Choose whether to include Inactive Admins/Landlords in this report.";
+
+$selectAdminField			= "Select Admin/Landlord";
+$selectAdminHelper			= "* Only Active Admins &amp; Landlords are included in the report.";
+
+// Page Specific - reports - Tenant Reports
+// --------------------------------------------------------------------------------------------------
+$reportType1				= "All Active &amp; Inactive Tenants";
+$reportType2				= "Active Tenants Only";
+$archivedTenantReportName	= "Archived Tenants";
+
+// Page Specific - reports - Properties Report
+// --------------------------------------------------------------------------------------------------
+$depositAmountReq			= "Deposit Amount";
+
+// Page Specific - reports - Service Reports
+// --------------------------------------------------------------------------------------------------
+$tab_dateCompleted			= "Date Completed";
+$tab_totalRepairCost		= "Total Repair Cost";
+
+// Page Specific - reports - Accounting Reports
+// --------------------------------------------------------------------------------------------------
+$tab_originalPaymentFor		= "Original Payment For";
+$tab_originalPaymentDate	= "Original Payment Date";
+
+// Page Specific - reports - Lease Reports
+// --------------------------------------------------------------------------------------------------
+$leaseReport1				= "Only Open Leases";
+$leaseReport2				= "All Open &amp; Closed Leases";
+
+// Page Specific - reports - Admin Reports
+// --------------------------------------------------------------------------------------------------
+$adminReport1				= "All Active &amp; Inactive Admins";
+$adminReport2				= "Active Admins Only";

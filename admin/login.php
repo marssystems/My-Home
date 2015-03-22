@@ -13,8 +13,8 @@
 		// Set Localization
 		$local = $set['localization'];
 		switch ($local) {
-			case 'en':
-				include ('language/en.php');
+			case 'en-gb':
+				include ('language/en-gb.php');
 				break;
 			case 'es':
 				include ('language/es.php');
@@ -146,9 +146,9 @@
 					$message .= '<hr>';
 					$message .= '<p>'.$emailPassword.'</p>';
 					$message .= '<hr>';
-					$message .= '<p>Please take the time to change your password to something you can easily remember. You can change your password on your My Profile page after logging into your Admin/Landlord account. There you can update your password, as well as your account details.</p>';
-					$message .= '<p>You can log into your account with your email address and new password at: '.$installUrl.'admin</p>';
-					$message .= '<p>Thank you,<br>'.$siteName.'</p>';
+					$message .= '<p>Please take the time to change your password to something you can easily remember. <br />You can change your password on your My Profile page after logging into your Admin/Landlord account. <br />There you can update your password, as well as your account details.</p>';
+					$message .= '<p>You can log into your account with your email address and new password <a href="http://'.$installUrl.'admin/">HERE</a></p>';
+					$message .= '<p>Thank you,<br />'.$siteName.'</p>';
 					$message .= '</body></html>';
 
 					$headers = "From: ".$siteName." <".$businessEmail.">\r\n";
@@ -178,7 +178,7 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-		<link href="../css/bootstrap.css" rel="stylesheet">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="../css/custom.css" rel="stylesheet">
 		<link href="../css/reside.css" rel="stylesheet">
 		<link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -272,9 +272,9 @@
 
 			<div class="footer">
 				<p class="textCenter">
-					&copy; <?php echo date('Y'); ?> <a href="http://gmsoft.com.ar">gmSoft</a>
-					
-					
+					&copy; <?php echo date('Y'); ?> <a href="http://mars-systems.co.uk">My-Home Property Management</a>
+					<span><i class="fa fa-plus"></i></span>
+					Provided by <a href="http://mars-systems.co.uk" target="_blank">Mars Systems International</a>
 				</p>
 			</div>
 

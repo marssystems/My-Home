@@ -17,7 +17,7 @@
 						properties
 						LEFT JOIN leases ON properties.propertyId = leases.propertyId
 						LEFT JOIN tenants ON leases.leaseId = tenants.leaseId
-					WHERE tenants.tenantId = ".$_SESSION['tenantId'];
+					WHERE tenants.tenantId = ".$tenantId;
 			$idres = mysqli_query($mysqli, $theId) or die('Error, retrieving Tenant Lease ID failed. ' . mysqli_error());
 			$a = mysqli_fetch_assoc($idres);
 			$propertyName = $a['propertyName'];
@@ -27,6 +27,7 @@
 			$requestPriority = $mysqli->real_escape_string($_POST['requestPriority']);
 			$requestDesc = htmlentities($_POST['requestDesc']);
 			$today = date("Y-m-d H:i:s");
+			$status = ('1');
 
 			// Add the Request
             $stmt = $mysqli->prepare("
@@ -36,6 +37,7 @@
 										leaseId,
 										requestDate,
                                         requestPriority,
+										requestStatus,
 										requestTitle,
 										requestDesc
                                     ) VALUES (
@@ -44,17 +46,21 @@
                                         ?,
 										?,
 										?,
+										?,
 										?
                                     )");
-            $stmt->bind_param('ssssss',
-                $_SESSION['tenantId'],
+            $stmt->bind_param('sssssss',
+                $tenantId,
 				$leaseId,
 				$today,
                 $requestPriority,
+				$status,
 				$requestTitle,
 				$requestDesc
             );
-            $stmt->execute();
+            if (!$stmt->execute()) {
+					echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+					}
 
 			// Send out the email in HTML
 			$installUrl = $set['installUrl'];
@@ -70,7 +76,7 @@
 			$message .= '<p>'.$requestTitle.'</p>';
 			$message .= '<p>'.$requestDesc.'</p>';
 			$message .= '<hr>';
-			$message .= '<p>You can view and respond to this request by logging in to your account at '.$installUrl.'admin</p>';
+			$message .= '<p>You can view and respond to this request by logging in to your account <a href="'.$installUrl.'admin/">HERE</a></p>';
 			$message .= '<p>Thank you,<br>'.$siteName.'</p>';
 			$message .= '</body></html>';
 
@@ -118,7 +124,7 @@
 				LEFT JOIN tenants ON servicerequests.leaseId = tenants.leaseId
 				LEFT JOIN properties ON tenants.propertyId = properties.propertyId
 			WHERE
-				servicerequests.tenantId = ".$_SESSION['tenantId']."
+				servicerequests.tenantId = ".$tenantId."
 			ORDER BY requestId";
 	$res = mysqli_query($mysqli, $query) or die('Error, retrieving Service Data failed. ' . mysqli_error());
 ?>

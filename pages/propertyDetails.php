@@ -53,7 +53,7 @@
 			LEFT JOIN assignedproperties ON tenants.propertyId = assignedproperties.propertyId
 			LEFT JOIN admins ON assignedproperties.adminId = admins.adminId
 		WHERE
-            tenants.tenantId = ".$_SESSION['tenantId']." AND
+            tenants.tenantId = ".$tenantId." AND
             leases.isClosed = 0";
 	$leaseres = mysqli_query($mysqli, $lease) or die('Error, retrieving Property Data failed. ' . mysqli_error());
     $row = mysqli_fetch_assoc($leaseres);
@@ -122,7 +122,7 @@
             FROM
                 residents
             WHERE
-                tenantId = ".$_SESSION['tenantId'];
+                tenantId = ".$tenantId;
     $residentres = mysqli_query($mysqli, $resident) or die('Error, retrieving Resident Data failed. ' . mysqli_error());
 
     // Get 5 latest payments data
@@ -142,7 +142,7 @@
 		FROM
 			payments
         WHERE
-			tenantId = ".$_SESSION['tenantId']."
+			tenantId = ".$tenantId."
 		ORDER BY orderDate DESC
 		LIMIT 5";
 	$paymentres = mysqli_query($mysqli, $payment) or die('Error, retrieving Payment Data failed. ' . mysqli_error());

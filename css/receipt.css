@@ -82,7 +82,7 @@ table.meta td { width: 55%; }
 table.inventory { clear: both; width: 100%; }
 table.inventory th { font-weight: bold; text-align: center; }
 
-table.inventory .type { width: 45% !important; }
+table.inventory .type { width: 25% !important; }
 table.inventory .amount { width: 10% !important; }
 table.inventory .notes { width: 30% !important; }
 table.inventory .paidBy { width: 15%; }

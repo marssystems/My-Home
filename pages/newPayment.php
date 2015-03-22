@@ -31,7 +31,7 @@
 			LEFT JOIN assignedproperties ON tenants.propertyId = assignedproperties.propertyId
 			LEFT JOIN admins ON assignedproperties.adminId = admins.adminId
 		WHERE
-            tenants.tenantId = ".$_SESSION['tenantId'];
+            tenants.tenantId = ".$tenantId;
 	$leaseres = mysqli_query($mysqli, $lease) or die('Error, retrieving Property Data failed. ' . mysqli_error());
     $row = mysqli_fetch_assoc($leaseres);
 
@@ -139,7 +139,7 @@
 		<!-- Display the payment button. -->
 		<p>
 			<button type="input" name="submit" value="Paypal" class="btn btn-success btn-icon"><i class="fa fa-credit-card"></i> <?php echo $paypalBtn; ?></button>
-			<input type="hidden" name="return" value="<?php echo $set['installUrl']; ?>index.php?page=paymentComplete&tenantId=<?php echo $_SESSION['tenantId']; ?>" />
+			<input type="hidden" name="return" value="<?php echo $set['installUrl']; ?>index.php?page=paymentComplete&tenantId=<?php echo $tenantId; ?>" />
 		</p>
 	</form>
 

@@ -50,7 +50,6 @@
 				FROM
 					properties
 				WHERE
-					createdBy = ".$_SESSION['adminId']." AND
 					isLeased = 0 AND
 					isArchived = 1";
     $res = mysqli_query($mysqli, $query) or die('Error, retrieving Archived Property Data failed. ' . mysqli_error());

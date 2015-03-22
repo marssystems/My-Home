@@ -24,13 +24,11 @@
 				FROM
 					sitealerts
 				WHERE
-					adminId = ".$_SESSION['adminId']." AND
 					alertStart <= DATE_SUB(CURDATE(),INTERVAL 0 DAY) AND
-					alertExpires >= DATE_SUB(CURDATE(),INTERVAL 0 DAY) AND
+					alertExpires >= DATE_SUB(CURDATE(),INTERVAL 0 DAY) OR
 					isActive = 1
 				ORDER BY
 					orderDate DESC";
-					
     $alertres = mysqli_query($mysqli, $alert) or die('Error, retrieving Alert Data failed. ' . mysqli_error());
 
 	if ($leaseId != '0') {
@@ -61,7 +59,7 @@
 				LEFT JOIN assignedproperties ON tenants.propertyId = assignedproperties.propertyId
 				LEFT JOIN admins ON assignedproperties.adminId = admins.adminId
 			WHERE
-				tenants.tenantId = ".$_SESSION['tenantId']." AND
+				tenants.tenantId = ".$tenantId." AND
 				leases.isClosed = 0";
 		$leaseres = mysqli_query($mysqli, $lease) or die('Error, retrieving Current Lease Data failed. ' . mysqli_error());
 		$col = mysqli_fetch_assoc($leaseres);
@@ -88,7 +86,7 @@
 			FROM
 				payments
 			WHERE
-				tenantId = ".$_SESSION['tenantId']." AND
+				tenantId = ".$tenantId." AND
 				isRent = 1
 			ORDER BY orderDate DESC
 			LIMIT 1";
@@ -155,13 +153,13 @@
 					servicerequests
 				WHERE
 					requestStatus IN ('0', '1', '2') AND
-					tenantId = ".$_SESSION['tenantId']."
+					tenantId = ".$tenantId."
 				ORDER BY requestId";
 		$serviceres = mysqli_query($mysqli, $service) or die('Error, retrieving Service Data failed. ' . mysqli_error());
 	}
 
 	// Get the Tenant's Avatar
-	$avatar = "SELECT tenantAvatar FROM tenants WHERE tenantId = ".$_SESSION['tenantId'];
+	$avatar = "SELECT tenantAvatar FROM tenants WHERE tenantId = ".$tenantId;
 	$avatarres = mysqli_query($mysqli, $avatar) or die('Error, retrieving Tenant Avatar failed. ' . mysqli_error());
 	$a = mysqli_fetch_assoc($avatarres);
 ?>

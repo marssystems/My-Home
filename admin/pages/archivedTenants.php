@@ -28,7 +28,6 @@
 				FROM
 					tenants
 				WHERE
-					adminId = ".$_SESSION['adminId']." AND
 					isActive = 0 AND
 					isArchived = 1";
     $res = mysqli_query($mysqli, $query) or die('Error, retrieving Unleased Tenant Data failed. ' . mysqli_error());

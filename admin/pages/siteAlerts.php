@@ -50,7 +50,7 @@
 										?
 									)");
 			$stmt->bind_param('ssssssss',
-								$_SESSION['adminId'],
+								$adminId,
 								$isActive,
 								$onReceipt,
 								$alertTitle,
@@ -59,7 +59,9 @@
 								$alertStart,
 								$alertExpires
 			);
-			$stmt->execute();
+			if (!$stmt->execute()) {
+					echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+					}
 			$msgBox = alertBox($newAlertSavedMsg, "<i class='fa fa-check-square-o'></i>", "success");
 
 			// Clear the form of Values

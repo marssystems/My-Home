@@ -1,7 +1,7 @@
 <?php
 // All Pages - Globals
 // --------------------------------------------------------------------------------------------------
-$currencySym 				= "$";
+$currencySym 				= "£";
 $amountReflectRefund 		= "Amount reflects a Refund";
 $accessErrorH3				= "Access Error";
 $permissionDenied			= "Permission Denied. You can not access this page.";
@@ -41,9 +41,9 @@ $accountNotFoundMsg 		= "Account not found for that email address.";
 // Admin Header
 // --------------------------------------------------------------------------------------------------
 $pageHeadTitle				= "Administration";
-$welcomeMsg 				= "Howdy";
+$welcomeMsg 				= "Welcome";
 $todayMsg 					= "Today is";
-$signoutConf 				= "are you sure you want to signout?";
+$signoutConf 				= "Are you sure you want to sign out?";
 
 $activeAccountHelper		= "Selecting No will require the Tenant to activate the Account via a link sent to the account email address.";
 $tenantsEmailHelper			= "The Tenant's email. Used for logging in and notifications.";

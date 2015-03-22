@@ -12,7 +12,7 @@
 	// Remove Avatar Image
     if (isset($_POST['submit']) && $_POST['submit'] == 'removeAvatar') {
 		// Get the Tenant's avatar url
-		$sql = "SELECT tenantAvatar FROM tenants WHERE tenantId = ".$_SESSION['tenantId'];
+		$sql = "SELECT tenantAvatar FROM tenants WHERE tenantId = ".$tenantId;
 		$result = mysqli_query($mysqli, $sql) or die(mysqli_error());
 		$r = mysqli_fetch_assoc($result);
 		$avatarName = $r['tenantAvatar'];
@@ -33,7 +33,7 @@
 									tenantId = ?");
 			$stmt->bind_param('ss',
 							   $defaultAvatar,
-							   $_SESSION['tenantId']);
+							   $tenantId);
 			$stmt->execute();
 			$msgBox = alertBox($avatarRemovedMsg, "<i class='fa fa-check-square-o'></i>", "success");
 			$stmt->close();
@@ -84,7 +84,7 @@
 									tenantId = ?");
 			$stmt->bind_param('ss',
 							   $newAvatarName,
-							   $_SESSION['tenantId']);
+							   $tenantId);
 
 			if (move_uploaded_file($_FILES['file']['tmp_name'], $movePath)) {
 				$stmt->execute();
@@ -132,7 +132,7 @@
 								$tenantPhone,
 								$tenantAltPhone,
 								$tenantPets,
-								$_SESSION['tenantId']);
+								$tenantId);
 			$stmt->execute();
 			$msgBox = alertBox($personalInfoUpdatedMsg, "<i class='fa fa-check-square-o'></i>", "success");
 			$stmt->close();
@@ -155,7 +155,7 @@
 									tenantId = ?");
 			$stmt->bind_param('ss',
 							   $tenantEmail,
-							   $_SESSION['tenantId']);
+							   $tenantId);
 			$stmt->execute();
 			$msgBox = alertBox($emailAddyUpdatedMsg, "<i class='fa fa-check-square-o'></i>", "success");
 			$stmt->close();
@@ -191,7 +191,7 @@
 									tenantId = ?");
 			$stmt->bind_param('ss',
 							   $password,
-							   $_SESSION['tenantId']);
+							   $tenantId);
 			$stmt->execute();
 			$msgBox = alertBox($newPassSavedMsg, "<i class='icon-check-sign'></i>", "success");
 			$stmt->close();
@@ -215,7 +215,7 @@
 				createDate
 			FROM
 				tenants
-			WHERE tenantId = ".$_SESSION['tenantId'];
+			WHERE tenantId = ".$tenantId;
     $res = mysqli_query($mysqli, $query) or die('Error, retrieving Tenant Data failed. ' . mysqli_error());
 	$row = mysqli_fetch_assoc($res);
 

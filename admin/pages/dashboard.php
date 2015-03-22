@@ -5,19 +5,13 @@
 	$count = 0;
 
 	// Get the Current Month
-    $currentMonth = nombremes(date('m'));
+    $currentMonth = date('F');
 	// Get the Current Day
     $currentDay = date('d');
 
 	// Get Avatar Folder from Site Settings
 	$avatarDir = $set['avatarFolder'];
-	
-	function nombremes($mes){
-		setlocale(LC_TIME, 'es_ES');  
-		$nombre=strftime("%B",mktime(0, 0, 0, $mes, 1, 2000)); 		
-		return $nombre;
-	}
-	
+
 	// Record a Property Payment
 	if (isset($_POST['submit']) && $_POST['submit'] == 'Record Payment') {
 		if($_POST['paymentDate'] == "") {
@@ -70,7 +64,7 @@
 										?
 									)");
 			$stmt->bind_param('sssssssssss',
-				$_SESSION['adminId'],
+				$adminId,
 				$tenantId,
 				$leaseId,
 				$paymentDate,
@@ -97,7 +91,7 @@
 					isActive,
 					alertTitle,
 					alertText,
-					DATE_FORMAT(alertDate,'%d/%m/%Y') AS alertDate,
+					DATE_FORMAT(alertDate,'%M %d, %Y') AS alertDate,
 					UNIX_TIMESTAMP(alertDate) AS orderDate,
 					alertStart,
 					alertExpires
@@ -119,7 +113,7 @@
 					payments.tenantId,
 					payments.leaseId,
 					payments.hasRefund,
-					DATE_FORMAT(payments.paymentDate,'%d/%m/%Y') AS paymentDate,
+					DATE_FORMAT(payments.paymentDate,'%M %d, %Y') AS paymentDate,
 					UNIX_TIMESTAMP(payments.paymentDate) AS orderDate,
 					payments.paymentAmount,
 					payments.paymentPenalty,
@@ -210,7 +204,6 @@
 					LEFT JOIN leases ON properties.propertyId = leases.propertyId
 					LEFT JOIN tenants ON properties.propertyId = tenants.propertyId
 				WHERE
-					createdBy = ".$_SESSION['adminId']." AND
 					properties.isLeased = 1 AND
 					'".$today."' >= leases.leaseStart AND
 					properties.propertyId NOT IN (".$list.")";
@@ -219,7 +212,7 @@
 	// ----------------------------------------------------------------
 
 	// Get current Tenants
-	if ($_SESSION['superuser'] != '1') {
+	if ($superuser != '1') {
 		$tenant = "SELECT
 					tenants.tenantId,
 					tenants.propertyId,
@@ -232,7 +225,7 @@
 					properties.propertyId,
 					properties.propertyName,
 					properties.propertyRate,
-					DATE_FORMAT(leases.leaseEnd,'%d/%m/%Y') AS leaseEnd,
+					DATE_FORMAT(leases.leaseEnd,'%M %d, %Y') AS leaseEnd,
 					admins.adminId
 				FROM
 					tenants
@@ -241,7 +234,7 @@
 					LEFT JOIN assignedproperties ON tenants.propertyId = assignedproperties.propertyId
 					LEFT JOIN admins ON assignedproperties.adminId = admins.adminId
 				WHERE
-					admins.adminId = ".$_SESSION['adminId']." AND
+					admins.adminId = ".$adminId." AND
 					tenants.isActive = 1 AND
 					tenants.leaseId != 0";
 		$tenantres = mysqli_query($mysqli, $tenant) or die('Error, retrieving Current Tenant Data failed. ' . mysqli_error());
@@ -258,7 +251,7 @@
 					properties.propertyId,
 					properties.propertyName,
 					properties.propertyRate,
-					DATE_FORMAT(leases.leaseEnd,'%d/%m/%Y') AS leaseEnd,
+					DATE_FORMAT(leases.leaseEnd,'%M %d, %Y') AS leaseEnd,
 					admins.adminId,
 					admins.adminFirstName,
 					admins.adminLastName
@@ -285,7 +278,7 @@
 					propertyRate,
 					CASE petsAllowed
 						WHEN 0 THEN 'No'
-						WHEN 1 THEN 'Si'
+						WHEN 1 THEN 'Yes'
 					END AS petsAllowed,
 					propertyType,
 					propertyStyle,
@@ -296,7 +289,6 @@
 				FROM
 					properties
 				WHERE
-					createdBy = ".$_SESSION['adminId']." AND
 					isLeased = 0 AND
 					isArchived = 0";
     $propres = mysqli_query($mysqli, $prop) or die('Error, retrieving Unleased Properties Data failed. ' . mysqli_error());
@@ -304,26 +296,26 @@
 	// ----------------------------------------------------------------
 
 	// Get Open Service Requests
-	if ($_SESSION['superuser'] != '1') {
+	if ($superuser != '1') {
 		$serv = "SELECT
 					servicerequests.requestId,
 					servicerequests.tenantId,
 					servicerequests.leaseId,
 					servicerequests.adminId,
-					DATE_FORMAT(servicerequests.requestDate,'%d/%m/%Y') AS requestDate,
+					DATE_FORMAT(servicerequests.requestDate,'%M %d, %Y') AS requestDate,
 					CASE servicerequests.requestPriority
 						WHEN 0 THEN 'Normal'
-						WHEN 1 THEN 'Importante'
-						WHEN 2 THEN 'Urgente'
+						WHEN 1 THEN 'Important'
+						WHEN 2 THEN 'Urgent'
 					END AS requestPriority,
 					servicerequests.requestStatus,
 					CASE servicerequests.requestStatus
-						WHEN 0 THEN 'Abiertas'
-						WHEN 1 THEN 'En progreso'
-						WHEN 2 THEN 'Esperando'
+						WHEN 0 THEN 'Open'
+						WHEN 1 THEN 'Work in Progress'
+						WHEN 2 THEN 'Waiting for Parts'
 					END AS status,
 					servicerequests.requestTitle,
-					DATE_FORMAT(servicerequests.lastUpdated,'%d/%m/%Y  %l:%i %p') AS lastUpdated,
+					DATE_FORMAT(servicerequests.lastUpdated,'%W, %M %e, %Y at %l:%i %p') AS lastUpdated,
 					tenants.tenantFirstName,
 					tenants.tenantLastName,
 					properties.propertyId,
@@ -337,7 +329,7 @@
 					LEFT JOIN assignedproperties ON tenants.propertyId = assignedproperties.propertyId
 					LEFT JOIN admins ON assignedproperties.adminId = admins.adminId
 				WHERE
-					admins.adminId = ".$_SESSION['adminId']." AND
+					admins.adminId = ".$adminId." AND
 					servicerequests.requestStatus IN ('0','1','2')";
 		$servres = mysqli_query($mysqli, $serv) or die('Error, retrieving Open Service Requests Data failed. ' . mysqli_error());
 	} else {
@@ -346,20 +338,20 @@
 					servicerequests.tenantId,
 					servicerequests.leaseId,
 					servicerequests.adminId,
-					DATE_FORMAT(servicerequests.requestDate,'%d/%m/%Y') AS requestDate,
+					DATE_FORMAT(servicerequests.requestDate,'%M %d, %Y') AS requestDate,
 					CASE servicerequests.requestPriority
 						WHEN 0 THEN 'Normal'
-						WHEN 1 THEN 'Importante'
-						WHEN 2 THEN 'Urgente'
+						WHEN 1 THEN 'Important'
+						WHEN 2 THEN 'Urgent'
 					END AS requestPriority,
 					servicerequests.requestStatus,
 					CASE servicerequests.requestStatus
-						WHEN 0 THEN 'Abierto'
-						WHEN 1 THEN 'En progreso'
-						WHEN 2 THEN 'Esperando'
+						WHEN 0 THEN 'Open'
+						WHEN 1 THEN 'Work in Progress'
+						WHEN 2 THEN 'Waiting for Parts'
 					END AS status,
 					servicerequests.requestTitle,
-					DATE_FORMAT(servicerequests.lastUpdated,'%d/%m/%Y  %l:%i %p') AS lastUpdated,
+					DATE_FORMAT(servicerequests.lastUpdated,'%W, %M %e, %Y at %l:%i %p') AS lastUpdated,
 					tenants.tenantFirstName,
 					tenants.tenantLastName,
 					properties.propertyId,
@@ -387,14 +379,14 @@
 			END AS adminRole,
 			adminAvatar
 		FROM admins
-		WHERE adminId = ".$_SESSION['adminId'];
+		WHERE adminId = ".$adminId;
 	$b = mysqli_query($mysqli, $a) or die('Error' . mysqli_error());
 	$c = mysqli_fetch_assoc($b);
 ?>
 <div class="row">
 	<div class="col-md-6">
 		<img alt="Admin Avatar" src="../<?php echo $avatarDir.$c['adminAvatar']; ?>" class="avatar" />
-		<p class="lead welcomeMsg"><?php echo $welcomeMessage. ' ' . $adminFirstName.' '.$adminLastName; ?></p>
+		<p class="lead welcomeMsg"><?php echo $welcomeMessage.' '.$c['adminRole'].' '.$adminFirstName.' '.$adminLastName; ?></p>
 		<p><?php echo $welcomeMessageQuip; ?></p>
 	</div>
 	<div class="col-md-6">
@@ -420,11 +412,11 @@
 
 <?php
 	// Late Rent
-	if ($_SESSION['superuser'] == '1') {			// Only Superusers
+	if ($superuser == '1') {			// Only Superusers
 		if ($currentDay > '5') {		// Only if over the 5 day grace period (shows on day 6 - server time)
 			if(mysqli_num_rows($latepayres) > 0) {
 ?>
-				<h3 class="success"><?php echo $lateRentH3.' '.$currentMonth . ' ' . date('Y'); ?></h3>
+				<h3 class="success"><?php echo $lateRentH3.' '.$currentMonth; ?></h3>
 
 				<table id="responsiveTable" class="large-only" cellspacing="0">
 					<tr align="left" class="warning">
@@ -462,7 +454,7 @@
 		}
 ?>
 
-<h3 class="success"><?php echo $rentReceivedMonthH3.' '.$currentMonth . ' ' . date('Y'); ?></h3>
+<h3 class="success"><?php echo $rentReceivedMonthH3.' '.$currentMonth; ?></h3>
 
 <?php if(mysqli_num_rows($paymentres) < 1) { ?>
 	<div class="alertMsg default">
@@ -523,7 +515,7 @@
 			<th><?php echo $tab_property; ?></th>
 			<th><?php echo $tab_monthlyRate; ?></th>
 			<th><?php echo $tab_leaseEndsOn; ?></th>
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 				<th><?php echo $tab_landlord; ?></th>
 			<?php }	?>
 			<th></th>
@@ -543,10 +535,10 @@
 				<td><a href="index.php?action=propertyInfo&propertyId=<?php echo $ten['propertyId']; ?>"><?php echo clean($ten['propertyName']); ?></a></td>
 				<td><?php echo $propertyRate; ?></td>
 				<td><?php echo $ten['leaseEnd']; ?></td>
-				<?php if ($_SESSION['superuser'] == '1') { ?>
+				<?php if ($superuser == '1') { ?>
 					<td><?php echo clean($ten['adminFirstName']).' '.clean($ten['adminLastName']); ?></td>
 				<?php }	?>
-				<td><a data-toggle="modal" href="#recordPayment<?php echo $ten['tenantId']; ?>" class="tool-tip" ><i class="fa fa-credit-card"></i></a></td>
+				<td><a data-toggle="modal" href="#recordPayment<?php echo $ten['tenantId']; ?>" class="tool-tip" title="Record a Payment received for this Tenant"><i class="fa fa-credit-card"></i></a></td>
 			</tr>
 
 			<!-- RECORD A PAYMENT RECEIVED MODAL -->

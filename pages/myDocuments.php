@@ -13,7 +13,7 @@
                 tenantdocs
 				LEFT JOIN admins ON tenantdocs.adminId = admins.adminId
             WHERE
-                tenantdocs.tenantId = ".$_SESSION['tenantId'];
+                tenantdocs.tenantId = ".$tenantId;
     $res = mysqli_query($mysqli, $query) or die('Error, retrieving Tenant Documents failed. ' . mysqli_error());
 ?>
 <h3 class="primary"><?php echo $myDocumentsH3; ?></h3>

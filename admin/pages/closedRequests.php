@@ -35,7 +35,6 @@
 				LEFT JOIN assignedproperties ON tenants.propertyId = assignedproperties.propertyId
 				LEFT JOIN admins ON assignedproperties.adminId = admins.adminId
 			WHERE
-				servicerequests.adminId = ".$_SESSION['adminId']." AND
 				servicerequests.requestStatus IN ('3','4','5') AND
 				properties.propertyId != ''";
 	$res = mysqli_query($mysqli, $query) or die('Error, retrieving Closed Service Requests Data failed. ' . mysqli_error());

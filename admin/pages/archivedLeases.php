@@ -28,7 +28,6 @@
 				LEFT JOIN properties ON leases.propertyId = properties.propertyId
 				LEFT JOIN admins ON leases.adminId = admins.adminId
 			WHERE
-				leases.adminId = ".$_SESSION['adminId']." AND
 				leases.isClosed = 1";
     $res = mysqli_query($mysqli, $query) or die('Error, retrieving Archived Lease Data failed. ' . mysqli_error());
 ?>

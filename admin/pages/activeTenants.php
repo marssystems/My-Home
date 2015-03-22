@@ -12,7 +12,7 @@
     }
 
 	// Get Leased Tenant Data
-	if ($_SESSION['superuser'] != '1') {
+	if ($superuser != '1') {
 		$lease = "SELECT
 					tenants.tenantId,
 					tenants.propertyId,
@@ -35,7 +35,7 @@
 					LEFT JOIN assignedproperties ON tenants.propertyId = assignedproperties.propertyId
 					LEFT JOIN admins ON assignedproperties.adminId = admins.adminId
 				WHERE
-					admins.adminId = ".$_SESSION['adminId']." AND
+					admins.adminId = ".$adminId." AND
 					tenants.isActive = 1 AND
 					tenants.leaseId != 0";
 		$leaseres = mysqli_query($mysqli, $lease) or die('Error, retrieving Leased Tenant Data failed. ' . mysqli_error());
@@ -80,19 +80,17 @@
 					tenantAddress,
 					tenantPhone,
 					tenantAltPhone,
-					DATE_FORMAT(createDate,'%d/%m/%Y') AS createDate,
+					DATE_FORMAT(createDate,'%M %d, %Y') AS createDate,
 					isActive
 				FROM
 					tenants
 				WHERE
-					adminId = ".$_SESSION['adminId']." AND
 					isActive = 1 AND
 					leaseId = 0";
-					//die($nolease);
-    $noleaseres = mysqli_query($mysqli, $nolease) or die('Error, retrieving Unleased Tenant Data failed. ' . mysqli_error($mysqli));
+    $noleaseres = mysqli_query($mysqli, $nolease) or die('Error, retrieving Unleased Tenant Data failed. ' . mysqli_error());
 ?>
 <h3 class="primary"><?php echo $activeLeaseTenantsH3; ?></h3>
-<?php if ($_SESSION['superuser'] == '1') { ?>
+<?php if ($superuser == '1') { ?>
 	<p><?php echo $activeTenantsQuip; ?></p>
 <?php }	?>
 
@@ -111,7 +109,7 @@
 			<th><?php echo $tab_property; ?></th>
 			<th><?php echo $tab_monthlyRate; ?></th>
 			<th><?php echo $tab_leaseEndsOn; ?></th>
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 				<th><?php echo $tab_landlord; ?></th>
 			<?php }	?>
 		</tr>
@@ -130,7 +128,7 @@
 				<td><a href="index.php?action=propertyInfo&propertyId=<?php echo $row['propertyId']; ?>"><?php echo clean($row['propertyName']); ?></a></td>
 				<td><?php echo $propertyRate; ?></td>
 				<td><?php echo clean($row['leaseEnd']); ?></td>
-				<?php if ($_SESSION['superuser'] == '1') { ?>
+				<?php if ($superuser == '1') { ?>
 					<td><a href="index.php?action=adminInfo&adminId=<?php echo $row['adminId']; ?>"><?php echo clean($row['adminFirstName']).' '.clean($row['adminLastName']); ?></a></td>
 				<?php }	?>
 			</tr>
@@ -151,7 +149,7 @@
 			<th><?php echo $tab_phone; ?></th>
 			<th><?php echo $tab_altPhone; ?></th>
 			<th><?php echo $tab_dateCreated; ?></th>
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 				<th></th>
 			<?php }	?>
 		</tr>
@@ -170,12 +168,12 @@
 				<td><?php echo $tenantPhone; ?></td>
 				<td><?php echo $tenantAltPhone; ?></td>
 				<td><?php echo clean($row['createDate']); ?></td>
-				<?php if ($_SESSION['superuser'] == '1') { ?>
+				<?php if ($superuser == '1') { ?>
 					<td><a data-toggle="modal" href="#deleteTenant<?php echo $row['tenantId']; ?>" class="btn btn-xs btn-link tool-tip" title="Delete Tenant Account"><i class="fa fa-times"></i></a></td>
 				<?php }	?>
 			</tr>
 
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 				<!-- Delete Tenant Account Confirm Modal -->
 				<div class="modal fade" id="deleteTenant<?php echo $row['tenantId']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">

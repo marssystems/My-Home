@@ -1,329 +1,423 @@
 <?php
-$amountReflectRefund = "Cantidad refleja un reembolso ";
-$accessErrorH3	 = "Error de Acceso ";
-$permissionDenied	 = " Permiso denegado . No se puede acceder a esta página . ";
-// Tenant login 
-// -------------------------------------------------------------------------------------------------- 
-$tenantLogin = " Tenant Login";
-$loginWelcomeMsg = "Bienvenido a ";
-$newAccountNav = " Crear una cuenta nueva ";
-$resetPasswordNav = " Restablecer contraseña ";
-$loginInstructions = "Introduzca su información de cuenta y haga clic en Iniciar sesión. ";
-// New Account Activation // -------------------------------------------------------------------------------------------------- 
-$loginNav	 = ",";
-$accountActivateQuip	 = " GRACIAS POR verificar tu direccion de Correo y Activar Tu Cuenta ";
-$accountActivatedMsg	 = ",";
-$accountSigninBtn	 = ",";
-$accountAllReadyActiveQuip	 = " Usted tiene todo listo verificó su correo electrónico y activará su cuenta. '";
-$accountAllReadyActiveInst	 = ",";
-$noDirectAccessQuip	 = ",";
-$noDirectAccessMsg	 = ",";
-// Tenant Header // -------------------------------------------------------------------------------------------------- 
-$welcomeMsg = " Hola ";
-$todayMsg = "Hoy es ";
-$signoutConf = " ¿Estás seguro de que quieres salir? ";
-// Tenant Navigation // -------------------------------------------------------------------------------------------------- 
-$dashboardNav = " Dashboard";
-$propertyNav = " Mi propiedad ";
-$paymentHistoryNav = " Historial de pagos ";
-$myAccountNav = "Mi cuenta";
-$myProfileNav = "Mi Perfil";
-$tenantDocsNav = "Mis documentos";
-$serviceRequestsNav = "Solicitudes de Servicio";
-$availablePropertiesNav	 = "Propiedades en alquiler";
-$contactRequestsNav = "Contactenos";
-// Form Labels // -------------------------------------------------------------------------------------------------- 
-$emailAddressField = " E-mail ";
-$passwordField = "Password ";
-$rpasswordField = " Vuelva a escribir la contraseña";
-$firstNameField = "Nombre";
-$lastNameField = "Apellido";
-$resetPassEmailField = " La dirección de correo electrónico registrada en su cuenta. ";
-$phoneField = "Teléfono";
-$altPhoneField = " Teléfono Alternativo ";
-$addressField = "Dirección de correo";
-$currentPassField = " Contraseña actual ";
-$newPassField = "New Password";
-$confirmNewPassField = "Confirm New Password";
-$tenantsPets	 = " Inquilinos Pets";
-$serviceRequestField	 = "Solicitud de Título ";
-$serviceRequestDesc	 = " Descripción de la petición ";
-$tenantNameField	 = " Su Nombre ";
-$subjectField	 = "Asunto";
-$commentsField	 = "Comentarios";
-$editNoteField	 = " Editar nota ";
-$notesField	 = "Notas";
-$paymentAmountField	 = " Monto del pago ";
-$totalAmountField	 = "Total Importe PayPal ";
-// Button labels // -------------------------------------------------------------------------------------------------- 
-$signInBtn = " Ingresar ";
-$signoutBtn = " Salir ";
-$cancelBtn	 = " Cancelar ";
-$createAccountBtn	 = " Crear, Cuenta ";
-$resetPasswordBtn	 = " Restablecer contraseña ";
-$uploadBtn	 = " Subir ";
-$yesBtn = " Si";
-$updateBtn	 = " Actualizar ";
-$saveBtn	 = " Guardar ";
-$sendBtn	 = "Enviar";
-$editBtn	 = " Editar";
-$saveChangesBtn	 = " Guardar Cambios ";
-$paypalBtn	 = " Pagar con PayPal";
-// Form Helper Texts // -------------------------------------------------------------------------------------------------- 
-$htmlNotAllowedHelper	 = "HTML no está permitido";
-$validEmailHelper = " Una dirección de correo electrónico válida. Información de su cuenta se enviará a esta dirección. ";
-$newPasswordHelper = " Escriba una contraseña para la cuenta nueva. ";
-$newPassword2Helper = " Escriba una nueva contraseña para su cuenta . ";
-$rnewPasswordHelper = "Por favor, escriba su contraseña deseada de nuevo. Las contraseñas deben coincidir. ";
-$accountEmailHelper = " Su dirección de correo electrónico también se utiliza para el registro de cuenta . ";
-$currentPasswordHelper = " Su actual contraseña de la cuenta . ";
-$serviceTitleHelper	 = " Por favor de su petición de servicio de un título . ";
-$beDescriptiveHelper	 = " Por favor sea lo más descriptivo posible . ";
-$servicePriorityHelper	 = "Por favor, elija un nivel de prioridad para esta demanda . ";
-$paymentAmountHelper	 = "Por favor ingrese la cantidad que desea pagar por PayPal u003cstrongu003e No hay símbolos de moneda (Formato : 500.00 ) . u003c / Strong u003e . ";
-$totalAmountHelper	 = " Esta cantidad refleja la";
-// Table Headers // -------------------------------------------------------------------------------------------------- 
-$tab_propName = " Nombre de la propiedad ";
-$tab_prop	 = "Propiedad ";
-$tab_monthlyRent = " Alquiler Mensual ";
-$tab_propertyDeposit	 = ",";
-$tab_lateFee = "Comisión si Late";
-$tab_petsAllowed = " Se admiten animales ? ";
-$tab_leaseTerm = " Contrato de Arrendamiento ";
-$tab_leaseStarts = " Arrendamiento comenzó el ";
-$tab_leaseEnds = " Arrendamiento Ends On ";
-$tab_landlord = " Propietario";
-$tab_paymentDate = " Fecha de Pago";
-$tab_paidBy = "Pagado por";
-$tab_amount = "Cantidad ";
-$tab_lateFeePaid = "Late Fee Paid ";
-$tab_for = "Para ";
-$tab_AlquilerlMonth = " Mes ";
-$tab_totalPaid = "Total Paid";
-$tab_document	 = "Documento";
-$tab_uploadedBy	 = " Subida por";
-$tab_description	 = " Descripción";
-$tab_dateUploaded	 = " Fecha de publicación ";
-$td_receipt = " Recibo";
-$td_view = "Ver";
-$tab_request = "Solicitud ";
-$tab_dateRequested = " Fecha de la solicitud ";
-$tab_priority = "Prioridad";
-$tab_status = "Estado";
-$tab_lastUpdated = " Última actualización ";
-$tab_requestTitle	 = "Solicitud ";
-// PHP Form Validations // -------------------------------------------------------------------------------------------------- 
-$firstNameReqVal = " Nombre es un campo obligatorio . ";
-$lastNameReqVal = " Apellido es un campo requerido . ";
-$emailReqVal = " Su dirección de correo electrónico es obligatoria . ";
-$currentPassReqVal = "Por favor, introduzca su cuenta de contraseñas actual . ";
-$newPassReqVal = " Introduzca su nueva contraseña . ";
-$typePassAgainReqVal	 = "Por favor, escriba su nueva contraseña otra vez. ";
-$currentPassInvalidReqVal = "Su contraseña actual es incorrecta . Por favor, compruebe su entrada . ";
-$newPassNotMatchReqVal = "Las nuevas contraseñas no coinciden . ";
-$noteTextReqVal	 = "Por favor, introduzca el texto de la nota . ";
-// Misc // -------------------------------------------------------------------------------------------------- 
-$createNewAccountMisc = "Crear una nueva ";
-$resetPasswordMisc = " Restablecer la ";
-$passwordResetMisc = "Su contraseña se ha restablecido . ";
-$passwordResetInstMisc = " Compruebe su correo electrónico para su nueva contraseña y las instrucciones para actualizar su cuenta. ";
-// MsgBox Messages // -------------------------------------------------------------------------------------------------- 
-$emailAddressMsg = "Por favor, introduzca su cuenta de e-mail. ";
-$emptyPasswordMsg = "El campo de contraseña no puede estar vacío . ";
-$loginFailedMsg = " Entrar fallado, Por favor, compruebe sus entradas y vuelva a intentarlo . ";
-$inactiveAccountMsg = "Su cuenta no ha sido activada , y no se puede entrar por confirmar su correo electrónico para el enlace de activación. ";
-$firstNameMsg = "Por favor, introduzca su nombre . ";
-$lastNameMsg = "Por favor, introduzca su apellido . ";
-$validEmailMsg = "Por favor, introduce una dirección de correo electrónico válida. ";
-$passwordMismatchMsg = " Las contraseñas no coinciden . Por favor, compruebe sus entradas. ";
-$newAccountErrorMsg = " Hubo un error , y la Cuenta Nuevo no se ha podido crear en este momento. ";
-$dupEmailMsg = "No está todo listo una cuenta registrada con esa dirección de correo electrónico. ";
-$passwordResetMsg = "Su contraseña se ha restablecido . ";
-$accountNotFoundMsg = " Cuenta no encontrada para esa dirección de correo electrónico. ";
-$avatarRemovedMsg = " Tu Imagen de Avatar se ha eliminado . ";
-$avatarRemoveErrorMsg = " Se ha producido un error";
-$avatarNotAcceptedMsg = " El archivo no es un tipo de Avatar aceptado . ";
-$avatarUploadedMsg = "Su nuevo Avatar se ha subido . ";
-$avatarUploadErrorMsg = " Se ha producido un error al subir tu avatar , por favor marque el tipo de archivo";
-$personalInfoUpdatedMsg = "Tu información personal ha sido actualizado. ";
-$emailAddyUpdatedMsg = " Su cuenta de correo electrónico se ha actualizado. ";
-$newPassSavedMsg = " Su nueva contraseña ha sido guardada. ";
-$requestTitleMsg	 = "Por favor, introduzca un título para la Solicitud de Servicio ";
-$requestDescMsg	 = " Por favor, incluya la descripción de la solicitud de servicio . ";
-$requestAddedMsg	 = "La nueva solicitud de servicio se ha guardado , y los Administradores de haber sido notificado . ";
-$editServNoteUpdatedMsg = " Su solicitud de servicio Nota se ha actualizado. ";
-$newServNoteAddedMsg	 = " La solicitud de servicio Nota se ha guardado , y su propietario ha sido notificado . ";
-// ************************************************************************************************** 
-// ************************************************************************************************** 
-// Page Specific - Available Properties 
-// -------------------------------------------------------------------------------------------------- 
-$availablePropertiesH3	 = ",";
-$availablePropertiesQuip	 = ",";
-$availablePropertiesInst	 = ",";
-$downloadApplicationBtn	 = ",";
-$noPropertiesAvailable	 = ",";
-$noPropertiesAvailableQuip	 = "";
-$feeForLateRent	 = ",";
-$sizeOfProperty	 = ",";
-$bedroomsBathrooms	 = ",";
-// Page Specific - View an Available Property 
-// -------------------------------------------------------------------------------------------------- 
+// All Pages - Globals
+// --------------------------------------------------------------------------------------------------
+$currencySym 				= "$";
+$amountReflectRefund 		= "Amount reflects a Refund";
+$accessErrorH3				= "Access Error";
+$permissionDenied			= "Permission Denied. You can not access this page.";
 
-$viewPropertyH3	 = ",";
-$viewPropertyInst	 = ",";
-$petsAreAllowed	 = ",";
-// Page Specific - Dashboard 
-// -------------------------------------------------------------------------------------------------- 
-$dashboardWelcome = " Bienvenido a su ";
-$dashQuip = " El ";
-$currentLeaseH3 = " Su actual contrato de arrendamiento ";
-$leaseQuip = " Los detalles acerca de su actual contrato de arrendamiento del inmueble ";
-$lastpaymentH3 = " Su última Alquiler de Pago";
-$paymentQuip = "Gracias por su pago más reciente. ";
-$openServReqH3 = " Las solicitudes de servicio abiertas ";
-$openServReqQuip = " A continuación se presentan sus solicitudes de servicio abiertas actuales. ";
-$noLeasedProperty = " Puede ser que su propiedad arrendada todavía no se ha establecido en su ";
-$noPropertyMsg = " Usted no tiene actualmente una propiedad arrendada . ";
-$noPaymentMsg = "No se ha realizado ningún pago . ";
-// Page Specific - Property Details 
-// -------------------------------------------------------------------------------------------------- 
-$propertyDetailsH3 = "Mi propiedad en alquiler ";
-$propertyPicturesH3 = " Fotos de la propiedad ";
-$propertyAmenitiesH3 = " Servicios del hotel ";
-$rentIsPastDueMsg	 = " Su Alquiler Mensual esta Vencido. ";
-$rentIsPastDueQuip	 = " Su Alquiler debe pagarse antes del día 5 de cada mes. Además , te debes cargos por mora como se indica en su lease._Please actual someter su pago no más tarde de cierre de los negocios hoy en día. ";
-$propertyFiles_sb = " Archivos de propiedades ";
-$noFilesUploaded = " No hay archivos se han subido ";
-$viewDeatilsLink = " Ver detalles ";
-$viewFileLink = " Ver archivo ";
-$propertyResidents_sb = "Mis Residentes ";
-$relationToTenant = " Relación con el inquilino : ";
-$propertyPayments_sb = "Mis Pagos recientes ";
-$viewReciptLabel = " Ver recibo";
-$viewAlquilerlPaymentsBtn = " Ver todos los pagos del alquiler";
-$amountPaid_sb = " Cantidad pagada : ";
-$feesPaid_sb = "Comisiones pagadas: ";
-$totalPaid_sb = " Total pagado : ";
-$paymentDate_sb = "Fecha de Pago ";
-$propertyType = "Tipo de propiedad: ";
-$yearBuilt = " Año de la aprobación: ";
-$propertySize = " Tamaño de la propiedad : ";
-$numberBedrooms = " Número de Dormitorios : ";
-$numberBathrooms = " Número de Baños : ";
-$parking = " Parking ";
-$heating = " Calefacción ";
-$propertyAmenities = " Servicios ";
-$hoa = " Asociación de Propietarios: ";
-$hoaPhone = " Asociación de Propietarios de teléfono: ";
-$hoaAddress = " Asociación de Propietarios Dirección: ";
-// Page Specific - All Alquilerl Payments // -------------------------------------------------------------------------------------------------- 
-$allPaymentsH3 = " Todos los pagos del alquiler";
-$allPaymentsQuip = " Todos los pagos de alquiler que ha realizado por su contrato actual . ";
-$newPaymentBtnLink	 = "Hacer un pago del alquiler ";
-$noPaymentsRecorded	 = " No se han registrado pagos . ";
-// Page Specific - New Payment // -------------------------------------------------------------------------------------------------- 
-$newPaymentH3	 = " Los pagos del alquiler";
-$newPaymentQuipPaypal	 = "";
-$newPaymentQuipNoPaypal	 = "";
-$paymentIsOverdue	 = " Pago de la Alquiler de este mes de demora. ";
-$payWithPaypal	 = " Pague con PayPal";
-$paymentAmount	 = " La cantidad de su Alquiler se ha introducido para usted. ";
-$paymentAmountQuip	 = " u003csmallu003e Puede cambiar la cantidad si lo que está pagando es diferente . El importe del pago se convertirá a incluir the_additional .";
-$payByOther	 = " Pagar en efectivo , cheque personal / de cajero o giro postal ";
-$payByOtherQuip	 = "Se puede evitar el pago de los honorarios adicionales PayPal al pagar con efectivo, cheque o un giro postal . ";
-$payableTo	 = " Pagar a: ";
-$mailTo	 = " Envíe por correo o entregar en: ";
-$paymentQuestionsH3	 = "Preguntas sobre pagos ?";
-$paymentQuestionsQuip	 = " Si usted tiene alguna pregunta o inquietud acerca de pagos de alquiler , por favor u003ca href";
-$monthlyRate	 = " El importe de tu Alquiler mensual es: ";
-$feeIfLate	 = "Cuota adicional si Rent pago es tardío : ";
-// Page Specific - Payment History // -------------------------------------------------------------------------------------------------- 
-$paymentHistoryH3 = "Mi Historial de pagos ";
-$paymentHistoryQuip = " Todos los pagos que ha hecho en todos los contratos de arrendamiento";
-// Page Specific - My Profile // -------------------------------------------------------------------------------------------------- 
-$myProfileH3 = "Mi cuenta";
-$myProfileQuip = " Por favor tenga su información de perfil hasta la fecha. ";
-$listGroupTenantTitle = " Información de la Cuenta Personal";
-$listGroupTenantAvatarLink = "Perfil Avatar ";
-$listGroupTenantUpdateInfo = "Actualizar información personal";
-$listGroupTenantUpdateEmail = "Actualizar cuentas de correo electrónico ";
-$listGroupTenantUpdatePassword = "Cambiar contraseña";
-$safePersonalInfoH3 = " Su información personal es segura. ";
-$safePersonalInfo = " Nosotros guardamos su información en nuestra base de datos en un formato codificado . Nosotros no vendemos o proporcione datos a disposición de cualquier one_for cualquier razón. Valoramos su privacidad y le agradecemos su confianza en nosotros. Usted puede actualizar su información personal con facilidad mediante el uso de cualquiera de ";
-$profileAvatarTitle = " Tu Perfil Avatar ";
-$profileAvatarQuip = " Usted puede eliminar su actual Avatar , y utilizar el Avatar por defecto . u003cbr /u003e u003csmallu003e Para cargar una nueva imagen de Avatar tendrá que first_remove su actual Avatar . u003c / Smallu003e ";
-$removeAvatarBtn = "Quitar actual Imagen de Avatar ";
-$newAvatarUpload = " Cargar una Nueva Imagen de Avatar ";
-$allowedAvatarTypesQuip = " Tipos de archivo de Avatar permitidas ";
-$selectNewAvatar = " Seleccione Nuevo Avatar ";
-$avatarMaxHight = " Todo Avatares se mostrará en un máximo de altura de 85 píxeles";
-$removeAvatarConf = "¿Está seguro que desea eliminar el actual Avatar ? ";
-$personalInfoModalTitle = " Actualización de la información personal de su cuenta";
-$updateEmailModalTitle = "Actualización de su cuenta Dirección de correo electrónico ";
-$updatePasswordModalTitle = "Cambiar contraseña de su cuenta";
-// Page Specific - Service Requests // -------------------------------------------------------------------------------------------------- 
-$serviceRequestsH3	 = " Servicio";
-$serviceRequestsQuip	 = " Servicio Pide para su actual contrato de arrendamiento de la propiedad . ";
-$newServiceRequestBtn	 = " Crear una solicitud de nuevo servicio ";
-$serviceRequestsCompleted = " Solicitudes de servicio completadas están sombreados en gris. ";
-$noServiceRequestsMsg	 = ",";
-$normalSelect	 = "Normal";
-$importantSelect	 = "Importante";
-$urgenSelect	 = "Urgente ";
-// Page Specific - View Service Request // -------------------------------------------------------------------------------------------------- 
-$viewRequestH3	 = " Solicitud de Servicio de visión ";
-$viewRequestOpenQuip	 = "Se puede agregar notas a esta solicitud abierta. ";
-$viewRequestClosedQuip	 = "Esta solicitud se ha cerrado / Finalizado ";
-$serviceReqLiTitle = "El servicio Solicitar información ";
-$servReqLiDateRequested = " Fecha de solicitud: ";
-$servReqLiReqBy	 = " Solicitado por: ";
-$servReqLiProperty	 = "Propiedad ";
-$servReqLiPriority	 = " Prioridad: ";
-$servReqLiStatus	 = " Estado actual: ";
-$servReqLiLastUpdate	 = " Última actualización : ";
-$servReqLiRequest	 = "Solicitud ";
-$servResolutionLiTitle = " Solicitud de Servicio de Resolución";
-$servResLiCompletedBy	 = " Completado por";
-$servResLiDateResolved	 = " Fecha de resolución : ";
-$servResLiComments	 = " Comentarios:";
-$servResLiNeedsFollowup = "Necesita un Followup ? ";
-$servResLiFollowUpComments = " Followup Comentarios: ";
-$servResLiDateCompleted	 = " Fecha de terminación ";
-$serviceReqNotesH3	 = " Servicio Solicite Notas";
-$editNoteModalTitle = "Edición de solicitud de servicio de nota";
-$addNoteBtn	 = "Agregar una nota a esta Solicitud de Servicio ";
-$notesClosedMsg	 = " Las notas están cerrados para este Service Request . ";
-// Page Specific - Contact Us // -------------------------------------------------------------------------------------------------- 
-$contactUsH3	 = " ¿Tiene una pregunta ? ¿Necesitas algo de información? ";
-$contactUsQuip	 = " Usted nos puede enviar un correo electrónico utilizando el formulario a continuación. ";
-$contactUsInstructions	 = "Por favor, utilice este formulario sólo para preguntas en general . u003cbr /u003e Si usted tiene un problema con el alquiler que requiere una llamada de servicio , _Please utilizar el u003ca href";
-$emptySubjectField	 = "Por favor, introduzca un asunto para el correo electrónico ";
-$emptyCommentsField	 = " Por favor, incluya sus comentarios ";
-$emailSentMsg	 = " Gracias, su correo electrónico ha sido enviado";
-$emailSentError	 = ",";
-// Page Specific - My Documents 
-// -------------------------------------------------------------------------------------------------- 
-$myDocumentsH3 = "Mis documentos";
-$myDocumentsQuip = " Documentos cargados a su cuenta. ";
-$noDocsUploaded	 = " No hay documentos se han subido . ";
-// Page Specific - View Tenant Document 
-// -------------------------------------------------------------------------------------------------- 
-$viewDocumentH3	 = "Visualización de documentos";
-$viewDocumentQuip	 = " Se muestran las imágenes / Imágenes . Necesitará Cualquier otro tipo de archivo para ser descargado para ver . ";
-// Page Specific - View Property File // -------------------------------------------------------------------------------------------------- 
-$viewFileH3	 = "Visualización del archivo";
-// Page Specific - Payment Receipt // -------------------------------------------------------------------------------------------------- 
-$headTitle	 = " Recibo de Pago";
-$receivedFrom	 = "Recibido De:";
-$receiptDate	 = " Fecha de recibo";
-$paymentNum	 = " ID de pago";
-$dateReceived	 = " Fecha de recepción ";
-$monthlyRent	 = "Rent Mes ";
-$descFor	 = " Descripción / Para ";
-$paymentNotes	 = "Notas de Pago";
-$lateFeeDue	 = "Late Fee Due";
-$amountDue	 = " Cantidad a pagar ";
-$totalAmountDue	 = " La cantidad total debida ";
-$totalAmountPaid	 = " Monto pagado ";
-$receiptThankYou	 = "Gracias por su confianza .";
-?>
+// Tenant login
+// --------------------------------------------------------------------------------------------------
+$tenantLogin 				= "Tenant Login";
+$loginWelcomeMsg 			= "Welcome to ".$set['siteName'];
+$newAccountNav 				= "Create a New Account";
+$resetPasswordNav 			= "Reset Password";
+$loginInstructions 			= "Enter your account information and click Sign In.";
+
+// New Account Activation
+// --------------------------------------------------------------------------------------------------
+$loginNav					= 'Login';
+$accountActivateQuip		= 'Thank you for verifying your email address and activating your account.';
+$accountActivatedMsg		= 'Your account has been activated, and you can now log in.';
+$accountSigninBtn			= 'All Set! Go ahead and Sign In';
+$accountAllReadyActiveQuip	= 'You have all ready verified your email address and activated your account.';
+$accountAllReadyActiveInst	= 'Your account has been activated, and you can now log in.';
+$noDirectAccessQuip			= 'Please check your email for the Account Activation Link.';
+$noDirectAccessMsg			= 'You cannot directly access this page. please use the link that has been sent to your email.';
+
+// Tenant Header
+// --------------------------------------------------------------------------------------------------
+$welcomeMsg 				= "Howdy";
+$todayMsg 					= "Today is";
+$signoutConf 				= "are you sure you want to signout?";
+
+// Tenant Navigation
+// --------------------------------------------------------------------------------------------------
+$dashboardNav 				= "Dashboard";
+$propertyNav 				= "My Property";
+$paymentHistoryNav 			= "Payment History";
+$myAccountNav 				= "My Account";
+$myProfileNav 				= "My Profile";
+$tenantDocsNav 				= "My Documents";
+$serviceRequestsNav 		= "Service Requests";
+$availablePropertiesNav		= 'Available Properties';
+$contactRequestsNav 		= "Contact Us";
+
+// Form Labels
+// --------------------------------------------------------------------------------------------------
+$emailAddressField 			= "Email Address";
+$passwordField 				= "Password";
+$rpasswordField 			= "Retype Password";
+$firstNameField 			= "First Name";
+$lastNameField 				= "Last Name";
+$resetPassEmailField 		= "The email address that is registered to your account.";
+$phoneField 				= "Phone";
+$altPhoneField 				= "Alternate Phone";
+$addressField 				= "Mailing Address";
+$currentPassField 			= "Current Password";
+$newPassField 				= "New Password";
+$confirmNewPassField 		= "Confirm New Password";
+$tenantsPets				= "Tenant Pets";
+
+$serviceRequestField		= "Request Title";
+$serviceRequestDesc			= "Request Description";
+
+$tenantNameField			= "Your Name";
+$subjectField				= "Subject";
+$commentsField				= "Comments";
+
+$editNoteField				= "Edit Note";
+$notesField					= "Notes";
+
+$paymentAmountField			= "Payment Amount";
+$totalAmountField			= "Total PayPal Amount";
+
+// Button labels
+// --------------------------------------------------------------------------------------------------
+$signInBtn 					= "Sign In";
+$signoutBtn 				= "Sign Out";
+$cancelBtn	 				= "Cancel";
+$createAccountBtn	 		= "Create Account";
+$resetPasswordBtn	 		= "Reset My Password";
+$uploadBtn	 				= "Upload";
+$yesBtn 					= "Yes";
+$updateBtn	 				= "Update";
+$saveBtn					= "Save";
+$sendBtn					= "Send";
+$editBtn					= "Edit";
+$saveChangesBtn				= "Save Changes";
+$paypalBtn					= "Pay With PayPal";
+
+// Form Helper Texts
+// --------------------------------------------------------------------------------------------------
+$htmlNotAllowedHelper		= "HTML is not allowed &amp; will be saved as plain text.";
+$validEmailHelper 			= "A valid email address. Your account information will be sent to this address.";
+$newPasswordHelper 			= "Type a Password for your new Account.";
+$newPassword2Helper 		= "Type a new Password for your Account.";
+$rnewPasswordHelper 		= "Please type your desired Password again. Passwords MUST Match.";
+$accountEmailHelper 		= "Your email address is also used for your Account log In.";
+$currentPasswordHelper 		= "Your Current Account Password.";
+$serviceTitleHelper			= "Please give your Service Request a Title.";
+$beDescriptiveHelper		= "Please be as descriptive as possible.";
+$servicePriorityHelper		= "Please choose a Priority Level for this Request.";
+$paymentAmountHelper		= "Please enter the amount you would like to pay by PayPal. <strong>No currency symbols (Format: 500.00)</strong>.";
+$totalAmountHelper			= "This amount reflects the ".$set['paypalFee']."% PayPal Fee and is the total for this rental payment.";
+
+// Table Headers
+// --------------------------------------------------------------------------------------------------
+$tab_propName 				= "Property Name";
+$tab_prop	 				= "Property";
+$tab_monthlyRent 			= "Monthly Rent";
+$tab_propertyDeposit		= 'Deposit Amount';
+$tab_lateFee 				= "Fee if Late";
+$tab_petsAllowed 			= "Pets Allowed?";
+$tab_leaseTerm 				= "Lease Term";
+$tab_leaseStarts 			= "Lease Started On";
+$tab_leaseEnds 				= "Lease Ends On";
+$tab_landlord 				= "Landlord";
+
+$tab_paymentDate 			= "Payment Date";
+$tab_paidBy 				= "Paid By";
+$tab_amount 				= "Amount";
+$tab_lateFeePaid 			= "Late Fee Paid";
+$tab_for 					= "For";
+$tab_rentalMonth 			= "Rental Month";
+$tab_totalPaid 				= "Total Paid";
+
+$tab_document				= "Document";
+$tab_uploadedBy				= "Uploaded By";
+$tab_description			= "Description";
+$tab_dateUploaded			= "Date Uploaded";
+
+$td_receipt 				= "Receipt";
+$td_view 					= "View";
+
+$tab_request 				= "Request";
+$tab_dateRequested 			= "Date Requested";
+$tab_priority 				= "Priority";
+$tab_status 				= "Status";
+$tab_lastUpdated 			= "Last Updated";
+
+$tab_requestTitle			= "Request";
+
+// PHP Form Validations
+// --------------------------------------------------------------------------------------------------
+$firstNameReqVal 			= "First Name is a Required Field.";
+$lastNameReqVal 			= "Last Name is a Required Field.";
+$emailReqVal 				= "Your Email Address is Required.";
+
+$currentPassReqVal 			= "Please enter your current Account Password.";
+$newPassReqVal 				= "Please enter your new Password.";
+$typePassAgainReqVal		= "Please type your new Password again.";
+$currentPassInvalidReqVal 	= "Your current password is incorrect. Please check your entry.";
+$newPassNotMatchReqVal 		= "New Passwords do not match.";
+
+$noteTextReqVal				= "Please enter your Note text.";
+
+// Misc
+// --------------------------------------------------------------------------------------------------
+$createNewAccountMisc 		= "Create a New ".$set['siteName']." Account";
+$resetPasswordMisc 			= "Reset Your ".$set['siteName']." Account Password";
+$passwordResetMisc 			= "Your password has been reset.";
+$passwordResetInstMisc 		= "Please check your email for your new password, and instructions on how to update your account.";
+
+// MsgBox Messages
+// --------------------------------------------------------------------------------------------------
+$emailAddressMsg 			= "Please enter your account email address.";
+$emptyPasswordMsg 			= "The Password field can not be empty.";
+$loginFailedMsg 			= "Log in failed, Please check your entries and try again.";
+$inactiveAccountMsg 		= "Your account has not been activated, and you can not log in. Please check your email for the activation link.";
+
+$firstNameMsg 				= "Please enter your First Name.";
+$lastNameMsg 				= "Please enter your Last Name.";
+$validEmailMsg 				= "Please enter a valid email address.";
+$passwordMismatchMsg 		= "Passwords do not match. Please check your entries.";
+$newAccountErrorMsg 		= "There was an error, and the New Account could not be created at this time.";
+
+$dupEmailMsg 				= "There is all ready an account registered with that email address.";
+$passwordResetMsg 			= "Your password has been reset.";
+$accountNotFoundMsg 		= "Account not found for that email address.";
+
+$avatarRemovedMsg 			= "Your Avatar Image has been removed.";
+$avatarRemoveErrorMsg 		= "An Error was encountered &amp; your Avatar image could not be deleted at this time.";
+$avatarNotAcceptedMsg 		= "The File was not an accepted Avatar type.";
+$avatarUploadedMsg 			= "Your new Avatar has been uploaded.";
+$avatarUploadErrorMsg 		= "There was an error uploading your Avatar, please check the file type &amp; try again.";
+
+$personalInfoUpdatedMsg 	= "Your Personal Info has been updated.";
+$emailAddyUpdatedMsg 		= "Your Account Email has been updated.";
+$newPassSavedMsg 			= "Your new Password has been saved.";
+
+$requestTitleMsg			= "Please enter a Title for the Service Request";
+$requestDescMsg				= "Please include the Description of your Service Request.";
+$requestAddedMsg			= "The new Service Request has been saved, and the Admins have been notified.";
+
+$editServNoteUpdatedMsg 	= "Your Service Request Note has been updated.";
+$newServNoteAddedMsg		= "The Service Request Note has been saved, and your Landlord has been notified.";
+
+// **************************************************************************************************
+// **************************************************************************************************
+
+// Page Specific - Available Properties
+// --------------------------------------------------------------------------------------------------
+$availablePropertiesH3		= 'Available Properties for Rent';
+$availablePropertiesQuip	= 'Listed below are the current properties available for rent.';
+$availablePropertiesInst	= 'View more information about the property by clicking on the property name. If you are interested in renting one of the properties,
+please download and complete the Application to Rent Form.';
+$downloadApplicationBtn		= 'Download Application';
+$noPropertiesAvailable		= 'There are not any Properties available to rent at this time.';
+$noPropertiesAvailableQuip	= 'You can fill out and turn in an application, and when one of our properties becomes available, we will contact you.';
+
+$feeForLateRent				= 'Late Rent Fee';
+$sizeOfProperty				= 'Property Size';
+$bedroomsBathrooms			= 'Bedrooms / Bathrooms';
+
+// Page Specific - View an Available Property
+// --------------------------------------------------------------------------------------------------
+$viewPropertyH3				= 'Property Information';
+$viewPropertyInst			= 'If you are interested in renting this property, please download and complete the Application to Rent Form.';
+$petsAreAllowed				= 'Pets Allowed:';
+
+// Page Specific - Dashboard
+// --------------------------------------------------------------------------------------------------
+$dashboardWelcome 			= "Welcome to your ".$set['siteName']." Dashboard";
+$dashQuip 					= "The ".$set['siteName']." web portal allows you to view information & details relating to your current Leased Property.";
+$currentLeaseH3 			= "Your Current Lease";
+$leaseQuip 					= "The details about your current Property Lease.";
+$lastpaymentH3 				= "Your Last Rent Payment";
+$paymentQuip 				= "Thank you for your most recent payment.";
+$openServReqH3 				= "Open Service Requests";
+$openServReqQuip 			= "Below are your current Open Service Requests.";
+$noLeasedProperty 			= "Either your Leased Property has not yet been set up in your ".$set['siteName']." Account, or you have not completed all
+paperwork.<br />Please contact us if you have any questions or concerns.";
+
+$noPropertyMsg 				= "You do not currently have a Leased Property.";
+$noPaymentMsg 				= "You have not made any Payments.";
+
+// Page Specific - Property Details
+// --------------------------------------------------------------------------------------------------
+$propertyDetailsH3 			= "My Rental Property";
+$propertyPicturesH3 		= "Property Pictures";
+$propertyAmenitiesH3 		= "Property Amenities";
+
+$rentIsPastDueMsg			= "Your Monthly Rent Payment is Past Due.";
+$rentIsPastDueQuip			= "Your rent is due by the 5th of each month. In addition, you owe late charges as outlined in your current lease.
+Please submit your payment no later then close of business today.";
+
+$propertyFiles_sb 			= "Property Files";
+$noFilesUploaded 			= "No Files have been uploaded";
+$viewDeatilsLink 			= "View Details";
+$viewFileLink 				= "View File";
+
+$propertyResidents_sb 		= "My Residents";
+$relationToTenant 			= "Relation to Tenant:";
+
+$propertyPayments_sb 		= "My Recent Payments";
+$viewReciptLabel 			= "View Receipt";
+$viewRentalPaymentsBtn 		= "View All Rental Payments";
+$amountPaid_sb 				= "Amount Paid:";
+$feesPaid_sb 				= "Fees Paid:";
+$totalPaid_sb 				= "Total Paid:";
+$paymentDate_sb 			= "Payment Date:";
+
+$propertyType 				= "Property Type:";
+$yearBuilt 					= "Year Built:";
+$propertySize 				= "Property Size:";
+$numberBedrooms 			= "Number of Bedrooms:";
+$numberBathrooms 			= "Number of Bathrooms:";
+$parking 					= "Parking:";
+$heating 					= "Heating:";
+$propertyAmenities 			= "Amenities:";
+$hoa 						= "HOA:";
+$hoaPhone 					= "HOA Phone:";
+$hoaAddress 				= "HOA Address:";
+
+// Page Specific - All Rental Payments
+// --------------------------------------------------------------------------------------------------
+$allPaymentsH3 				= "All Rental Payments";
+$allPaymentsQuip 			= "All Rental Payments you have made for Your Current Lease.";
+$newPaymentBtnLink			= "Make a Rental Payment";
+$noPaymentsRecorded			= "No Payments have been recorded.";
+
+// Page Specific - New Payment
+// --------------------------------------------------------------------------------------------------
+$newPaymentH3				= "Rental Payments";
+$newPaymentQuipPaypal		= $set['siteName']." accepts Cash, Personal / Cashier's Checks, Money Orders or PayPal for Rental Payments.";
+$newPaymentQuipNoPaypal		= $set['siteName']." accepts Cash, Personal / Cashier's Checks, or Money Orders for Rental Payments.";
+$paymentIsOverdue			= "This month's rent payment is overdue.";
+
+$payWithPaypal				= "Pay with PayPal";
+$paymentAmount				= "Your Rent amount has been entered for you.";
+$paymentAmountQuip			= "<small>You can change the amount if what you are paying differs. The Payment Amount will be converted to include the
+additional ".$set['paypalFee']."% of the base payment amount to cover PayPal's transaction fees. Make sure the payment details below are correct
+and click the Pay With PayPal button.<br />You will then be redirected to PayPal's secure site to complete your payment.</small>";
+
+$payByOther					= "Pay by Cash, Personal / Cashier's Check or Money Order";
+$payByOtherQuip				= "You can avoid paying the extra PayPal fees by paying with Cash, Check or a Money Order.";
+
+$payableTo					= "Payable To:";
+$mailTo						= "Mail or drop off at:";
+
+$paymentQuestionsH3			= "Questions about Payments?";
+$paymentQuestionsQuip		= "If you have any questions or concerns about Rental Payments, please <a href='index.php?page=contactRequests'>Contact Us</a>.";
+
+$monthlyRate				= "Your Monthly Rent Amount is:";
+$feeIfLate					= "Additional Fee if Rent Payment is Late:";
+
+// Page Specific - Payment History
+// --------------------------------------------------------------------------------------------------
+$paymentHistoryH3 			= "My Payment History";
+$paymentHistoryQuip 		= "All Payments you have made across all Leases &amp; Properties.";
+
+// Page Specific - My Profile
+// --------------------------------------------------------------------------------------------------
+$myProfileH3 				= "My Account &amp; Profile";
+$myProfileQuip 				= "Please keep your Profile information up to date.";
+
+$listGroupTenantTitle 		= "Personal Account Information";
+$listGroupTenantAvatarLink 	= "Profile Avatar";
+$listGroupTenantUpdateInfo 	= "Update Personal Information";
+$listGroupTenantUpdateEmail = "Update Account Email";
+$listGroupTenantUpdatePassword 	= "Change Password";
+
+$safePersonalInfoH3 		= "Your Personal Information is secure.";
+$safePersonalInfo 			= "We store your information in our database in an encrypted format. We do not sell or make your information available to any one
+for any reason. We value your privacy and appreciate your trust in us. You can update your personal information easily by using any of the links in the sidebar.";
+
+$profileAvatarTitle 		= "Your Profile Avatar";
+$profileAvatarQuip 			= "You can remove your current Avatar, and use the default Avatar.<br /><small>To upload a new Avatar image you will need to first
+remove your current Avatar.</small>";
+$removeAvatarBtn 			= "Remove Current Avatar Image";
+
+$newAvatarUpload 			= "Upload a New Avatar Image";
+$allowedAvatarTypesQuip 	= "Allowed Avatar File Types:";
+$selectNewAvatar 			= "Select New Avatar";
+$avatarMaxHight 			= "All Avatars will be displayed at a max-height of 85 pixels";
+$removeAvatarConf 			= "Are you sure you want to remove your current Avatar?";
+
+$personalInfoModalTitle 	= "Update your Account's Personal Information";
+$updateEmailModalTitle 		= "Update your Account's Email Address";
+$updatePasswordModalTitle 	= "Change your Account's Password";
+
+// Page Specific - Service Requests
+// --------------------------------------------------------------------------------------------------
+$serviceRequestsH3			= "Service &amp; Maintenance Requests";
+$serviceRequestsQuip		= "Your Service Requests for your current Property Lease.";
+$newServiceRequestBtn		= "Create a New Service Request";
+$serviceRequestsCompleted 	= "Completed Service Requests are shaded in gray.";
+$noServiceRequestsMsg		= 'You do not have any active Service Requests.';
+
+$normalSelect				= "Normal";
+$importantSelect			= "Important";
+$urgenSelect				= "Urgent";
+
+// Page Specific - View Service Request
+// --------------------------------------------------------------------------------------------------
+$viewRequestH3				= "Viewing Service Request";
+$viewRequestOpenQuip		= "You can add notes to this open Request.";
+$viewRequestClosedQuip		= "This Request has been Closed/Completed.";
+
+$serviceReqLiTitle 			= "Service Request Information";
+$servReqLiDateRequested 	= "Date Requested:";
+$servReqLiReqBy				= "Requested By:";
+$servReqLiProperty			= "Property:";
+$servReqLiPriority			= "Priority:";
+$servReqLiStatus			= "Current Status:";
+$servReqLiLastUpdate		= "Last Updated:";
+$servReqLiRequest			= "Request:";
+
+$servResolutionLiTitle  	= "Service Request Resolution";
+$servResLiCompletedBy		= "Completed By";
+$servResLiDateResolved		= "Date Resolved:";
+$servResLiComments			= "Comments:";
+$servResLiNeedsFollowup 	= "Needs a Followup?";
+$servResLiFollowUpComments 	= "Followup Comments:";
+$servResLiDateCompleted		= "Date Completed:";
+
+$serviceReqNotesH3			= "Service Request Notes";
+$editNoteModalTitle 		= "Edit Service Request Note";
+
+$addNoteBtn					= "Add a Note to this Service Request";
+$notesClosedMsg				= "Notes are closed for this Service Request.";
+
+// Page Specific - Contact Us
+// --------------------------------------------------------------------------------------------------
+$contactUsH3				= "Have a Question? Need some Information?";
+$contactUsQuip				= "You can send us an email by using the form below.";
+$contactUsInstructions		= "Please use this form for general inquires only.<br />If you have a problem with your rental that requires a Service Call,
+please use the <a href='index.php?page=serviceRequests'>Service Request</a> page.";
+$emptySubjectField			= "Please enter a Subject for your email";
+$emptyCommentsField			= "Please include your comments";
+$emailSentMsg				= "Thank you, Your email has been sent";
+$emailSentError				= 'There was an error, and the email could not be sent.';
+
+// Page Specific - My Documents
+// --------------------------------------------------------------------------------------------------
+$myDocumentsH3 				= "My Documents";
+$myDocumentsQuip 			= "Documents uploaded to your account.";
+$noDocsUploaded				= "No Documents have been uploaded.";
+
+// Page Specific - View Tenant Document
+// --------------------------------------------------------------------------------------------------
+$viewDocumentH3				= "Viewing Document &mdash;";
+$viewDocumentQuip			= "Pictures/Images will be displayed. Any other file type will need to be downloaded to view.";
+
+// Page Specific - View Property File
+// --------------------------------------------------------------------------------------------------
+$viewFileH3					= "Viewing File &mdash;";
+
+// Page Specific - Payment Receipt
+// --------------------------------------------------------------------------------------------------
+$headTitle					= "Receipt of Payment";
+$receivedFrom				= "Received From:";
+$receiptDate				= "Receipt Date";
+$paymentNum					= "Payment ID #";
+$dateReceived				= "Date Received";
+$monthlyRent				= "Rent Month";
+$descFor					= "Description/For";
+$paymentNotes				= "Payment Notes";
+$lateFeeDue					= "Late Fee Due";
+$amountDue					= "Amount Due";
+$totalAmountDue				= "Total Amount Due";
+$totalAmountPaid			= "Amount Paid";
+$receiptThankYou			= "Thank You For Your Trust in ".$set['siteName'];

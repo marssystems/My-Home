@@ -288,7 +288,7 @@
 			$message .= '<p>Property: '.$propertyName.'</p>';
 			$message .= '<p>'.$noteText.'</p>';
 			$message .= '<hr>';
-			$message .= '<p>You can view and respond to this Service Request Note by logging in to your account at '.$installUrl.'</p>';
+			$message .= '<p>You can view and respond to this Service Request Note by logging in to your account <a href="http://'.$installUrl.'">HERE</a></p>';
 			$message .= '<p>Thank you,<br>'.$siteName.'</p>';
 			$message .= '</body></html>';
 

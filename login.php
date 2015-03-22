@@ -13,8 +13,8 @@
 		// Set Localization
 		$local = $set['localization'];
 		switch ($local) {
-			case 'en':
-				include ('language/en.php');
+			case 'en-gb':
+				include ('language/en-gb.php');
 				break;
 			case 'es':
 				include ('language/es.php');
@@ -136,7 +136,7 @@
 					$today = date("Y-m-d");
 					$password = md5($_POST['password1']);
 
-					$stmt = $mysqli->prepare("
+					if (!($stmt = $mysqli->prepare("
 										INSERT INTO
 											tenants(
 												tenantEmail,
@@ -154,8 +154,10 @@
 												?,
 												?,
 												?
-											)");
-					$stmt->bind_param('sssssss',
+											)")))  {
+					echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+					}							
+					if (!$stmt->bind_param('sssssss',
 						$newEmail,
 						$password,
 						$tenantFirstName,
@@ -163,8 +165,13 @@
 						$today,
 						$hash,
 						$isActive
-					);
-					$stmt->execute();
+					)) {
+					echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+					}
+
+					if (!$stmt->execute()) {
+					echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+					}
 
 					// Send out the email in HTML
 					$installUrl = $set['installUrl'];
@@ -178,11 +185,11 @@
 					$message .= '<h3>'.$subject.'</h3>';
 					$message .= '<p>Your new Account details:</p>';
 					$message .= '<hr>';
-					$message .= '<p>Username: Your email address<br>Password: '.$newPass.'</p>';
-					$message .= '<p>You must activate your account before you will be able to log in. Please click (or copy/paste) the following link to activate your account:<br>'.$installUrl.'activate.php?tenantEmail='.$newEmail.'&hash='.$hash.'</p>';
+					$message .= '<p>Username: Your email address<br />Password: '.$newPass.'</p>';
+					$message .= '<p>You must activate your account before you will be able to log in.<br /> Please <a href="'.$installUrl.'activate.php?tenantEmail='.$newEmail.'&hash='.$hash.'"> CLICK HERE </a> to activate your account.</p>';
 					$message .= '<hr>';
 					$message .= '<p>Once you have activated your new account and logged in, please take the time to update your account profile details.</p>';
-					$message .= '<p>You can log in to your account at '.$installUrl.'</p>';
+					$message .= '<p>You can log in to your account <a href="'.$installUrl.'">HERE</a></p>';
 					$message .= '<p>Thank you,<br>'.$siteName.'</p>';
 					$message .= '</body></html>';
 
@@ -250,9 +257,9 @@
 					$message .= '<hr>';
 					$message .= '<p>'.$emailPassword.'</p>';
 					$message .= '<hr>';
-					$message .= '<p>Please take the time to change your password to something you can easily remember. You can change your password on your My Profile page after logging into your account. There you can update your password, as well as your account details.</p>';
-					$message .= '<p>You can log into your account with your email address and new password at: '.$installUrl.'</p>';
-					$message .= '<p>Thank you,<br>'.$siteName.'</p>';
+					$message .= '<p>Please take the time to change your password to something you can easily remember. <br />You can change your password on your My Profile page after logging into your account. <br />There you can update your password, as well as your account details.</p>';
+					$message .= '<p>You can log into your account with your email address and new password <a href="'.$installUrl.'">HERE</a></p>';
+					$message .= '<p>Thank you,<br />'.$siteName.'</p>';
 					$message .= '</body></html>';
 
 					$headers = "From: ".$siteName." <".$businessEmail.">\r\n";
@@ -282,7 +289,7 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/custom.css" rel="stylesheet">
 		<link href="css/reside.css" rel="stylesheet">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
@@ -293,6 +300,7 @@
 	</head>
 
 	<body>
+	<img border="0" src="images/bg1.jpg" width="1920" height="927"><br>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8">
@@ -421,9 +429,9 @@
 
 			<div class="footer">
 				<p class="textCenter">
-					&copy; <?php echo date('Y'); ?> <a href="http://codecanyon.net/item/reside-rental-property-management/5263078?ref=Luminary">Reside Property Management Version 2.0</a>
+					&copy; <?php echo date('Y'); ?> <a href="http://mars-systems.co.uk">My-Home Property Management</a>
 					<span><i class="fa fa-plus"></i></span>
-					Created by <a href="http://codecanyon.net/user/Luminary" target="_blank">Luminary on Code Canyon</a>
+					Provided by <a href="http://mars-systems.co.uk" target="_blank">Mars Systems International</a>
 				</p>
 			</div>
 

@@ -55,12 +55,7 @@
     }
 
 	// Get Leased Property Data
-	//print_r($_SESSION);
-	//DIE;
-	/*
-	Array ( [adminId] => 2 [superuser] => 1 [adminRole] => 1 [adminEmail] => gustavomenacba@hotmail.com [adminFirstName] => Gustavo [adminLastName] => Mena )
-	*/
-	if ($_SESSION['superuser'] != '1') {
+	if ($superuser != '1') {
 		$lease = "SELECT
 					properties.propertyId,
 					properties.propertyName,
@@ -86,7 +81,7 @@
 					LEFT JOIN assignedproperties ON tenants.propertyId = assignedproperties.propertyId
 					LEFT JOIN admins ON assignedproperties.adminId = admins.adminId
 				WHERE
-					admins.adminId = ".$_SESSION['adminId']." AND
+					admins.adminId = ".$adminId." AND
 					properties.isLeased = 1";
 		$leaseres = mysqli_query($mysqli, $lease) or die('Error, retrieving Leased Property Data failed. ' . mysqli_error());
 	} else {
@@ -98,7 +93,7 @@
 					properties.latePenalty,
 					CASE properties.petsAllowed
 						WHEN 0 THEN 'No'
-						WHEN 1 THEN 'Si'
+						WHEN 1 THEN 'Yes'
 					END AS petsAllowed,
 					tenants.tenantId,
 					tenants.leaseId,
@@ -118,7 +113,7 @@
 					properties.isLeased = 1";
 		$leaseres = mysqli_query($mysqli, $lease) or die('Error, retrieving Leased Property Data failed. ' . mysqli_error());
 	}
-	//die($lease);
+
 	// Get Unleased Property Data
     $nolease = "SELECT
 					propertyId,
@@ -139,13 +134,12 @@
 				FROM
 					properties
 				WHERE
-					createdBy = ".$_SESSION['adminId']." AND
 					isLeased = 0 AND
 					isArchived = 0";
     $noleaseres = mysqli_query($mysqli, $nolease) or die('Error, retrieving Unleased Property Data failed. ' . mysqli_error());
 ?>
 <h3 class="info"><?php echo $activeLeasePropertyH3; ?></h3>
-<?php if ($_SESSION['superuser'] == '1') { ?>
+<?php if ($superuser == '1') { ?>
 	<p><?php echo $activePropertyQuip; ?></p>
 <?php }	?>
 
@@ -164,7 +158,7 @@
 			<th><?php echo $tab_petsAllowed; ?></th>
 			<th><?php echo $tab_tenant; ?></th>
 			<th><?php echo $tab_leaseEndsOn; ?></th>
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 				<th><?php echo $tab_landlord; ?></th>
 			<?php }	?>
 		</tr>
@@ -182,7 +176,7 @@
 				<td><?php echo $row['petsAllowed']; ?></td>
 				<td><a href="index.php?action=tenantInfo&tenantId=<?php echo $row['tenantId']; ?>"><?php echo clean($row['tenantFirstName']).' '.clean($row['tenantLastName']); ?></a></td>
 				<td><?php echo $row['leaseEnd']; ?></td>
-				<?php if ($_SESSION['superuser'] == '1') { ?>
+				<?php if ($superuser == '1') { ?>
 					<td><a href="index.php?action=adminInfo&adminId=<?php echo $row['adminId']; ?>"><?php echo clean($row['adminFirstName']).' '.clean($row['adminLastName']); ?></a></td>
 				<?php }	?>
 			</tr>
@@ -209,7 +203,7 @@
 			<th><?php echo $tab_petsAllowed; ?></th>
 			<th><?php echo $tab_propertySize; ?></th>
 			<th><?php echo $tab_bedroomsBathrooms; ?></th>
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 				<th></th>
 				<th></th>
 			<?php }	?>
@@ -228,13 +222,13 @@
 				<td><?php echo $prop['petsAllowed']; ?></td>
 				<td><?php echo clean($prop['propertySize']); ?></td>
 				<td><?php echo $prop['bedrooms'].' / '.$prop['bathrooms']; ?></td>
-				<?php if ($_SESSION['superuser'] == '1') { ?>
+				<?php if ($superuser == '1') { ?>
 					<td class="tool-tip" title="Archive Property"><a data-toggle="modal" href="#archiveProperty<?php echo $prop['propertyId']; ?>" class="btn btn-xs btn-link"><i class="fa fa-archive"></i></a></td>
 					<td class="tool-tip" title="Delete Property"><a data-toggle="modal" href="#deleteProperty<?php echo $prop['propertyId']; ?>" class="btn btn-xs btn-link"><i class="fa fa-times"></i></a></td>
 				<?php }	?>
 			</tr>
 
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 			<!-- Archive Property Confirm Modal -->
 			<div class="modal fade" id="archiveProperty<?php echo $prop['propertyId']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
 				<div class="modal-dialog">

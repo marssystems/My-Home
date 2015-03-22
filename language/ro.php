@@ -318,7 +318,8 @@ $listGroupTenantTitle 		= "Personal Account Information";
 $listGroupTenantAvatarLink 	= "Profile Avatar";
 $listGroupTenantUpdateInfo 	= "Update Personal Information";
 $listGroupTenantUpdateEmail = "Update Account Email";
-$listGroupTenantUpdatePassword 	= "Change Password";
+$listGroupTenantUpdatePassword 	= "Change Password";
+
 $safePersonalInfoH3 		= "Your Personal Information is secure.";
 $safePersonalInfo 			= "We store your information in our database in an encrypted format. We do not sell or make your information available to any one
 for any reason. We value your privacy and appreciate your trust in us. You can update your personal information easily by using any of the links in the sidebar.";

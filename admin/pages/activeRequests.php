@@ -27,7 +27,7 @@
     }
 
 	// Get Open Service Requests
-	if ($_SESSION['superuser'] != '1') {
+	if ($superuser != '1') {
 		$query = "SELECT
 					servicerequests.requestId,
 					servicerequests.tenantId,
@@ -61,7 +61,7 @@
 					LEFT JOIN assignedproperties ON tenants.propertyId = assignedproperties.propertyId
 					LEFT JOIN admins ON assignedproperties.adminId = admins.adminId
 				WHERE
-					admins.adminId = ".$_SESSION['adminId']." AND
+					admins.adminId = ".$adminId." AND
 					servicerequests.requestStatus IN ('0','1','2')";
 		$res = mysqli_query($mysqli, $query) or die('Error, retrieving Open Service Requests Data failed. ' . mysqli_error());
 	} else {
@@ -120,7 +120,7 @@
 			<th><?php echo $tab_priority; ?></th>
 			<th><?php echo $tab_status; ?></th>
 			<th><?php echo $tab_lastUpdated; ?></th>
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 				<th></th>
 			<?php }	?>
 		</tr>
@@ -134,11 +134,11 @@
 				<td><?php echo $row['requestPriority']; ?></td>
 				<td><?php echo $row['status']; ?></td>
 				<td><?php echo $row['lastUpdated']; ?></td>
-				<?php if ($_SESSION['superuser'] == '1') { ?>
+				<?php if ($superuser == '1') { ?>
 					<td><a data-toggle="modal" href="#deleteRequest<?php echo $row['requestId']; ?>" class="btn btn-xs btn-link tool-tip" title="Delete this Request"><i class="fa fa-times"></i></a></td>
 				<?php }	?>
 			</tr>
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 				<!-- DELETE SERVICE REQUEST CONFIRM MODAL -->
 				<div class="modal fade" id="deleteRequest<?php echo $row['requestId']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">

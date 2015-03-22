@@ -93,7 +93,7 @@
 											?
 										)");
 				$stmt->bind_param('ssss',
-					$_SESSION['adminId'],
+					$adminId,
 					$templateName,
 					$templateDesc,
 					$newDocumentName
@@ -150,7 +150,7 @@
 			<th>Uploaded By</th>
 			<th>Date Uploaded</th>
 			<th>Description</th>
-			<?php if ($_SESSION['superuser'] == '1') { ?>
+			<?php if ($superuser == '1') { ?>
 				<th></th>
 			<?php } ?>
 		</tr>
@@ -160,7 +160,7 @@
 				<td><?php echo clean($row['adminFirstName']).' '.clean($row['adminLastName']); ?></td>
 				<td><?php echo $row['templateDate']; ?></td>
 				<td><?php echo clean(ellipsis($row['templateDesc'])); ?></td>
-				<?php if ($_SESSION['superuser'] == '1') { ?>
+				<?php if ($superuser == '1') { ?>
 					<td class="tool-tip" title="Delete Template">
 						<a data-toggle="modal" href="#deleteTemplate<?php echo $row['templateId']; ?>" class="btn btn-xs btn-link"><i class="fa fa-times"></i></a>
 					</td>
@@ -203,31 +203,31 @@
 			<th><?php echo $tab_formDescription; ?></th>
 		</tr>
 		<tr>
-			<td><a href="<?php echo $set['installUrl']; ?>admin/templates/rentalApplication.pdf" target="_blank"><?php echo $applicationFormTitle; ?></a></td>
+			<td><a href="/admin/templates/rentalApplication.pdf" target="_blank"><?php echo $applicationFormTitle; ?></a></td>
 			<td><?php echo $applicationFormDesc; ?></td>
 		</tr>
 		<tr>
-			<td><a href="<?php echo $set['installUrl']; ?>admin/templates/rentIncrease.pdf" target="_blank"><?php echo $rentIncreaseTitle; ?></a></td>
+			<td><a href="/admin/templates/rentIncrease.pdf" target="_blank"><?php echo $rentIncreaseTitle; ?></a></td>
 			<td><?php echo $rentIncreaseDesc; ?></td>
 		</tr>
 		<tr>
-			<td><a href="<?php echo $set['installUrl']; ?>admin/templates/moveOut.pdf" target="_blank"><?php echo $moveOutReminderTitle; ?></a></td>
+			<td><a href="/admin/templates/moveOut.pdf" target="_blank"><?php echo $moveOutReminderTitle; ?></a></td>
 			<td><?php echo $moveOutReminderDesc; ?></td>
 		</tr>
 		<tr>
-			<td><a href="<?php echo $set['installUrl']; ?>admin/templates/petAgreement.pdf" target="_blank"><?php echo $petAgreementTitle; ?></a></td>
+			<td><a href="/admin/templates/petAgreement.pdf" target="_blank"><?php echo $petAgreementTitle; ?></a></td>
 			<td><?php echo $petAgreementDesc; ?></td>
 		</tr>
 		<tr>
-			<td><a href="<?php echo $set['installUrl']; ?>admin/templates/newTenantInfo.pdf" target="_blank"><?php echo $importantInfoTitle; ?></a></td>
+			<td><a href="/admin/templates/newTenantInfo.pdf" target="_blank"><?php echo $importantInfoTitle; ?></a></td>
 			<td><?php echo $importantInfoDesc; ?></td>
 		</tr>
 		<tr>
-			<td><a href="<?php echo $set['installUrl']; ?>admin/templates/returnedCheck.pdf" target="_blank"><?php echo $returnedCheckTitle; ?></a></td>
+			<td><a href="/admin/templates/returnedCheck.pdf" target="_blank"><?php echo $returnedCheckTitle; ?></a></td>
 			<td><?php echo $returnedCheckDesc; ?></td>
 		</tr>
 		<tr>
-			<td><a href="<?php echo $set['installUrl']; ?>admin/templates/vacateRenew.pdf" target="_blank"><?php echo $vacateOrRenewTitle; ?></a></td>
+			<td><a href="/admin/templates/vacateRenew.pdf" target="_blank"><?php echo $vacateOrRenewTitle; ?></a></td>
 			<td><?php echo $vacateOrRenewDesc; ?></td>
 		</tr>
 	</tbody>

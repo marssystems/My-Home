@@ -1,7 +1,7 @@
 <?php
 // All Pages - Globals
 // --------------------------------------------------------------------------------------------------
-$currencySym 				= "$";
+$currencySym 				= "£";
 $amountReflectRefund 		= "Amount reflects a Refund";
 $accessErrorH3				= "Access Error";
 $permissionDenied			= "Permission Denied. You can not access this page.";
@@ -27,9 +27,9 @@ $noDirectAccessMsg			= 'You cannot directly access this page. please use the lin
 
 // Tenant Header
 // --------------------------------------------------------------------------------------------------
-$welcomeMsg 				= "Howdy";
+$welcomeMsg 				= "Welcome";
 $todayMsg 					= "Today is";
-$signoutConf 				= "are you sure you want to signout?";
+$signoutConf 				= "Are you sure you want to sign out?";
 
 // Tenant Navigation
 // --------------------------------------------------------------------------------------------------
@@ -95,7 +95,7 @@ $validEmailHelper 			= "A valid email address. Your account information will be 
 $newPasswordHelper 			= "Type a Password for your new Account.";
 $newPassword2Helper 		= "Type a new Password for your Account.";
 $rnewPasswordHelper 		= "Please type your desired Password again. Passwords MUST Match.";
-$accountEmailHelper 		= "Your email address is also used for your Account log In.";
+$accountEmailHelper 		= "Your email address is also used for your Account Log In.";
 $currentPasswordHelper 		= "Your Current Account Password.";
 $serviceTitleHelper			= "Please give your Service Request a Title.";
 $beDescriptiveHelper		= "Please be as descriptive as possible.";
@@ -370,8 +370,8 @@ $servResolutionLiTitle  	= "Service Request Resolution";
 $servResLiCompletedBy		= "Completed By";
 $servResLiDateResolved		= "Date Resolved:";
 $servResLiComments			= "Comments:";
-$servResLiNeedsFollowup 	= "Needs a Followup?";
-$servResLiFollowUpComments 	= "Followup Comments:";
+$servResLiNeedsFollowup 	= "Needs a Follow-up?";
+$servResLiFollowUpComments 	= "Follow-up Comments:";
 $servResLiDateCompleted		= "Date Completed:";
 
 $serviceReqNotesH3			= "Service Request Notes";
@@ -411,7 +411,7 @@ $viewFileH3					= "Viewing File &mdash;";
 $headTitle					= "Receipt of Payment";
 $receivedFrom				= "Received From:";
 $receiptDate				= "Receipt Date";
-$paymentNum					= "Payment ID #";
+$paymentNum					= "Payment ID";
 $dateReceived				= "Date Received";
 $monthlyRent				= "Rent Month";
 $descFor					= "Description/For";

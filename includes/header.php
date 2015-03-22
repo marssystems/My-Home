@@ -5,13 +5,13 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Reside - An easy to install, setup and use Rental Property Management web application built in HTML/CSS, PHP/MySQLi and jQuery">
-	<meta name="author" content="http://codecanyon.net/item/reside-rental-property-management/5263078">
+	<meta name="description" content="My-Home - An easy to install, setup and use Rental Property Management web application built in HTML/CSS, PHP/MySQLi and jQuery">
+	<meta name="author" content="Mars Systems International">
 	<title><?php echo $set['siteName']; ?></title>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
 	<link href="css/reside.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">

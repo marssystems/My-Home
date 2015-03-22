@@ -1,4 +1,4 @@
-<?php  
+<?php
 	$msgBox = '';
 
 	// Get Documents Folder from Site Settings
@@ -50,7 +50,7 @@
 				if ($setActive == '0') {
 					// Create the new account & send Activation Email to Tenant
 					$hash = md5(rand(0,1000));
-					$isActive = '1';
+					$isActive = '0';
 					$today = date("Y-m-d H:i:s");
 					$password = md5($_POST['password']);
 
@@ -64,10 +64,8 @@
 												tenantLastName,
 												createDate,
 												hash,
-												isActive,
-												adminId
+												isActive
 											) VALUES (
-												?,
 												?,
 												?,
 												?,
@@ -77,7 +75,7 @@
 												?,
 												?
 											)");
-					$stmt->bind_param('sssssssss',
+					$stmt->bind_param('ssssssss',
 						$tenantDocsFolder,
 						$newEmail,
 						$password,
@@ -85,11 +83,11 @@
 						$tenantLastName,
 						$today,
 						$hash,
-						$isActive,
-						$_SESSION['adminId']						
+						$isActive
 					);
-					$stmt->execute();
-					
+					if (!$stmt->execute()) {
+					echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+					}
 
 					// Send out the email in HTML
 					$installUrl = $set['installUrl'];
@@ -104,11 +102,11 @@
 					$message .= '<p>Your new Account details:</p>';
 					$message .= '<hr>';
 					$message .= '<p>Username: Your email address<br>Password: '.$newPass.'</p>';
-					$message .= '<p>You must activate your account before you will be able to log in. Please click (or copy/paste) the following link to activate your account:<br>'.$installUrl.'activate.php?tenantEmail='.$newEmail.'&hash='.$hash.'</p>';
+					$message .= '<p>You must activate your account before you will be able to log in. Please click (or copy/paste) the following link to activate your account:<br /><br />http://'.$installUrl.'activate.php?tenantEmail='.$newEmail.'&hash='.$hash.'</p>';
 					$message .= '<hr>';
 					$message .= '<p>Once you have activated your new Tenant account and logged in, please take the time to update your account profile details.</p>';
-					$message .= '<p>You can log in to your account at '.$installUrl.'</p>';
-					$message .= '<p>Thank you,<br>'.$siteName.'</p>';
+					$message .= '<p>You can log in to your account at:  http://'.$installUrl.'</p>';
+					$message .= '<p>Thank you,<br />'.$siteName.'</p>';
 					$message .= '</body></html>';
 
 					$headers = "From: ".$siteName." <".$businessEmail.">\r\n";
@@ -141,10 +139,8 @@
 												tenantLastName,
 												createDate,
 												hash,
-												isActive,
-												adminId
+												isActive
 											) VALUES (
-												?,
 												?,
 												?,
 												?,
@@ -154,7 +150,7 @@
 												?,
 												?
 											)");
-					$stmt->bind_param('sssssssss',
+					$stmt->bind_param('ssssssss',
 						$tenantDocsFolder,
 						$newEmail,
 						$password,
@@ -162,10 +158,11 @@
 						$tenantLastName,
 						$today,
 						$hash,
-						$isActive,
-						$_SESSION['adminId']						
+						$isActive
 					);
-					$stmt->execute();
+					if (!$stmt->execute()) {
+					echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+					}
 					$msgBox = alertBox($tenantAccountActivated, "<i class='fa fa-check-square-o'></i>", "success");
 
 					// Clear the form of Values
@@ -173,7 +170,7 @@
 					$stmt->close();
 				}
 				// Create the Tenant Document Directory
-				if (@mkdir('../'.$docUploadPath.$tenantDocsFolder, 0755, true)) {
+				if (mkdir('../'.$docUploadPath.$tenantDocsFolder, 0755, true)) {
 					$newDir = '../'.$docUploadPath.$tenantDocsFolder;
 				}
 			}
@@ -229,7 +226,7 @@
 										?
 									)");
 			$stmt->bind_param('ssssssss',
-				$_SESSION['adminId'],
+				$adminId,
 				$propertyName,
 				$propertyDesc,
 				$propertyRate,
@@ -238,7 +235,9 @@
 				$petsAllowed,
 				$propertyFolder
 			);
-			$stmt->execute();
+			if (!$stmt->execute()) {
+					echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+					}
 
 			// Create the Property Pictures Directory
 			if (mkdir('../'.$propertyPicsPath.$propertyFolder, 0755, true)) {
@@ -302,13 +301,15 @@
             $stmt->bind_param('sssssss',
                 $tenantId,
 				$leaseId,
-				$_SESSION['adminId'],
+				$adminId,
 				$today,
 				$requestPriority,
 				$requestTitle,
 				$requestDesc
             );
-            $stmt->execute();
+            if (!$stmt->execute()) {
+					echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+					}
 			$msgBox = alertBox($requestCreated, "<i class='fa fa-check-square-o'></i>", "success");
 
 			// Clear the form of Values
@@ -385,7 +386,9 @@
 					$today,
 					$isActive
 				);
-				$stmt->execute();
+				if (!$stmt->execute()) {
+					echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+					}
 				$msgBox = alertBox($adminAccountCreated, "<i class='fa fa-check-square-o'></i>", "success");
 
 				// Clear the form of Values
@@ -428,8 +431,7 @@
 			<div class="col-md-4 userInfo">
 				<p class="textRight">
 					<?php echo $welcomeMsg.', '.$adminFirstName.' '.$adminLastName; ?> <span class="paddingLeft"><a data-toggle="modal" href="#signOut"><?php echo $signoutBtn; ?> <i class="fa fa-sign-out"></i></a></span><br />
-					<?php setlocale(LC_TIME, 'es_ES');?>  	
-					<?php echo date('d/m/Y'); ?>
+					<?php echo $todayMsg.' '.date('l'). " the " .date('jS \of F, Y'); ?>
 				</p>
 			</div>
 		</div>
@@ -452,10 +454,10 @@
 							<li><a href="index.php?action=activeTenants"><?php echo $activeTenantsNav; ?></a></li>
 							<li><a href="index.php?action=inactiveTenants"><?php echo $inactiveTenantsNav; ?></a></li>
 							<li><a href="index.php?action=archivedTenants"><?php echo $archivedTenantsNav; ?></a></li>
-							
+							<?php if ($superuser == 1) { ?>
 								<li class="divider"></li>
 								<li><a data-toggle="modal" href="#newTenant"><?php echo $newTenantNav; ?></a></li>
-							
+							<?php } ?>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -463,10 +465,10 @@
 						<ul class="dropdown-menu">
 							<li><a href="index.php?action=activeProperties"><?php echo $activePropertiesNav; ?></a></li>
 							<li><a href="index.php?action=archivedProperties"><?php echo $archivedPropertiesNav; ?></a></li>
-							
+							<?php if ($superuser == 1) { ?>
 								<li class="divider"></li>
 								<li><a data-toggle="modal" href="#newProperty"><?php echo $newPropertyNav; ?></a></li>
-							
+							<?php } ?>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -659,7 +661,6 @@
 														properties
 														LEFT JOIN leases ON properties.propertyId = leases.propertyId
 													WHERE
-													    createdBy = ".$_SESSION['adminId']." AND
 														properties.isArchived != 1 AND
 														leases.isClosed = 0";
 										$results = mysqli_query($mysqli, $sqlStmt) or die(mysqli_error());

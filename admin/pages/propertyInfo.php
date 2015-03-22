@@ -13,8 +13,6 @@
 
 	// Allow Superusers to access all properties
 	if ($superuser == '1') { $allowAccess = 'true'; }
-	
-	$allowAccess = 'true'; 
 
     // Get the Max Upload Size allowed
     $maxUpload = (int)(ini_get('upload_max_filesize'));
@@ -639,8 +637,8 @@
 				leases.adminId,
 				leases.propertyId,
 				leases.leaseTerm,
-				DATE_FORMAT(leases.leaseStart,'%d/%M/%Y') AS leaseStart,
-				DATE_FORMAT(leases.leaseEnd,'%d/%M/%Y') AS leaseEnd,
+				DATE_FORMAT(leases.leaseStart,'%M %d, %Y') AS leaseStart,
+				DATE_FORMAT(leases.leaseEnd,'%M %d, %Y') AS leaseEnd,
 				leases.leaseNotes,
 				leases.isClosed,
 				tenants.tenantId,
@@ -783,7 +781,7 @@
 				<div class="col-md-6">
 					<ul class="list-group">
 						<li class="list-group-item"><strong><?php echo $rentalMonthyRateLi; ?>:</strong> <?php echo $propertyRate; ?></li>
-						<li class="list-group-item"><strong>Recargo Total:</strong> <?php echo $ifLate; ?></li>
+						<li class="list-group-item"><strong>Late Rent Total:</strong> <?php echo $ifLate; ?></li>
 					</ul>
 				</div>
 				<div class="col-md-6">

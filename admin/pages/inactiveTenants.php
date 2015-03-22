@@ -58,7 +58,6 @@
 				FROM
 					tenants
 				WHERE
-					adminId = ".$_SESSION['adminId']." AND
 					isActive = 0 AND
 					isArchived = 0";
     $res = mysqli_query($mysqli, $query) or die('Error, retrieving Inactive Tenant Data failed. ' . mysqli_error());
