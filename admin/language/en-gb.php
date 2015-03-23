@@ -43,7 +43,7 @@ $accountNotFoundMsg 		= "Account not found for that email address.";
 $pageHeadTitle				= "Administration";
 $welcomeMsg 				= "Welcome";
 $todayMsg 					= "Today is";
-$signoutConf 				= "Are you sure you want to sign out?";
+$signoutConf 				= "are you sure you want to sign out?";
 
 $activeAccountHelper		= "Selecting No will require the Tenant to activate the Account via a link sent to the account email address.";
 $tenantsEmailHelper			= "The Tenant's email. Used for logging in and notifications.";

@@ -12,7 +12,7 @@ $tenantLogin 				= "Tenant Login";
 $loginWelcomeMsg 			= "Welcome to ".$set['siteName'];
 $newAccountNav 				= "Create a New Account";
 $resetPasswordNav 			= "Reset Password";
-$loginInstructions 			= "Enter your account information and click Sign In.";
+$loginInstructions 			= "Enter your account information and click \"Sign In\".";
 
 // New Account Activation
 // --------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ $noDirectAccessMsg			= 'You cannot directly access this page. please use the lin
 // --------------------------------------------------------------------------------------------------
 $welcomeMsg 				= "Welcome";
 $todayMsg 					= "Today is";
-$signoutConf 				= "Are you sure you want to sign out?";
+$signoutConf 				= "are you sure you want to sign out?";
 
 // Tenant Navigation
 // --------------------------------------------------------------------------------------------------

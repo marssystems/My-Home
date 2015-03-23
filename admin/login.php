@@ -178,7 +178,7 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/bootstrap.css" rel="stylesheet">
 		<link href="../css/custom.css" rel="stylesheet">
 		<link href="../css/reside.css" rel="stylesheet">
 		<link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -272,9 +272,9 @@
 
 			<div class="footer">
 				<p class="textCenter">
-					&copy; <?php echo date('Y'); ?> <a href="http://mars-systems.co.uk">My-Home Property Management</a>
+					&copy; <?php echo date('Y'); ?> <a href="http://rentmediterraneanapartments.com" target="_blank">My-Home Property Management</a>
 					<span><i class="fa fa-plus"></i></span>
-					Provided by <a href="http://mars-systems.co.uk" target="_blank">Mars Systems International</a>
+					Provided by <a href="http://bitcoin.bigmoney.biz" target="_blank">Mars Systems International</a>
 				</p>
 			</div>
 

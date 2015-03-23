@@ -31,7 +31,7 @@
 			</div>
 			<div class="col-md-4 userInfo">
 				<p class="textRight">
-					<?php echo $welcomeMsg.', '.$tenantFirstName.' '.$tenantLastName; ?> <span class="paddingLeft"><a data-toggle="modal" href="#signOut"><?php echo $signoutBtn; ?> <i class="fa fa-sign-out"></i></a></span><br />
+					<?php echo $welcomeMsg.', '.$tenantFirstName.' '.$tenantLastName; ?> <br />
 					<?php echo $todayMsg.' '.date('l'). " the " .date('jS \of F, Y'); ?>
 				</p>
 			</div>
@@ -66,6 +66,7 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
+					<li><a data-toggle="modal" href="#signOut">Log-Out</a></li>
 					<li><a href="index.php?page=availableProperties"><?php echo $availablePropertiesNav; ?></a></li>
 					<li><a href="index.php?page=contactRequests"><?php echo $contactRequestsNav; ?></a></li>
 				</ul>

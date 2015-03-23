@@ -2,9 +2,9 @@
 
 		<div class="footer">
 			<p class="textCenter">
-				&copy; <?php echo date('Y'); ?> <a href="http://mars-systems.co.uk" target="_blank">My-Home Property Management</a>
-				<span><i class="fa fa-plus"></i></span>
-				Created by <a href="http://mars-systems.co.uk" target="_blank">Mars Systems International</a>
+				&copy; <?php echo date('Y'); ?> <a href="http://rentmediterraneanapartments.com" target="_blank">My-Home Property Management</a>
+					<span><i class="fa fa-plus"></i></span>
+					Provided by <a href="http://bitcoin.bigmoney.biz" target="_blank">Mars Systems International</a>
 			</p>
 		</div>
 

@@ -361,8 +361,8 @@ dt { font-weight: normal; }
 		border: 2px solid #ffffff;
 		box-shadow: 0 1px 2px #999999;
 		margin: 3px 1px;
-		width: 72px;
-		max-height: 50px;
+		width: 250px;
+		max-height: 200px;
 	}
 	
 .modal-body > img { max-width: 540px; }
