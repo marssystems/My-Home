@@ -54,7 +54,7 @@ $(document).ready(function() {
 			event.keyCode == 103 || event.keyCode == 104 || event.keyCode == 105) {
 			return (true);
 		} else {
-			// Ensure that it is a number or stop the keypress
+			// Ensure that it is a number or stop the key-press
 			if (event.keyCode < 48 || event.keyCode > 57) {
 				return (false);
 			}

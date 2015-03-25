@@ -12,7 +12,7 @@
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/reside.js"></script>
+	<script src="js/extra.js"></script>
 	<?php if (isset($stacktable)) { echo '<script type="text/javascript" src="js/stacktable.js"></script>'; } ?>
 	<?php if (isset($jsFile)) { echo '<script type="text/javascript" src="validations/'.$jsFile.'.js"></script>'; } ?>
 

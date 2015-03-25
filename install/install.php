@@ -256,13 +256,13 @@ This email was automatically generated.";
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Reside V2 Installation</title>
+	<title>My-Home Software Installation</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 	<link href="../css/bootstrap.css" rel="stylesheet">
 	<link href="../css/custom.css" rel="stylesheet">
-	<link href="../css/reside.css" rel="stylesheet">
+	<link href="../css/extra.css" rel="stylesheet">
 	<link href="../css/font-awesome.min.css" rel="stylesheet">
 	<!--[if lt IE 9]>
 		<script src="../js/html5shiv.js"></script>
@@ -285,8 +285,8 @@ This email was automatically generated.";
 			<div class="content">
 				<?php if ($step == '1') { ?>
 
-				<h3 class="primary">Reside V2 Setup &amp; Installation</h3>
-				<p class="lead">Installing Reside is easy. Three steps and less then 5 minutes. Ready?</p>
+				<h3 class="primary">My-Home Setup &amp; Installation</h3>
+				<p class="lead">Installing My-Home is easy. Three steps and less then 5 minutes. Ready?</p>
 
 				<?php if ($msgBox) { echo $msgBox; } ?>
 
@@ -356,7 +356,7 @@ This email was automatically generated.";
 					if($isSetup == '') {
 				?>
 
-					<h3 class="primary">Step 2 <i class="fa fa-long-arrow-right"></i> Reside V2 Settings &amp; Admin Account</h3>
+					<h3 class="primary">Step 2 <i class="fa fa-long-arrow-right"></i> My-Home Settings &amp; Admin Account</h3>
 
 					<?php if ($msgBox) { echo $msgBox; } ?>
 
@@ -366,7 +366,7 @@ This email was automatically generated.";
 
 					<form action="" method="post" class="padTop">
 						<h4 class="warning">Site Settings</h4>
-						<p class="lead">Now please take a few minutes and complete the information below in order to finish installing Reside.</p>
+						<p class="lead">Now please take a few minutes and complete the information below in order to finish installing My-Home.</p>
 						
 						<div class="form-group padTop">
 							<label for="installUrl">Installation URL</label>
@@ -376,7 +376,7 @@ This email was automatically generated.";
 						<div class="form-group">
 							<label for="siteName">Site Name</label>
 							<input type="text" class="form-control" name="siteName" value="<?php echo isset($_POST['siteName']) ? $_POST['siteName'] : ''; ?>">
-							<span class="help-block">ie. Reside V2 (Appears at the top of the browser, the header logo, in the footer and in other headings throughout the site).</span>
+							<span class="help-block">ie. My-Home (Appears at the top of the browser, the header logo, in the footer and in other headings throughout the site).</span>
 						</div>
 						<div class="form-group">
 							<label for="businessName">Business Name</label>
@@ -466,7 +466,7 @@ This email was automatically generated.";
 
 					<h3 class="primary">Step 3 <i class="fa fa-long-arrow-right"></i> Ready to get Started?</h3>
 					<div class="alertMsg success">
-						<i class='fa fa-check-square-o'></i> Reside V2 was successfully installed.
+						<i class='fa fa-check-square-o'></i> My-Home was successfully installed.
 					</div>
 					<p class="lead">
 						For security reasons and to stop any possible re-installations please, <strong>DELETE or RENAME</strong> the "install" folder,<br />
@@ -483,9 +483,9 @@ This email was automatically generated.";
 
 			<div class="footer">
 				<p class="textCenter">
-					&copy; <?php echo date('Y'); ?> <a href="http://www.gaaks.com">Reside Property Management Version 2.0</a>
+					&copy; <?php echo date('Y'); ?> <a href="http://rentmediterraneanapartments.com" target="_blank">My-Home Property Management</a>
 					<span><i class="fa fa-plus"></i></span>
-					Created by <a href="http://codecanyon.net/user/Luminary" target="_blank">Luminary on Code Canyon</a>
+					Provided by <a href="http://bitcoin.bigmoney.biz" target="_blank">Mars Systems International</a>
 				</p>
 			</div>
 
@@ -493,7 +493,7 @@ This email was automatically generated.";
 
 	<script src="../js/jquery.js"></script>
 	<script src="../js/bootstrap.js"></script>
-	<script src="../js/reside.js"></script>
+	<script src="../js/extra.js"></script>
 	<script src="install.js"></script>
 
 </body>

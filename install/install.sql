@@ -1,4 +1,9 @@
-CREATE TABLE IF NOT EXISTS `admins` (
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `admins`
+-- ----------------------------
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE `admins` (
   `adminId` int(5) NOT NULL AUTO_INCREMENT,
   `superuser` int(1) NOT NULL DEFAULT '0',
   `adminRole` int(1) NOT NULL DEFAULT '1',
@@ -13,16 +18,24 @@ CREATE TABLE IF NOT EXISTS `admins` (
   `createDate` date NOT NULL,
   `isActive` int(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`adminId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `assignedproperties` (
+-- ----------------------------
+-- Table structure for `assignedproperties`
+-- ----------------------------
+DROP TABLE IF EXISTS `assignedproperties`;
+CREATE TABLE `assignedproperties` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `propertyId` int(5) NOT NULL,
   `adminId` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `leases` (
+-- ----------------------------
+-- Table structure for `leases`
+-- ----------------------------
+DROP TABLE IF EXISTS `leases`;
+CREATE TABLE `leases` (
   `leaseId` int(5) NOT NULL AUTO_INCREMENT,
   `adminId` int(5) NOT NULL,
   `propertyId` int(5) NOT NULL,
@@ -32,9 +45,13 @@ CREATE TABLE IF NOT EXISTS `leases` (
   `leaseNotes` longtext COLLATE utf8_bin,
   `isClosed` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`leaseId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `payments` (
+-- ----------------------------
+-- Table structure for `payments`
+-- ----------------------------
+DROP TABLE IF EXISTS `payments`;
+CREATE TABLE `payments` (
   `paymentId` int(5) NOT NULL AUTO_INCREMENT,
   `adminId` int(5) NOT NULL,
   `tenantId` int(5) NOT NULL,
@@ -49,14 +66,18 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `rentMonth` varchar(100) COLLATE utf8_bin DEFAULT NULL,
   `paymentNotes` longtext COLLATE utf8_bin,
   PRIMARY KEY (`paymentId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `properties` (
+-- ----------------------------
+-- Table structure for `properties`
+-- ----------------------------
+DROP TABLE IF EXISTS `properties`;
+CREATE TABLE `properties` (
   `propertyId` int(5) NOT NULL AUTO_INCREMENT,
   `createdBy` int(5) NOT NULL,
   `propertyName` varchar(255) COLLATE utf8_bin NOT NULL,
   `propertyDesc` longtext COLLATE utf8_bin,
-  `propertyAddress` longtext COLLATE utf8_bin NOT NULL,
+  `propertyAddress` longtext COLLATE utf8_bin,
   `isLeased` int(1) NOT NULL DEFAULT '0',
   `propertyRate` varchar(255) COLLATE utf8_bin NOT NULL,
   `latePenalty` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -82,9 +103,13 @@ CREATE TABLE IF NOT EXISTS `properties` (
   `isArchived` int(1) NOT NULL DEFAULT '0',
   `dateArchived` date DEFAULT NULL,
   PRIMARY KEY (`propertyId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `propertyfiles` (
+-- ----------------------------
+-- Table structure for `propertyfiles`
+-- ----------------------------
+DROP TABLE IF EXISTS `propertyfiles`;
+CREATE TABLE `propertyfiles` (
   `fileId` int(5) NOT NULL AUTO_INCREMENT,
   `propertyId` int(5) NOT NULL,
   `adminId` int(5) NOT NULL,
@@ -93,9 +118,13 @@ CREATE TABLE IF NOT EXISTS `propertyfiles` (
   `fileUrl` varchar(255) COLLATE utf8_bin NOT NULL,
   `fileDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`fileId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `propertypictures` (
+-- ----------------------------
+-- Table structure for `propertypictures`
+-- ----------------------------
+DROP TABLE IF EXISTS `propertypictures`;
+CREATE TABLE `propertypictures` (
   `pictureId` int(5) NOT NULL AUTO_INCREMENT,
   `propertyId` int(5) NOT NULL,
   `adminId` int(5) NOT NULL,
@@ -103,9 +132,13 @@ CREATE TABLE IF NOT EXISTS `propertypictures` (
   `pictureUrl` varchar(255) COLLATE utf8_bin NOT NULL,
   `pictureDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`pictureId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `refunds` (
+-- ----------------------------
+-- Table structure for `refunds`
+-- ----------------------------
+DROP TABLE IF EXISTS `refunds`;
+CREATE TABLE `refunds` (
   `refundId` int(5) NOT NULL AUTO_INCREMENT,
   `paymentId` int(5) NOT NULL,
   `propertyId` int(5) NOT NULL,
@@ -117,9 +150,13 @@ CREATE TABLE IF NOT EXISTS `refunds` (
   `refundedBy` int(5) NOT NULL,
   `refundNotes` longtext COLLATE utf8_bin,
   PRIMARY KEY (`refundId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `residents` (
+-- ----------------------------
+-- Table structure for `residents`
+-- ----------------------------
+DROP TABLE IF EXISTS `residents`;
+CREATE TABLE `residents` (
   `residentId` int(5) NOT NULL AUTO_INCREMENT,
   `tenantId` int(5) NOT NULL,
   `residentName` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -130,46 +167,62 @@ CREATE TABLE IF NOT EXISTS `residents` (
   `isArchived` int(1) NOT NULL DEFAULT '0',
   `archivedDate` date NOT NULL,
   PRIMARY KEY (`residentId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `serviceexpense` (
+-- ----------------------------
+-- Table structure for `serviceexpense`
+-- ----------------------------
+DROP TABLE IF EXISTS `serviceexpense`;
+CREATE TABLE `serviceexpense` (
   `expenseId` int(5) NOT NULL AUTO_INCREMENT,
   `requestId` int(5) NOT NULL,
   `tenantId` int(5) NOT NULL,
-  `leaseId` int(5) NOT NULL,
-  `vendorName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `expenseName` varchar(255) COLLATE utf8_bin NOT NULL,
-  `expenseDesc` longtext COLLATE utf8_bin NOT NULL,
-  `expenseCost` varchar(255) COLLATE utf8_bin NOT NULL,
-  `dateOfExpense` date NOT NULL,
+  `leaseId` int(5) DEFAULT NULL,
+  `vendorName` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `expenseName` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `expenseDesc` longtext COLLATE utf8_bin,
+  `expenseCost` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `dateOfExpense` date DEFAULT NULL,
   PRIMARY KEY (`expenseId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `servicenotes` (
+-- ----------------------------
+-- Table structure for `servicenotes`
+-- ----------------------------
+DROP TABLE IF EXISTS `servicenotes`;
+CREATE TABLE `servicenotes` (
   `noteId` int(5) NOT NULL AUTO_INCREMENT,
   `requestId` int(5) NOT NULL,
   `tenantId` int(5) NOT NULL,
   `adminId` int(5) NOT NULL,
-  `noteText` longtext COLLATE utf8_bin NOT NULL,
-  `noteDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `noteText` longtext COLLATE utf8_bin,
+  `noteDate` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`noteId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `servicerequests` (
+-- ----------------------------
+-- Table structure for `servicerequests`
+-- ----------------------------
+DROP TABLE IF EXISTS `servicerequests`;
+CREATE TABLE `servicerequests` (
   `requestId` int(5) NOT NULL AUTO_INCREMENT,
   `tenantId` int(5) NOT NULL,
-  `leaseId` int(5) NOT NULL,
-  `adminId` int(5) NOT NULL DEFAULT '0',
+  `leaseId` int(5) DEFAULT NULL,
+  `adminId` int(5) DEFAULT '0',
   `requestDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `requestPriority` int(5) NOT NULL,
-  `requestStatus` int(5) NOT NULL,
-  `requestTitle` varchar(255) COLLATE utf8_bin NOT NULL,
-  `requestDesc` longtext COLLATE utf8_bin NOT NULL,
-  `lastUpdated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `requestPriority` int(5) DEFAULT NULL,
+  `requestStatus` int(5) DEFAULT NULL,
+  `requestTitle` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `requestDesc` longtext COLLATE utf8_bin,
+  `lastUpdated` timestamp NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`requestId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `serviceresolutions` (
+-- ----------------------------
+-- Table structure for `serviceresolutions`
+-- ----------------------------
+DROP TABLE IF EXISTS `serviceresolutions`;
+CREATE TABLE `serviceresolutions` (
   `resolutionId` int(5) NOT NULL AUTO_INCREMENT,
   `requestId` int(5) NOT NULL,
   `tenantId` int(5) NOT NULL,
@@ -181,22 +234,30 @@ CREATE TABLE IF NOT EXISTS `serviceresolutions` (
   `isComplete` int(1) NOT NULL DEFAULT '0',
   `completeDate` date NOT NULL,
   PRIMARY KEY (`resolutionId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `sitealerts` (
+-- ----------------------------
+-- Table structure for `sitealerts`
+-- ----------------------------
+DROP TABLE IF EXISTS `sitealerts`;
+CREATE TABLE `sitealerts` (
   `alertId` int(5) NOT NULL AUTO_INCREMENT,
   `adminId` int(5) NOT NULL,
   `isActive` int(1) NOT NULL DEFAULT '1',
   `onReceipt` int(1) NOT NULL DEFAULT '0',
-  `alertTitle` varchar(255) COLLATE utf8_bin NOT NULL,
-  `alertText` longtext COLLATE utf8_bin NOT NULL,
-  `alertDate` date NOT NULL,
+  `alertTitle` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `alertText` longtext COLLATE utf8_bin,
+  `alertDate` date DEFAULT NULL,
   `alertStart` date DEFAULT NULL,
   `alertExpires` date DEFAULT NULL,
   PRIMARY KEY (`alertId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `sitesettings` (
+-- ----------------------------
+-- Table structure for `sitesettings`
+-- ----------------------------
+DROP TABLE IF EXISTS `sitesettings`;
+CREATE TABLE `sitesettings` (
   `installUrl` varchar(255) COLLATE utf8_bin NOT NULL,
   `localization` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT 'en',
   `siteName` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -220,9 +281,13 @@ CREATE TABLE IF NOT EXISTS `sitesettings` (
   `paypalItemName` varchar(255) COLLATE utf8_bin NOT NULL,
   `paypalFee` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`installUrl`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `sitetemplates` (
+-- ----------------------------
+-- Table structure for `sitetemplates`
+-- ----------------------------
+DROP TABLE IF EXISTS `sitetemplates`;
+CREATE TABLE `sitetemplates` (
   `templateId` int(5) NOT NULL AUTO_INCREMENT,
   `adminId` int(5) NOT NULL,
   `templateName` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -230,9 +295,13 @@ CREATE TABLE IF NOT EXISTS `sitetemplates` (
   `templateUrl` varchar(255) COLLATE utf8_bin NOT NULL,
   `templateDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`templateId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `tenantdocs` (
+-- ----------------------------
+-- Table structure for `tenantdocs`
+-- ----------------------------
+DROP TABLE IF EXISTS `tenantdocs`;
+CREATE TABLE `tenantdocs` (
   `docId` int(5) NOT NULL AUTO_INCREMENT,
   `tenantId` int(5) NOT NULL,
   `adminId` int(5) NOT NULL,
@@ -241,13 +310,17 @@ CREATE TABLE IF NOT EXISTS `tenantdocs` (
   `docUrl` varchar(255) COLLATE utf8_bin NOT NULL,
   `docDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`docId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-CREATE TABLE IF NOT EXISTS `tenants` (
+-- ----------------------------
+-- Table structure for `tenants`
+-- ----------------------------
+DROP TABLE IF EXISTS `tenants`;
+CREATE TABLE `tenants` (
   `tenantId` int(5) NOT NULL AUTO_INCREMENT,
   `propertyId` int(5) NOT NULL DEFAULT '0',
   `leaseId` int(5) NOT NULL DEFAULT '0',
-  `tenantDocsFolder` varchar(255) COLLATE utf8_bin NOT NULL,
+  `tenantDocsFolder` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
   `tenantEmail` varchar(255) COLLATE utf8_bin NOT NULL,
   `password` varchar(255) COLLATE utf8_bin NOT NULL,
   `tenantFirstName` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -262,6 +335,6 @@ CREATE TABLE IF NOT EXISTS `tenants` (
   `hash` varchar(32) COLLATE utf8_bin NOT NULL,
   `isActive` int(1) NOT NULL DEFAULT '0',
   `isArchived` int(1) NOT NULL DEFAULT '0',
-  `archivedDate` date NOT NULL,
+  `archivedDate` date DEFAULT NULL,
   PRIMARY KEY (`tenantId`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

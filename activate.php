@@ -85,9 +85,9 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/custom.css" rel="stylesheet">
-		<link href="css/reside.css" rel="stylesheet">
+		<link href="css/extra.css" rel="stylesheet">
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="js/html5shiv.js"></script>
@@ -161,9 +161,9 @@
 
 			<div class="footer">
 				<p class="textCenter">
-					&copy; <?php echo date('Y'); ?> <a href="http://mars-systems.co.uk">My-Home Property Management</a>
+					&copy; <?php echo date('Y'); ?> <a href="http://rentmediterraneanapartments.com" target="_blank">My-Home Property Management</a>
 					<span><i class="fa fa-plus"></i></span>
-					Created by <a href="http://mars-systems.co.uk" target="_blank">Luminary on Code Canyon</a>
+					Provided by <a href="http://bitcoin.bigmoney.biz" target="_blank">Mars Systems International</a>
 				</p>
 			</div>
 
@@ -171,7 +171,7 @@
 
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.js"></script>
-		<script src="js/reside.js"></script>
+		<script src="js/extra.js"></script>
 
 	</body>
 	</html>
