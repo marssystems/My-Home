@@ -489,10 +489,8 @@
 						</ul>
 					</li>
 				</ul>
-
 				<ul class="nav navbar-nav navbar-right">
 					<?php if ($superuser == 1) { ?>
-					<li><a data-toggle="modal" href="#signOut">Log-Out</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $aminsNav; ?> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -500,11 +498,9 @@
 								<li><a href="index.php?action=myProfile"><?php echo $myProfileNav; ?></a></li>
 								<li class="divider"></li>
 								<li><a data-toggle="modal" href="#newAdmin"><?php echo $newAdminNav; ?></a></li>
-								<li><a data-toggle="modal" href="#signOut">Log-Out</a></li>
 							</ul>
 						</li>
 					<?php } else { ?>
-						<li><a data-toggle="modal" href="#signOut">Log-Out</a></li>
 						<li><a href="index.php?action=myProfile"><?php echo $myProfileNav; ?></a></li>
 					<?php } ?>
 					<li class="dropdown">
@@ -520,6 +516,7 @@
 							<?php } ?>
 						</ul>
 					</li>
+					<li><a data-toggle="modal" href="#signOut"><?php echo $signoutBtn; ?> <i class="fa fa-sign-out"></i></a></li>
 				</ul>
 			</div>
 		</div>

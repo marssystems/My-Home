@@ -29,7 +29,7 @@ $monthDecemberSelect		= "December";
 $adminLogin 				= "Admin/Landlord Login";
 $loginWelcomeMsg 			= "Welcome to ".$set['siteName']." Administration";
 $resetPassword	 			= "Reset Account Password";
-$loginInstructions 			= "Enter your Admin/Landlord account information and click \"Sign In\".";
+$loginInstructions 			= "Enter your Admin/Landlord account details and click \"Sign In\".";
 
 $emailAddressMsg 			= "Please enter your Admin account email address.";
 $emptyPasswordMsg 			= "The Password field can not be empty.";

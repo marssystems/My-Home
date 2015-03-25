@@ -66,9 +66,10 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a data-toggle="modal" href="#signOut">Log-Out</a></li>
+					
 					<li><a href="index.php?page=availableProperties"><?php echo $availablePropertiesNav; ?></a></li>
 					<li><a href="index.php?page=contactRequests"><?php echo $contactRequestsNav; ?></a></li>
+					<li><a data-toggle="modal" href="#signOut"><?php echo $signoutBtn; ?> <i class="fa fa-sign-out"></i></a></li>
 				</ul>
 			</div>
 		</div>

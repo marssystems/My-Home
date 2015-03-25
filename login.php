@@ -300,12 +300,14 @@
 	</head>
 
 	<body>
-	<center><img border="0" src="images/bg3.jpg" alt="Manchester"></center><br /><br />
+	<center>
+	<a target="_blank" href="http://rentmediterraneanapartments.com">
+	<img border="0" src="images/bg3.jpg" title="Manchester Apartment Rentals"></center><br /><br />
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8">
 					<div class="logo">
-						<a href=""><img alt="<?php echo $set['siteName']; ?>" src="images/logo.png" /></a>
+						<a href=""><img alt="<?php echo $set['siteName']; ?>" src="images/logo.png" title="Manchester Apartment Rentals" /></a>
 					</div>
 				</div>
 				<div class="col-md-4 userInfo">
@@ -314,7 +316,7 @@
 			</div>
 
 			<div class="navbar navbar-default">
-				<div class="navbar-header">
+				<div class="navbar-header"><h4> <?php echo '&nbsp'.'&nbsp'.$loginWelcomeMsg; ?></h4>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -332,7 +334,6 @@
 
 			<div class="content">
 
-				<h3><?php echo $loginWelcomeMsg; ?></h3>
 				<p class="lead"><?php echo $loginInstructions; ?></p>
 
 				<?php if ($msgBox) { echo $msgBox; } ?>
