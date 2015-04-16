@@ -107,7 +107,7 @@
 			// Load Page
 			include('pages/'.$page.'.php');
 		} else {
-			// Else Display the Error
+			// Else Display the Error message
 			echo '
 					<h3 class="danger">Error</h3>
 					<div class="alertMsg warning">
