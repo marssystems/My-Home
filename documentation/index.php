@@ -67,7 +67,7 @@
 						<div class="panel-body">
 							<p class="lead">
 								Thank you for using <a href="http://marssystems.github.io/My-Home/">My-Home Property Management</a>.<br />
-								If you have any questions that are beyond the scope of this help file, please do not hesitate to email me via my <a href="http://marssystems.github.io/My-Home/">GitHub Profile</a>.<br>
+								If you have any questions that are beyond the scope of this help file, please do not hesitate to email me via my <a  href="http://marssystems.github.io/My-Home/">Github Profile</a>.<br>
 								I am always happy to help if you have any questions relating to My-Home.
 							</p>
 						</div>

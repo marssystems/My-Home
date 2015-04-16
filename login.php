@@ -289,20 +289,67 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/custom.css" rel="stylesheet">
-		<link href="css/extra.css" rel="stylesheet">
-		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/custom.css" rel="stylesheet" type="text/css"/>
+		<link href="css/extra.css" rel="stylesheet" type="text/css"/>
+		<link href="css/flexslider.css" rel="stylesheet" type="text/css"/>
+		<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	
 		<!--[if lt IE 9]>
 			<script src="js/html5shiv.js"></script>
 			<script src="js/respond.js"></script>
 		<![endif]-->
-	</head>
+</head>
 
-	<body>
-	<center>
-	<a target="_blank" href="http://rentmediterraneanapartments.com">
-	<img border="0" src="images/bg3.jpg" title="Manchester Apartment Rentals"></center><br /><br />
+<body>
+					<div id="myCarousel" class="carousel slide full_width" data-ride="carousel">
+					<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+							<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+							<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+					</ol>
+
+					<div class="carousel-inner" role="listbox">
+														<div class="item active">
+									<img src="images/bg1.jpg" alt="Looking for a New Home?">
+									<div class="container">
+										<div class="carousel-caption">
+											<h1>Looking for a New Home?</h1>
+											<p>Our homes include an abundance of neighbourhood shops, restaurants, office space and more...</p>
+										</div>
+									</div>
+								</div>
+														<div class="item ">
+									<img src="images/bg3.jpg" alt="Have Questions or Comments?">
+									<div class="container">
+										<div class="carousel-caption">
+											<h1>Have Questions or Comments?</h1>
+											<p>Get started today by creating your own account. It is quick, easy and FREE!.</p>
+										</div>
+									</div>
+								</div>
+														<div class="item ">
+									<img src="images/bg1.jpg" alt="Ready to get started?">
+									<div class="container">
+										<div class="carousel-caption">
+											<h1>Ready to get started?</h1>
+							<p>Interested in renting with us? Get started today by creating your account and completing our on-line Rental Application. It is quick, and we will respond within 3 business days.</p>
+										</div>
+									</div>
+								</div>
+														<div class="item ">
+									<img src="images/bg3.jpg" alt="">
+									<div class="container">
+										<div class="carousel-caption">
+											<h1>About Us</h1>
+											<p>Although we manage properties, our business is people. We work hard to create great places for people to live, work, play and stay and take pride in the long-term relationships we have with our resident and team members.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8">
@@ -326,8 +373,9 @@
 
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a data-toggle="modal" href="#newAccount"><i class="fa fa-key"></i> <?php echo $newAccountNav; ?></a></li>
-						<li><a data-toggle="modal" href="#resetPassword"><i class="fa fa-unlock"></i> <?php echo $resetPasswordNav; ?></a></li>
+					<li><a href="http://mars-systems.co.uk/admin/"><i class="fa fa-lock"></i> Administration</a></li>
+					<li><a data-toggle="modal" href="#newAccount"><i class="fa fa-key"></i> <?php echo $newAccountNav; ?></a></li>
+					<li><a data-toggle="modal" href="#resetPassword"><i class="fa fa-unlock"></i> <?php echo $resetPasswordNav; ?></a></li>
 					</ul>
 				</div>
 			</div>
@@ -350,7 +398,7 @@
 					<button type="input" name="submit" value="signIn" class="btn btn-success btn-icon"><i class="fa fa-sign-in"></i> <?php echo $signInBtn; ?></button>
 				</form>
 
-				<!-- REGISTER NEW ACCOUNT MODAL -->
+	<!-- REGISTER NEW ACCOUNT MODAL -->
 				<div class="modal fade" id="newAccount" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -394,7 +442,7 @@
 					</div>
 				</div>
 
-				<!-- RESET PASSWORD MODAL -->
+	<!-- RESET PASSWORD MODAL -->
 				<div class="modal fade" id="resetPassword" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -431,17 +479,20 @@
 			<div class="footer">
 				<p class="textCenter">
 					&copy; <?php echo date('Y'); ?> <a href="http://rentmediterraneanapartments.com" target="_blank">My-Home Property Management</a>
-					<span><i class="fa fa-plus"></i></span>
+					<span><i class="fa fa-minus"></i></span>
 					Provided by <a href="http://bitcoin.bigmoney.biz" target="_blank">Mars Systems International</a>
 				</p>
 			</div>
-
 		</div>
 
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.js"></script>
-		<script src="js/extra.js"></script>
-
-	</body>
-	</html>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/extra.js"></script>
+		<script type="text/javascript" src="js/overlay.js"></script>
+		<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+		
+</body>
+</html>
 <?php } ?>
